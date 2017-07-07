@@ -17,15 +17,25 @@ $(function() {
             if (firstName.indexOf(' ') >= 0) {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
+
+            var to = 'philipgaray2@gmail.com';
+            var email_subject = "Website Contact Form: " + name;
+            var email_body = "You have received a new message from your website contact form.\n\nHere are the details:\n\nName: " + name + "\n\nEmail: " + email + "\n\nPhone: " + phone + "\n\nMessage:\n" + message;
             $.ajax({
-                url: "././mail/contact_me.php",
+                // url: "http://54.206.38.223:5002/api/1.0/sendMail",
+                url: "http://localhost:3000/api/1.0/sendMail",
                 type: "POST",
-                data: {
-                    name: name,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'accesskey': 'ksWRsfNZU59glsQTh9GsrBsxaamDsU8x'
+                },
+                data: JSON.stringify({
+                    from: to,
                     phone: phone,
                     email: email,
-                    message: message
-                },
+                    subject: email_subject,
+                    message: email_body
+                }),
                 cache: false,
                 success: function() {
                     // Success message
