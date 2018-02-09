@@ -1,0 +1,31 @@
+[{
+	"id": "cat-1",
+	"name": "Men's Apparel",
+	"image": "./assets/imgs/polo.png",
+	"subcategory": [{
+		"id": "subcat-1",
+		"name": "Tops",
+		"image": "./assets/imgs/polo.png",
+	}, {
+		"id": "subcat-2",
+		"name": "Jacket's & Sweaters",
+		"image": "./assets/imgs/polo.png",
+	}, {
+		"id": "subcat-3",
+		"name": "Bottoms",
+		"image": "./assets/imgs/polo.png",
+	}, {
+		"id": "subcat-4",
+		"name": "Underwear & Socks",
+		"image": "./assets/imgs/polo.png",
+	}]
+}, {
+	"id": "cat-2",
+	"name": "Women's Apparel",
+	"image": "./assets/imgs/dress.png",
+	"subcategory": [{
+		"id": "subcat-5",
+		"name": "Dresses",
+		"image": "./assets/imgs/dress.png"
+	}]
+}]

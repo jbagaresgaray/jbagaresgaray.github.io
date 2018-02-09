@@ -1,0 +1,142 @@
+<html>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Shoppy Mobile App</title>
+<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+<!-- Bootstrap 3.3.2 -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="https://unpkg.com/nprogress@0.2.0/nprogress.css" rel="stylesheet" type="text/css">
+
+<head>
+    <style>
+    body {
+        padding-top: 30px;
+    }
+
+    #container-ios {
+        height: 795px;
+        margin: 0 auto;
+        position: relative;
+        text-align: center;
+        width: 507px;
+    }
+
+    #container-ios img {
+        width: 100%;
+    }
+
+    #container-android {
+        height: 795px;
+        margin: 0 auto;
+        position: relative;
+        text-align: center;
+        width: 450px;
+    }
+
+    #container-windows {
+        height: 795px;
+        margin: 0 auto;
+        position: relative;
+        text-align: center;
+        width: 507px;
+    }
+
+    #container-android img {
+        width: 100%;
+    }
+
+    #container-windows img {
+        width: 100%;
+    }
+
+    #appview {
+        border: none;
+        height: 645px;
+        left: 69px;
+        position: absolute;
+        top: 97px;
+        width: 365px;
+    }
+
+    #appview1 {
+        border: none;
+        height: 645px;
+        left: 30px;
+        position: absolute;
+        top: 75px;
+        width: 385px;
+    }
+
+    #appview2 {
+        border: none;
+        height: 658px;
+        left: 69px;
+        position: absolute;
+        top: 97px;
+        width: 365px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="row text-center" style="padding-bottom: 35px;">
+        <div class="col-xs-12 col-md-4">
+            <h2>iOS</h2>
+            <div id="container-ios">
+                <iframe id="appview"></iframe>
+                <img id="demo-device-ios" src="./iosdevice.png" alt="" />
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <h2>Android</h2>
+            <div id="container-android">
+                <iframe id="appview1"></iframe>
+                <img id="demo-device-android" src="./androiddevice.png" alt="" />
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <h2>Windows</h2>
+            <div id="container-windows">
+                <iframe id="appview2"></iframe>
+                <img id="demo-device-windows" src="./windevice.png" alt="" />
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
+<script>
+$.urlParam = function(name) {
+    var results = new RegExp("[\?&]" + name + "=([^&#]*)").exec(window.location.href);
+    return results[1] || 0;
+}
+
+NProgress.start();
+
+$('#appview').load(function () {
+    NProgress.done();
+});
+
+$('#appview1').load(function () {
+    NProgress.done();
+});
+
+$('#appview2').load(function () {
+    NProgress.done();
+});
+
+
+
+
+$(document).ready(function() {
+    var url = "www/";
+    $("#appview").attr("src", url + "?production=true&ionicplatform=ios");
+    $("#appview1").attr("src", url + "?production=true&ionicplatform=android");
+    $("#appview2").attr("src", url + "?production=true&ionicplatform=windows");
+});
+</script>
+
+</html>
