@@ -43414,79 +43414,119 @@ ion-navbar.toolbar {
   float: right;
 }
 
-page-details ion-item h2.title {
-  font-size: 1.8rem !important;
-  font-weight: bold !important;
+.toolbar-background-ios {
+  background: #fff !important;
 }
 
-page-details ion-item h2 {
-  font-size: 1.4rem !important;
+page-details .mt-10 {
+  margin-top: 10px;
 }
 
-page-details ion-card.info {
-  padding-top: 10px;
+page-details ion-content {
+  background-color: #e6e1e1 !important;
 }
 
-page-details ion-card.info ion-row {
-  padding-top: 10px;
+page-details .highlight {
+  color: #488aff !important;
 }
 
-page-details .borderleft {
-  border-right: solid 1.4px #757373;
-}
-
-page-details .danger {
-  color: #f53d3d !important;
-}
-
-page-details .secondary {
-  color: #32db64 !important;
-}
-
-page-details ion-note {
-  color: #222 !important;
-}
-
-page-details ion-note span {
-  color: #757373 !important;
-  font-weight: bold;
+page-details .myCard {
   font-size: 1.4rem;
+  background: #fff;
 }
 
-page-details ion-card {
-  border: none !important;
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
-}
-
-page-details ion-card img {
-  margin: 0 auto;
-  height: auto;
-  width: 70px;
-}
-
-page-details .richblue {
-  background-color: #525CAB;
-}
-
-page-details .card-background-page ion-card {
-  position: relative;
-  text-align: center;
-}
-
-page-details .card-background-page .card-title {
-  top: 36%;
-  font-size: 2.0em;
+page-details .myCard img {
+  display: block;
   width: 100%;
-  font-weight: bold;
-  color: #757373;
 }
 
-page-details .card-background-page .card-subtitle {
+page-details .myCard .card-title {
+  text-align: left;
+  padding-top: 5px;
+}
+
+page-details .myCard .price {
+  color: #488aff !important;
+  text-align: left;
+  font-weight: 600;
+  padding-top: 5px;
+}
+
+page-details .info {
+  padding-top: 10px;
+  font-size: 1.4rem;
+  background: #fff;
+  display: block;
+  overflow: hidden;
+}
+
+page-details .info .card-title {
+  font-size: 1.3em;
+  width: 100%;
+  font-weight: 500;
+  color: #615e5e;
+  margin-left: 20px;
+}
+
+page-details .info .card-subtitle {
   font-size: 1.0em;
   top: 52%;
   width: 100%;
   color: #757373;
+}
+
+page-details .info .price {
+  color: #488aff !important;
+  text-align: left;
+  font-weight: 500;
+  margin-left: 16px;
+  font-size: 1.8rem;
+}
+
+page-details .info .rating {
+  color: #488aff !important;
+  text-align: left;
+  font-weight: 500;
+  margin-left: 16px;
+  font-size: 1rem;
+}
+
+page-details .info .borderleft {
+  border-right: solid 1.4px #757373;
+}
+
+page-details .info .blblbl {
+  font-size: 1.2rem;
+}
+
+page-details .info .withdetails ion-icon {
+  float: right;
+  margin-right: 5px;
+}
+
+page-details .info .details ion-note {
+  font-size: 1.2rem;
+  color: #000;
+}
+
+page-details .info .shipping_info img {
+  width: 3rem;
+  margin-right: 15px;
+  float: left;
+}
+
+page-details .info .shipping_info span {
+  text-align: left;
+  font-size: 1.3rem;
+}
+
+page-details .tbldetails .col {
+  border: 1px solid #e6e1e1;
+  padding: 10px;
+}
+
+page-details .tbldetails [col-4] {
+  background: #f9f9f9;
 }
 
 page-favorites .richblue {
@@ -43511,6 +43551,66 @@ page-home ion-item h2 {
   font-weight: bold !important;
 }
 
+page-home ion-list-header {
+  color: #488aff !important;
+}
+
+page-home .shops {
+  border: 1px solid #c8c7cc;
+  padding: 16px;
+  height: 4em;
+  margin: 3px;
+}
+
+page-home .shops img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+page-home .categories p {
+  margin: 0;
+}
+
+page-home .myCard {
+  font-size: 1.4rem;
+  background: #fff;
+}
+
+page-home .myCard img {
+  display: block;
+  width: 100%;
+}
+
+page-home .myCard .card-title {
+  text-align: left;
+  padding-top: 5px;
+}
+
+page-home .myCard .price {
+  color: #488aff !important;
+  text-align: left;
+  font-weight: 600;
+  padding-top: 5px;
+}
+
 page-settings .richblue {
   background-color: #525CAB;
+}
+
+page-shoppingcart .myCard {
+  margin: 12px;
+  width: calc(100% - 24px);
+  font-size: 1.4rem;
+  background: #fff;
+  display: block;
+  overflow: hidden;
+  padding-top: 5em;
+}
+
+page-shoppingcart .myCard img {
+  width: 5em;
 }
