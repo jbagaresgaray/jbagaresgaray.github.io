@@ -43414,12 +43414,32 @@ ion-navbar.toolbar {
   float: right;
 }
 
+.pull-left {
+  float: left;
+}
+
 .toolbar-background-ios {
   background: #fff !important;
 }
 
-page-details .mt-10 {
+.mt-10 {
   margin-top: 10px;
+}
+
+.pl-10 {
+  padding-left: 10px;
+}
+
+.pr-10 {
+  padding-right: 10px;
+}
+
+.pl-0 {
+  padding-left: 0px;
+}
+
+.pr-0 {
+  padding-left: 0px;
 }
 
 page-details ion-content {
@@ -43433,6 +43453,9 @@ page-details .highlight {
 page-details .myCard {
   font-size: 1.4rem;
   background: #fff;
+  min-height: 40px;
+  max-height: 180px;
+  height: 180px;
 }
 
 page-details .myCard img {
@@ -43450,6 +43473,13 @@ page-details .myCard .price {
   text-align: left;
   font-weight: 600;
   padding-top: 5px;
+}
+
+page-details .myCard .rating {
+  color: #488aff !important;
+  text-align: right;
+  font-weight: 500;
+  font-size: 1rem;
 }
 
 page-details .info {
@@ -43529,6 +43559,15 @@ page-details .tbldetails [col-4] {
   background: #f9f9f9;
 }
 
+page-details ion-footer ion-col {
+  padding: 0 !important;
+}
+
+page-details ion-footer ion-col [ion-button] {
+  padding: 0 !important;
+  margin: 0rem 0.2rem !important;
+}
+
 page-favorites .richblue {
   background-color: #525CAB;
 }
@@ -43595,6 +43634,22 @@ page-home .myCard .price {
   text-align: left;
   font-weight: 600;
   padding-top: 5px;
+}
+
+page-productcomment .bar-buttons[end] img {
+  width: 42px;
+  padding: .25rem;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: .25rem;
+}
+
+page-productratings .bar-buttons[end] img {
+  width: 42px;
+  padding: .25rem;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: .25rem;
 }
 
 page-settings .richblue {
