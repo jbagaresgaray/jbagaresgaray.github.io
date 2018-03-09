@@ -1,14 +1,14 @@
 webpackJsonp([11],{
 
-/***/ 611:
+/***/ 634:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PaymentmethodPageModule", function() { return PaymentmethodPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductratingsPageModule", function() { return ProductratingsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__paymentmethod__ = __webpack_require__(410);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__productratings__ = __webpack_require__(162);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var PaymentmethodPageModule = (function () {
-    function PaymentmethodPageModule() {
+var ProductratingsPageModule = (function () {
+    function ProductratingsPageModule() {
     }
-    PaymentmethodPageModule = __decorate([
+    ProductratingsPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__paymentmethod__["a" /* PaymentmethodPage */],
+                __WEBPACK_IMPORTED_MODULE_2__productratings__["a" /* ProductratingsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__paymentmethod__["a" /* PaymentmethodPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__productratings__["a" /* ProductratingsPage */]),
             ],
         })
-    ], PaymentmethodPageModule);
-    return PaymentmethodPageModule;
+    ], ProductratingsPageModule);
+    return ProductratingsPageModule;
 }());
 
-//# sourceMappingURL=paymentmethod.module.js.map
+//# sourceMappingURL=productratings.module.js.map
 
 /***/ })
 

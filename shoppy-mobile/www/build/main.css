@@ -43442,6 +43442,178 @@ ion-navbar.toolbar {
   padding-left: 0px;
 }
 
+emoji-picker .emoji-picker {
+  height: 195px;
+  border-top: 1px solid #999;
+}
+
+emoji-picker .emoji-picker .emoji-items {
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+emoji-picker .emoji-picker .emoji-items .emoji-item {
+  display: block;
+  float: left;
+  width: 12.5%;
+  height: 42px;
+  font-size: 1.2em;
+  line-height: 42px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+page-chatdetail ion-content .scroll-content {
+  background-color: #f5f5f5;
+}
+
+page-chatdetail ion-footer {
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.11);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.11);
+  background-color: #fff;
+  height: 255px;
+}
+
+page-chatdetail .line-breaker {
+  white-space: pre-line;
+}
+
+page-chatdetail .input-wrap {
+  padding: 0 5px;
+}
+
+page-chatdetail .input-wrap ion-textarea {
+  position: static;
+}
+
+page-chatdetail .input-wrap ion-col.col {
+  padding: 0;
+}
+
+page-chatdetail .input-wrap button {
+  width: 100%;
+  height: 55px;
+  font-size: 1.3em;
+  margin: 0;
+}
+
+page-chatdetail .input-wrap textarea {
+  border-bottom: 1px #387ef5;
+  border-style: solid;
+}
+
+page-chatdetail .message-wrap {
+  padding: 0 10px;
+}
+
+page-chatdetail .message-wrap .message {
+  position: relative;
+  padding: 7px 0;
+}
+
+page-chatdetail .message-wrap .message .user-img {
+  position: absolute;
+  border-radius: 45px;
+  width: 45px;
+  height: 45px;
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.36);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.36);
+}
+
+page-chatdetail .message-wrap .message .msg-detail {
+  width: 100%;
+  display: inline-block;
+}
+
+page-chatdetail .message-wrap .message .msg-detail p {
+  margin: 0;
+}
+
+page-chatdetail .message-wrap .message .msg-detail .msg-info p {
+  font-size: .8em;
+  color: #888;
+}
+
+page-chatdetail .message-wrap .message .msg-detail .msg-content {
+  position: relative;
+  margin-top: 5px;
+  border-radius: 5px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  color: #fff;
+  width: auto;
+  max-width: 80%;
+}
+
+page-chatdetail .message-wrap .message .msg-detail .msg-content span.triangle {
+  background-color: #fff;
+  border-radius: 2px;
+  height: 8px;
+  width: 8px;
+  top: 12px;
+  display: block;
+  border-style: solid;
+  border-color: #ddd;
+  border-width: 1px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+}
+
+page-chatdetail .message-wrap .message.left .msg-content {
+  background-color: #fff;
+  float: left;
+}
+
+page-chatdetail .message-wrap .message.left .msg-detail {
+  padding-left: 60px;
+}
+
+page-chatdetail .message-wrap .message.left .user-img {
+  left: 0;
+}
+
+page-chatdetail .message-wrap .message.left .msg-content {
+  color: #343434;
+}
+
+page-chatdetail .message-wrap .message.left .msg-content span.triangle {
+  border-top-width: 0;
+  border-right-width: 0;
+  left: -5px;
+}
+
+page-chatdetail .message-wrap .message.right .msg-detail {
+  padding-right: 60px;
+}
+
+page-chatdetail .message-wrap .message.right .msg-detail .msg-info {
+  text-align: right;
+}
+
+page-chatdetail .message-wrap .message.right .user-img {
+  right: 0;
+}
+
+page-chatdetail .message-wrap .message.right ion-spinner {
+  position: absolute;
+  right: 10px;
+  top: 50px;
+}
+
+page-chatdetail .message-wrap .message.right .msg-content {
+  background-color: #387ef5;
+  float: right;
+}
+
+page-chatdetail .message-wrap .message.right .msg-content span.triangle {
+  background-color: #387ef5;
+  border-bottom-width: 0;
+  border-left-width: 0;
+  right: -5px;
+}
+
 page-details ion-content {
   background-color: #e6e1e1 !important;
 }
@@ -43636,11 +43808,16 @@ page-home .myCard .price {
   padding-top: 5px;
 }
 
+page-mybankcards-entry ion-footer ion-button {
+  margin: 0 !important;
+}
+
 page-myprofile #profile-bg {
   position: fixed;
   left: 0;
   width: 100%;
-  height: 180px;
+  height: 190px;
+  top: 44px;
   background-size: cover;
   background-repeat: no-repeat;
   text-align: center;
@@ -43748,6 +43925,36 @@ page-myrating .productinfo .item-inner {
   border-bottom: none !important;
 }
 
+page-mywallet .balance {
+  font-size: 3rem !important;
+  color: #488aff;
+  font-weight: 500;
+}
+
+page-mywallet .withdrawal {
+  color: #f53d3d;
+}
+
+page-mywallet .withdrawal ion-icon {
+  font-size: 2.2em;
+}
+
+page-mywallet .withdrawal label {
+  font-size: 0.7em;
+}
+
+page-mywallet .transaction {
+  color: #488aff;
+}
+
+page-mywallet .transaction ion-icon {
+  font-size: 2.2em;
+}
+
+page-mywallet .transaction label {
+  font-size: 0.7em;
+}
+
 page-productcomment .bar-buttons[end] img {
   width: 42px;
   padding: .25rem;
@@ -43780,4 +43987,105 @@ page-shoppingcart .myCard {
 
 page-shoppingcart .myCard img {
   width: 5em;
+}
+
+page-userprofile #profile-bg {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 190px;
+  top: 44px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+page-userprofile #profile-bg .button1 {
+  position: fixed;
+  margin-top: 20px;
+  right: 85px;
+}
+
+page-userprofile #profile-bg .button2 {
+  position: fixed;
+  margin-top: 20px;
+  right: 15px;
+}
+
+page-userprofile #content {
+  position: relative;
+  margin-top: 150px;
+  background-color: white;
+  -webkit-box-shadow: 0px -1px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px -1px 10px rgba(0, 0, 0, 0.4);
+  padding-top: 100px;
+}
+
+page-userprofile #profile-info {
+  position: absolute;
+  top: -95px;
+  width: 100%;
+  z-index: 2;
+  text-align: center;
+}
+
+page-userprofile #profile-name {
+  color: #444;
+  font-size: 26px;
+}
+
+page-userprofile #profile-description {
+  font-size: 15px;
+  color: #888;
+}
+
+page-userprofile #profile-description a {
+  color: #888;
+}
+
+page-userprofile #profile-image {
+  display: block;
+  border-radius: 100px;
+  border: 1px solid #fff;
+  width: 128px;
+  height: 128px;
+  margin: 30px auto 0;
+  -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.7);
+}
+
+page-userprofile .list-item-content {
+  padding: 5px;
+}
+
+page-userprofile .list-item {
+  color: #666666;
+}
+
+page-userprofile .post {
+  color: #444;
+}
+
+page-userprofile .post-time {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  font-size: 11px;
+  color: #888;
+}
+
+page-userprofile .post-profile-image {
+  display: inline-block;
+  vertical-align: top;
+  width: 48px;
+  height: 48px;
+  margin-right: 10px;
+}
+
+page-userprofile .post-options {
+  position: absolute;
+  font-size: 16px;
+  right: 5px;
+  bottom: 5px;
+  color: #888;
 }
