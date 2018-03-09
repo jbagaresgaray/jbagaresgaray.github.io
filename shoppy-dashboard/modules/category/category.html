@@ -24,258 +24,37 @@
                             <div class="col-sm-9 m-b-xs">
                                 <div data-toggle="buttons">
                                     <a class="btn btn-sm btn-primary" ng-click="addCategory()"> Add </a>
-                                    <a class="btn btn-sm btn-primary" ng-click="addSubCategory()"> Add Subcategory</a>
-                                    <a class="btn btn-sm btn-info"> Refresh </a>
-                                    <a class="btn btn-sm btn-danger"> Delete </a>
+                                    <a class="btn btn-sm btn-info" ng-click="refresh()"> Refresh </a>
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="input-group">
-                                    <input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
-                                        <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>
+                                    <input type="text" placeholder="Search" class="input-sm form-control" ng-model="dataSearch" ng-keypress="($event.which === 13)?refresh():0" ng-change="(dataSearch.length < 1)?refresh():0"> <span class="input-group-btn">
+                                        <button type="button" class="btn btn-sm btn-primary" ng-click="refresh()"> Go!</button> </span></div>
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Project </th>
-                                        <th>Name </th>
-                                        <th>Phone </th>
-                                        <th>Company </th>
-                                        <th>Completed </th>
-                                        <th>Task</th>
-                                        <th>Date</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Project <small>This is example of project</small></td>
-                                        <td>Patrick Smith</td>
-                                        <td>0800 051213</td>
-                                        <td>Inceptos Hymenaeos Ltd</td>
-                                        <td>
-                                            <pie-chart data="main.PieChart5.data" options="main.PieChart5.options"></pie-chart>
-                                        </td>
-                                        <td>20%</td>
-                                        <td>Jul 14, 2013</td>
-                                        <td>
-                                            <a class="btn btn-xs btn-default"href="#"><i class="fa fa-check"></i></a>
-                                            <a uib-tooltip="View Subcategory" class="btn btn-xs btn-primary" ui-sref="app.subcategory({categoryId: 1})"><i class="fa fa-list"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Alpha project</td>
-                                        <td>Alice Jackson</td>
-                                        <td>0500 780909</td>
-                                        <td>Nec Euismod In Company</td>
-                                        <td>
-                                            <pie-chart data="main.PieChart4.data" options="main.PieChart4.options"></pie-chart>
-                                        </td>
-                                        <td>40%</td>
-                                        <td>Jul 16, 2013</td>
-                                        <td>
-                                            <a class="btn btn-xs btn-default"href="#"><i class="fa fa-check"></i></a>
-                                            <a uib-tooltip="View Subcategory" class="btn btn-xs btn-primary" ui-sref="app.subcategory({categoryId: 1})"><i class="fa fa-list"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Betha project</td>
-                                        <td>John Smith</td>
-                                        <td>0800 1111</td>
-                                        <td>Erat Volutpat</td>
-                                        <td>
-                                            <pie-chart data="main.PieChart3.data" options="main.PieChart3.options"></pie-chart>
-                                        </td>
-                                        <td>75%</td>
-                                        <td>Jul 18, 2013</td>
-                                        <td>
-                                            <a class="btn btn-xs btn-default"href="#"><i class="fa fa-check"></i></a>
-                                            <a uib-tooltip="View Subcategory" class="btn btn-xs btn-primary" ui-sref="app.subcategory({categoryId: 1})"><i class="fa fa-list"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Gamma project</td>
-                                        <td>Anna Jordan</td>
-                                        <td>(016977) 0648</td>
-                                        <td>Tellus Ltd</td>
-                                        <td>
-                                            <pie-chart data="main.PieChart6.data" options="main.PieChart6.options"></pie-chart>
-                                        </td>
-                                        <td>18%</td>
-                                        <td>Jul 22, 2013</td>
-                                        <td>
-                                            <a class="btn btn-xs btn-default"href="#"><i class="fa fa-check"></i></a>
-                                            <a uib-tooltip="View Subcategory" class="btn btn-xs btn-primary" ui-sref="app.subcategory({categoryId: 1})"><i class="fa fa-list"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Alpha project</td>
-                                        <td>Alice Jackson</td>
-                                        <td>0500 780909</td>
-                                        <td>Nec Euismod In Company</td>
-                                        <td>
-                                            <pie-chart data="main.PieChart.data" options="main.PieChart.options"></pie-chart>
-                                        </td>
-                                        <td>40%</td>
-                                        <td>Jul 16, 2013</td>
-                                        <td>
-                                            <a class="btn btn-xs btn-default"href="#"><i class="fa fa-check"></i></a>
-                                            <a uib-tooltip="View Subcategory" class="btn btn-xs btn-primary" ui-sref="app.subcategory({categoryId: 1})"><i class="fa fa-list"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Project <small>This is example of project</small></td>
-                                        <td>Patrick Smith</td>
-                                        <td>0800 051213</td>
-                                        <td>Inceptos Hymenaeos Ltd</td>
-                                        <td>
-                                            <pie-chart data="main.PieChart4.data" options="main.PieChart4.options"></pie-chart>
-                                        </td>
-                                        <td>20%</td>
-                                        <td>Jul 14, 2013</td>
-                                        <td>
-                                            <a class="btn btn-xs btn-default"href="#"><i class="fa fa-check"></i></a>
-                                            <a uib-tooltip="View Subcategory" class="btn btn-xs btn-primary" ui-sref="app.subcategory({categoryId: 1})"><i class="fa fa-list"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Gamma project</td>
-                                        <td>Anna Jordan</td>
-                                        <td>(016977) 0648</td>
-                                        <td>Tellus Ltd</td>
-                                        <td>
-                                            <pie-chart data="main.PieChart3.data" options="main.PieChart3.options"></pie-chart>
-                                        </td>
-                                        <td>18%</td>
-                                        <td>Jul 22, 2013</td>
-                                        <td>
-                                            <a class="btn btn-xs btn-default"href="#"><i class="fa fa-check"></i></a>
-                                            <a uib-tooltip="View Subcategory" class="btn btn-xs btn-primary" ui-sref="app.subcategory({categoryId: 1})"><i class="fa fa-list"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Project <small>This is example of project</small></td>
-                                        <td>Patrick Smith</td>
-                                        <td>0800 051213</td>
-                                        <td>Inceptos Hymenaeos Ltd</td>
-                                        <td>
-                                            <pie-chart data="main.PieChart2.data" options="main.PieChart2.options"></pie-chart>
-                                        </td>
-                                        <td>20%</td>
-                                        <td>Jul 14, 2013</td>
-                                        <td>
-                                            <a class="btn btn-xs btn-default"href="#"><i class="fa fa-check"></i></a>
-                                            <a uib-tooltip="View Subcategory" class="btn btn-xs btn-primary" ui-sref="app.subcategory({categoryId: 1})"><i class="fa fa-list"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Alpha project</td>
-                                        <td>Alice Jackson</td>
-                                        <td>0500 780909</td>
-                                        <td>Nec Euismod In Company</td>
-                                        <td>
-                                            <pie-chart data="main.PieChart6.data" options="main.PieChart6.options"></pie-chart>
-                                        </td>
-                                        <td>40%</td>
-                                        <td>Jul 16, 2013</td>
-                                        <td>
-                                            <a class="btn btn-xs btn-default"href="#"><i class="fa fa-check"></i></a>
-                                            <a uib-tooltip="View Subcategory" class="btn btn-xs btn-primary" ui-sref="app.subcategory({categoryId: 1})"><i class="fa fa-list"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Betha project</td>
-                                        <td>John Smith</td>
-                                        <td>0800 1111</td>
-                                        <td>Erat Volutpat</td>
-                                        <td>
-                                            <pie-chart data="main.PieChart5.data" options="main.PieChart5.options"></pie-chart>
-                                        </td>
-                                        <td>75%</td>
-                                        <td>Jul 18, 2013</td>
-                                        <td>
-                                            <a class="btn btn-xs btn-default"href="#"><i class="fa fa-check"></i></a>
-                                            <a uib-tooltip="View Subcategory" class="btn btn-xs btn-primary" ui-sref="app.subcategory({categoryId: 1})"><i class="fa fa-list"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Gamma project</td>
-                                        <td>Anna Jordan</td>
-                                        <td>(016977) 0648</td>
-                                        <td>Tellus Ltd</td>
-                                        <td>
-                                            <pie-chart data="main.PieChart4.data" options="main.PieChart4.options"></pie-chart>
-                                        </td>
-                                        <td>18%</td>
-                                        <td>Jul 22, 2013</td>
-                                        <td>
-                                            <a class="btn btn-xs btn-default"href="#"><i class="fa fa-check"></i></a>
-                                            <a uib-tooltip="View Subcategory" class="btn btn-xs btn-primary" ui-sref="app.subcategory({categoryId: 1})"><i class="fa fa-list"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Alpha project</td>
-                                        <td>Alice Jackson</td>
-                                        <td>0500 780909</td>
-                                        <td>Nec Euismod In Company</td>
-                                        <td>
-                                            <pie-chart data="main.PieChart.data" options="main.PieChart.options"></pie-chart>
-                                        </td>
-                                        <td>40%</td>
-                                        <td>Jul 16, 2013</td>
-                                        <td>
-                                            <a class="btn btn-xs btn-default"href="#"><i class="fa fa-check"></i></a>
-                                            <a uib-tooltip="View Subcategory" class="btn btn-xs btn-primary" ui-sref="app.subcategory({categoryId: 1})"><i class="fa fa-list"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Project <small>This is example of project</small></td>
-                                        <td>Patrick Smith</td>
-                                        <td>0800 051213</td>
-                                        <td>Inceptos Hymenaeos Ltd</td>
-                                        <td>
-                                            <pie-chart data="main.PieChart3.data" options="main.PieChart3.options"></pie-chart>
-                                        </td>
-                                        <td>20%</td>
-                                        <td>Jul 14, 2013</td>
-                                        <td>
-                                            <a class="btn btn-xs btn-default"href="#"><i class="fa fa-check"></i></a>
-                                            <a uib-tooltip="View Subcategory" class="btn btn-xs btn-primary" ui-sref="app.subcategory({categoryId: 1})"><i class="fa fa-list"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Gamma project</td>
-                                        <td>Anna Jordan</td>
-                                        <td>(016977) 0648</td>
-                                        <td>Tellus Ltd</td>
-                                        <td>
-                                            <pie-chart data="main.PieChart2.data" options="main.PieChart2.options"></pie-chart>
-                                        </td>
-                                        <td>18%</td>
-                                        <td>Jul 22, 2013</td>
-                                        <td>
-                                            <a class="btn btn-xs btn-default"href="#"><i class="fa fa-check"></i></a>
-                                            <a uib-tooltip="View Subcategory" class="btn btn-xs btn-primary" ui-sref="app.subcategory({categoryId: 1})"><i class="fa fa-list"></i></a>
-                                        </td>
-                                    </tr>
-                                </tbody>
+                            <table ng-table="tableParams" class="table table-striped">
+                                <tr ng-repeat="category in $data">
+                                    <td title="'Image'" sortable="'image'">
+                                        <img ng-src="{{category.img_path || '../../images/gallery/2s.jpg'}}" onerror="this.src='../../images/gallery/2s.jpg'" width="60px" height="60px" class="img-thumbnail">
+                                    </td>
+                                    <td title="'Name'" sortable="'name'">{{category.name}}</td>
+                                    <td title="''" class="pull-right">
+                                        <a class="btn btn-xs btn-default" uib-tooltip="Update" ng-click="updateCategory(category)">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-default" uib-tooltip="Add Sub-category" ng-click="addSubCategory(category)">
+                                            <i class="fa fa-plus"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-default" uib-tooltip="View Sub-category" ng-click="viewSubCategory(category)">
+                                            <i class="fa fa-list-ul"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-danger" uib-tooltip="Delete" ng-click="deleteSelected(category)">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
                             </table>
                         </div>
                     </div>

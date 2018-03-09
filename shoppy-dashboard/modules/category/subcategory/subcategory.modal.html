@@ -6,36 +6,35 @@
         <div class="form-group">
             <label class="col-lg-2 control-label">Name</label>
             <div class="col-lg-10">
-                <input type="text" placeholder="Name" class="form-control">
+                <input type="text" placeholder="Name" class="form-control" ng-model="subcategory.name">
             </div>
         </div>
         <div class="form-group">
             <label class="col-lg-2 control-label">Category</label>
             <div class="col-lg-10">
-                <select class="form-control m-b" name="account">
-                    <option>option 1</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                    <option>option 4</option>
-                </select>
+                <input type="text" placeholder="Category" class="form-control" readonly="true" disabled="true" ng-model="category.name">
             </div>
         </div>
         <div class="form-group">
             <label class="col-lg-2 control-label">Upload Image</label>
             <div class="col-lg-10">
-                <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-                    <div class="form-control" data-trigger="fileinput"><i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>
-                    <span class="input-group-addon btn btn-default btn-file"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span>
-                    <input type="file" name="...">
+                <div class="input-group image-preview">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-warning image-preview-clear" ng-click="removethumb()" ng-show="details.c_image"> <span class="glyphicon glyphicon-remove"></span> Clear
+                    </button>
+                    <div class="btn btn-primary image-preview-input"> <span class="glyphicon glyphicon-folder-open"></span> <span class="image-preview-input-title">Browse</span>
+                        <input type="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" name="file" ng-model="subcategory.c_file" ngf-max-size="5MB" ngf-select="upload($files)" ngf-model-invalid="errorFile">
+                    </div>
                     </span>
-                    <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                 </div>
+                <i ng-show="form.file.$error.maxSize" class="text-danger text-bold">File too large {{errorFile.size / 1000000|number:1}}MB: max 2MB</i>
             </div>
         </div>
         <div class="form-group">
             <label class="col-lg-2 control-label"></label>
             <div class="col-lg-10">
-                <img alt="image" class="img-responsive" src="images/profile_big.jpg">
+                <img alt="image" class="img-responsive" ngf-src="subcategory.c_file || 'images/profile_big.jpg'" ng-if="subcategory.c_file">
+                <img alt="image" class="img-responsive" ng-src="{{subcategory.img_path || 'images/profile_big.jpg'}}" ng-if="!subcategory.c_file && subcategory.img_name !== null">
             </div>
         </div>
     </form>

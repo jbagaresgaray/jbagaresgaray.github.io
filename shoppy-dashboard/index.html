@@ -4,16 +4,11 @@
 <head>
     <!-- <base href="/"> -->
     <meta charset="UTF-8">
-    <title>4LOOP Angular App</title>
+    <title>Angular App</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link rel="icon" type="image/ico" href="../images/favicon.ico">
     <!-- LIBRARY -->
-    <!-- build:css css/main.min.css -->
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="bower_components/animate.css/animate.min.css" rel="stylesheet" type="text/css" />
-    <link id="loadBefore" href="styles/style.css" rel="stylesheet" type="text/css" />
-    <!-- endbuild -->
+    <link rel="stylesheet" href="css/main.min.css"/>
 </head>
 
 <body ng-controller="MainCtrl as main" class="{{$state.current.data.specialClass}}">
@@ -37,35 +32,7 @@
         *
         -->
     <!-- ./wrapper -->
-    <!-- build:js js/main.min.js -->
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/lodash/dist/lodash.min.js"></script>
-    <script src="bower_components/async/dist/async.min.js"></script>
-    <script src="bower_components/moment/min/moment.min.js"></script>
-    <!--  -->
-    <script src="scripts/plugins/jquery-ui/jquery-ui.min.js"></script>
-    <script src="scripts/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="scripts/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-    <script src="scripts/plugins/pace/pace.min.js"></script>
-    <!--  -->
-    <script src="scripts/inspinia.js"></script>
-    <!--
-        *
-        *
-        ANGULAR LIBRARY
-        *
-        *-->
-    <script src="bower_components/angular/angular.min.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-    <script src="bower_components/restangular/dist/restangular.min.js"></script>
-    <script src="bower_components/angular-moment/angular-moment.min.js"></script>
-    <script src="bower_components/angular-translate/angular-translate.min.js"></script>
-    <!--  -->
-    <script src="scripts/plugins/oclazyload/dist/ocLazyLoad.min.js"></script>
-    <script src="scripts/plugins/angular-idle/angular-idle.js"></script>
+    <script src="js/main.min.js"></script>
     <!--
         *
         *
@@ -78,55 +45,7 @@
         *
         *
         *-->
-    <!-- build:js1 js/app.min.js -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/app.config.js"></script>
-    <script src="scripts/app.run.js"></script>
-    <!-- CONTROLLERS -->
-    <script src="scripts/app.directive.js"></script>
-    <script src="scripts/app.controller.js"></script>
-    <!-- MODULES-->
-    <script src="modules/login/login.js"></script>
-    <script src="modules/login/login.controller.js"></script>
-    <!--  -->
-    <script src="modules/forgot_password/forgot.js"></script>
-    <!--  -->
-    <script src="modules/category/category.js"></script>
-    <script src="modules/category/category.controller.js"></script>
-    <script src="modules/category/category.modal.controller.js"></script>
-    <script src="modules/category/subcategory/subcategory.controller.js"></script>
-    <script src="modules/category/subcategory/subcategory.modal.controller.js"></script>
-    <!--  -->
-    <script src="modules/brands/brands.js"></script>
-    <script src="modules/brands/brand.controller.js"></script>
-    <script src="modules/brands/brand.modal.controller.js"></script>
-    <!--  -->
-    <script src="modules/banks/banks.js"></script>
-    <script src="modules/banks/banks.controller.js"></script>
-    <script src="modules/banks/banks.modal.controller.js"></script>
-    <!--  -->
-    <script src="modules/courier/courier.js"></script>
-    <script src="modules/courier/courier.controller.js"></script>
-    <script src="modules/courier/courier.modal.controller.js"></script>
-    <!--  -->
-    <script src="modules/payment_provider/provider.js"></script>
-    <script src="modules/payment_provider/provider.controller.js"></script>
-    <script src="modules/payment_provider/provider.modal.controller.js"></script>
-    <!--  -->
-    <script src="modules/sellers/sellers.js"></script>
-    <script src="modules/sellers/sellers.controller.js"></script>
-    <script src="modules/sellers/sellers.modal.controller.js"></script>
-    <!--  -->
-    <script src="modules/activity_stream/activity.js"></script>
-    <script src="modules/activity_stream/activity.controller.js"></script>
-    <!--  -->
-    <script src="modules/helpcenter/help.js"></script>
-    <!--  -->
-    <script src="modules/newsletter/newsletter.js"></script>
-    <script src="modules/newsletter/newsletter.controller.js"></script>
-    <!--  -->
-    <script src="modules/pushnotifications/pushnotif.js"></script>
-    <!-- endbuild -->
+    <script src="js/app.min.js"></script>
 </body>
 
 </html>
