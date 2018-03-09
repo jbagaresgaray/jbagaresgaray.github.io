@@ -5,12 +5,12 @@
                 <div class="profile-element" uib-dropdown>
                     <img alt="image" class="img-circle" src="images/profile_small.jpg" />
                     <a uib-dropdown-toggle href>
-                            <span class="clear">
+                        <span class="clear">
                                 <span class="block m-t-xs">
-                                    <strong class="font-bold">David Williams</strong>
+                                    <strong class="font-bold">{{currentUser.firstname}} {{currentUser.lastname}}</strong>
                              </span>
-                                <span class="text-muted text-xs block">Art Director <b class="caret"></b></span>
-                            </span>
+                        <span class="text-muted text-xs block">{{currentUser.username}} <b class="caret"></b></span>
+                        </span>
                     </a>
                     <ul uib-dropdown-menu class="animated fadeInRight m-t-xs">
                         <li><a ui-sref="app.profile">Profile</a></li>
@@ -44,7 +44,7 @@
                 <a ui-sref="app.banks"><i class="fa fa-building"></i> <span class="nav-label">{{ 'BANKS' }}</span></a>
             </li>
             <li ui-sref-active="active">
-                <a ui-sref="app.courier"><i class="fa fa-plane"></i> <span class="nav-label">{{ 'SHIPPING COURIER' }}</span></a>
+                <a ui-sref="app.courier"><i class="fa fa-truck"></i> <span class="nav-label">{{ 'SHIPPING COURIER' }}</span></a>
             </li>
             <li ui-sref-active="active">
                 <a ui-sref="app.paymentprovider"><i class="fa fa-credit-card"></i> <span class="nav-label">{{ 'PAYMENT PROVIDERS' }}</span></a>
@@ -53,7 +53,7 @@
                 <a ui-sref="app.sellers"><i class="fa fa-users"></i> <span class="nav-label">{{ 'SELLERS' }}</span></a>
             </li>
             <li ui-sref-active="active">
-                <a ui-sref="widgets"><i class="fa fa-user-circle"></i> <span class="nav-label">{{ 'BUYERS / USERS' }}</span></a>
+                <a ui-sref="app.buyers"><i class="fa fa-user-circle"></i> <span class="nav-label">{{ 'BUYERS / USERS' }}</span></a>
             </li>
             <li ng-class="{active: $state.includes('charts')}">
                 <a href="#"><i class="fa fa-shopping-cart"></i> <span class="nav-label">{{ 'ORDERS' }}</span><span class="fa arrow"></span></a>
@@ -77,7 +77,7 @@
                     <li ui-sref-active="active"><a ui-sref="charts.sparkline_chart">Sparkline Charts</a></li>
                 </ul>
             </li>
-             <li ui-sref-active="active">
+            <li ui-sref-active="active">
                 <a ui-sref="app.newsletter"><i class="fa fa-file"></i> <span class="nav-label">{{ 'NEWSLETTER' }}</span></a>
             </li>
             <li ui-sref-active="active">
