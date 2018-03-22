@@ -1,6 +1,10 @@
 webpackJsonp([12],{
 
+<<<<<<< HEAD
 /***/ 635:
+=======
+/***/ 651:
+>>>>>>> master
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +12,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductcommentPageModule", function() { return ProductcommentPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__productcomment__ = __webpack_require__(164);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__orderdetails__ = __webpack_require__(178);
+>>>>>>> master
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -27,7 +35,11 @@ var ProductcommentPageModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_2__productcomment__["a" /* ProductcommentPage */],
             ],
             imports: [
+<<<<<<< HEAD
                 __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__productcomment__["a" /* ProductcommentPage */]),
+=======
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__orderdetails__["a" /* OrderdetailsPage */]),
+>>>>>>> master
             ],
         })
     ], ProductcommentPageModule);
