@@ -1,22 +1,14 @@
 webpackJsonp([0],{
 
-<<<<<<< HEAD
-/***/ 645:
-=======
-/***/ 663:
->>>>>>> master
+/***/ 677:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MywalletPageModule", function() { return MywalletPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserprofilePageModule", function() { return UserprofilePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-<<<<<<< HEAD
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mywallet__ = __webpack_require__(646);
-=======
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__userprofile__ = __webpack_require__(163);
->>>>>>> master
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__userprofile__ = __webpack_require__(168);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -26,27 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var MywalletPageModule = (function () {
-    function MywalletPageModule() {
+var UserprofilePageModule = (function () {
+    function UserprofilePageModule() {
     }
-    MywalletPageModule = __decorate([
+    UserprofilePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__mywallet__["a" /* MywalletPage */],
+                __WEBPACK_IMPORTED_MODULE_2__userprofile__["a" /* UserprofilePage */],
             ],
             imports: [
-<<<<<<< HEAD
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__mywallet__["a" /* MywalletPage */]),
-=======
                 __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__userprofile__["a" /* UserprofilePage */]),
->>>>>>> master
             ],
         })
-    ], MywalletPageModule);
-    return MywalletPageModule;
+    ], UserprofilePageModule);
+    return UserprofilePageModule;
 }());
 
-//# sourceMappingURL=mywallet.module.js.map
+//# sourceMappingURL=userprofile.module.js.map
 
 /***/ })
 

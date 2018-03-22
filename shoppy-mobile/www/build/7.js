@@ -1,22 +1,14 @@
 webpackJsonp([7],{
 
-<<<<<<< HEAD
-/***/ 639:
-=======
-/***/ 657:
->>>>>>> master
+/***/ 670:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShoppingcartPageModule", function() { return ShoppingcartPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchPageModule", function() { return SearchPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-<<<<<<< HEAD
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shoppingcart__ = __webpack_require__(67);
-=======
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search__ = __webpack_require__(180);
->>>>>>> master
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search__ = __webpack_require__(175);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -26,27 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ShoppingcartPageModule = (function () {
-    function ShoppingcartPageModule() {
+var SearchPageModule = (function () {
+    function SearchPageModule() {
     }
-    ShoppingcartPageModule = __decorate([
+    SearchPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__shoppingcart__["a" /* ShoppingcartPage */],
+                __WEBPACK_IMPORTED_MODULE_2__search__["a" /* SearchPage */],
             ],
             imports: [
-<<<<<<< HEAD
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__shoppingcart__["a" /* ShoppingcartPage */]),
-=======
                 __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__search__["a" /* SearchPage */]),
->>>>>>> master
             ],
         })
-    ], ShoppingcartPageModule);
-    return ShoppingcartPageModule;
+    ], SearchPageModule);
+    return SearchPageModule;
 }());
 
-//# sourceMappingURL=shoppingcart.module.js.map
+//# sourceMappingURL=search.module.js.map
 
 /***/ })
 

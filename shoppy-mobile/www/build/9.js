@@ -1,22 +1,14 @@
 webpackJsonp([9],{
 
-<<<<<<< HEAD
-/***/ 636:
-=======
-/***/ 662:
->>>>>>> master
+/***/ 668:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchresultPageModule", function() { return SearchresultPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductcommentPageModule", function() { return ProductcommentPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-<<<<<<< HEAD
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__searchresult__ = __webpack_require__(417);
-=======
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__productcomment__ = __webpack_require__(170);
->>>>>>> master
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__productcomment__ = __webpack_require__(173);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -26,27 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var SearchresultPageModule = (function () {
-    function SearchresultPageModule() {
+var ProductcommentPageModule = (function () {
+    function ProductcommentPageModule() {
     }
-    SearchresultPageModule = __decorate([
+    ProductcommentPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__searchresult__["a" /* SearchresultPage */],
+                __WEBPACK_IMPORTED_MODULE_2__productcomment__["a" /* ProductcommentPage */],
             ],
             imports: [
-<<<<<<< HEAD
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__searchresult__["a" /* SearchresultPage */]),
-=======
                 __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__productcomment__["a" /* ProductcommentPage */]),
->>>>>>> master
             ],
         })
-    ], SearchresultPageModule);
-    return SearchresultPageModule;
+    ], ProductcommentPageModule);
+    return ProductcommentPageModule;
 }());
 
-//# sourceMappingURL=searchresult.module.js.map
+//# sourceMappingURL=productcomment.module.js.map
 
 /***/ })
 

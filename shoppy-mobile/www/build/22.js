@@ -1,25 +1,14 @@
 webpackJsonp([22],{
 
-<<<<<<< HEAD
-/***/ 623:
-=======
-/***/ 641:
->>>>>>> master
+/***/ 655:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-<<<<<<< HEAD
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MakepaymentPageModule", function() { return MakepaymentPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__makepayment__ = __webpack_require__(412);
-=======
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyaccountPageModule", function() { return MyaccountPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__myaccount__ = __webpack_require__(426);
->>>>>>> master
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__myaccount__ = __webpack_require__(432);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -29,25 +18,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-<<<<<<< HEAD
-var MakepaymentPageModule = (function () {
-    function MakepaymentPageModule() {
-    }
-    MakepaymentPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__makepayment__["a" /* MakepaymentPage */],
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__makepayment__["a" /* MakepaymentPage */]),
-            ],
-        })
-    ], MakepaymentPageModule);
-    return MakepaymentPageModule;
-}());
-
-//# sourceMappingURL=makepayment.module.js.map
-=======
 var MyaccountPageModule = (function () {
     function MyaccountPageModule() {
     }
@@ -65,7 +35,6 @@ var MyaccountPageModule = (function () {
 }());
 
 //# sourceMappingURL=myaccount.module.js.map
->>>>>>> master
 
 /***/ })
 
