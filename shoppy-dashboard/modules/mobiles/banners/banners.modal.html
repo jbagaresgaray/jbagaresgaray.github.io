@@ -1,0 +1,51 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Mobile Banner Entry</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <form class="form-horizontal" name="form">
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Name</label>
+            <div class="col-lg-10">
+                <input type="text" placeholder="Name" class="form-control" ng-model="banner.name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Link</label>
+            <div class="col-lg-10">
+                <!-- <input type="text" placeholder="Name" class="form-control" ng-model="banner.name"> -->
+                <ui-select ng-model="banner.link" theme="bootstrap">
+                    <ui-select-match placeholder="Select content...">{{$select.selected.title}}</ui-select-match>
+                    <ui-select-choices repeat="item in contents | filter: $select.search">
+                        <div ng-bind-html="item.title | propsFilter: $select.search"></div>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Upload Banner</label>
+            <div class="col-lg-10">
+                <div class="input-group image-preview">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-warning image-preview-clear" ng-click="removethumb()" ng-show="details.c_image"> <span class="glyphicon glyphicon-remove"></span> Clear
+                    </button>
+                    <div class="btn btn-primary image-preview-input"> <span class="glyphicon glyphicon-folder-open"></span> <span class="image-preview-input-title">Browse</span>
+                        <input type="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" name="file" ng-model="banner.c_file" ngf-max-size="5MB" ngf-select="upload($files)" ngf-model-invalid="errorFile">
+                    </div>
+                    </span>
+                </div>
+                <i ng-show="form.file.$error.maxSize" class="text-danger text-bold">File too large {{errorFile.size / 1000000|number:1}}MB: max 2MB</i>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label"></label>
+            <div class="col-lg-10">
+                <img alt="image" class="img-responsive" ngf-src="banner.c_file || 'images/banner_def.png'" ng-if="banner.c_file">
+                <img alt="image" class="img-responsive" ng-src="{{banner.img_path || 'images/banner_def.png'}}" ng-if="!banner.c_file && banner.img_name !== null">
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="save()">Save</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

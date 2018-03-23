@@ -50,7 +50,7 @@
                 <a ui-sref="app.paymentprovider"><i class="fa fa-credit-card"></i> <span class="nav-label">{{ 'PAYMENT PROVIDERS' }}</span></a>
             </li>
             <li ui-sref-active="active">
-                <a ui-sref="app.sellers"><i class="fa fa-users"></i> <span class="nav-label">{{ 'SELLERS' }}</span></a>
+                <a ui-sref="app.sellers"><i class="fa fa-users"></i> <span class="nav-label">{{ 'SELLERS' }}</span> <span class="label label-warning pull-right">{{sellerInfo.sellers}} / {{sellerInfo.applicants}}</span></a>
             </li>
             <li ui-sref-active="active">
                 <a ui-sref="app.buyers"><i class="fa fa-user-circle"></i> <span class="nav-label">{{ 'BUYERS / USERS' }}</span></a>
@@ -64,6 +64,13 @@
             </li>
             <li ui-sref-active="active">
                 <a ui-sref="widgets"><i class="fa fa-money"></i> <span class="nav-label">{{ 'PAYMENTS' }}</span></a>
+            </li>
+            <li ng-class="{active: $state.includes('mobile')}">
+                <a href="#"><i class="fa fa-mobile"></i> <span class="nav-label">{{ 'MOBILE CONTENT' }}</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('mobile')}">
+                    <li ui-sref-active="active"><a ui-sref="mobile.banners">Mobile Banners</a></li>
+                    <li ui-sref-active="active"><a ui-sref="mobile.contents">Mobile Contents</a></li>
+                </ul>
             </li>
             <li ng-class="{active: $state.includes('charts')}">
                 <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">{{ 'INSIGHTS' }}</span><span class="fa arrow"></span></a>

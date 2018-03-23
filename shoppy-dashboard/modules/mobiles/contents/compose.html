@@ -1,0 +1,88 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Mobile Contents</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a ui-sref="dashboards.dashboard_1">Home</a>
+            </li>
+            <li>
+                <a ui-sref="mobile.contents">Mobile Contents</a>
+            </li>
+            <li class="active">
+                <strong>Compose</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="mail-box-header">
+                <div class="pull-right tooltip-demo">
+                    <a class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Send" ng-click="save()"><i class="fa fa-reply"></i> Save</a>
+                    <a class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Discard email"><i class="fa fa-times"></i> Discard</a>
+                    <a class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Move to draft folder"><i class="fa fa-pencil"></i> Draft</a>
+                </div>
+                <h2>
+                    Compse Newsletter
+                </h2>
+            </div>
+            <div class="mail-box">
+                <form class="form-horizontal" method="get">
+                    <div class="mail-body">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Title:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" ng-model="content.title">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mail-text h-200">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Summary:</label>
+                            <div class="col-sm-10">
+                                <div summernote class="summernote" ng-model="content.summary">
+                                    <h3>Hello Jonathan! </h3> dummy text of the printing and typesetting industry. <strong>Lorem Ipsum has been the industry's</strong> standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
+                                    <br/>
+                                    <br/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="mail-text h-200">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Content:</label>
+                            <div class="col-sm-10">
+                                <div summernote class="summernote" ng-model="content.content">
+                                    <h3>Hello Jonathan! </h3> dummy text of the printing and typesetting industry. <strong>Lorem Ipsum has been the industry's</strong> standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
+                                    <br/>
+                                    <br/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="mail-body">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Tags:</label>
+                            <div class="col-sm-10">
+                                <tags-input ng-model="tags">
+                                    <auto-complete source="loadTags($query)"></auto-complete>
+                                </tags-input>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="mail-body text-right tooltip-demo">
+                    <a class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Send" ng-click="save()"><i class="fa fa-reply"></i> Save</a>
+                    <a class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Discard email"><i class="fa fa-times"></i> Discard</a>
+                    <a class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Move to draft folder"><i class="fa fa-pencil"></i> Draft</a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
