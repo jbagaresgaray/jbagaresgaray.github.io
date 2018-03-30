@@ -34,87 +34,46 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Project </th>
-                                        <th>Name </th>
-                                        <th>Phone </th>
-                                        <th>Company </th>
-                                        <th>Completed </th>
-                                        <th>Task</th>
-                                        <th>Date</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Project <small>This is example of project</small></td>
-                                        <td><img src="images/gallery/2s.jpg"></td>
-                                        <td>0800 051213</td>
-                                        <td>Inceptos Hymenaeos Ltd</td>
-                                        <td>
-                                            <pie-chart data="main.PieChart5.data" options="main.PieChart5.options"></pie-chart>
-                                        </td>
-                                        <td>20%</td>
-                                        <td>Jul 14, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Alpha project</td>
-                                        <td><img src="images/gallery/2s.jpg"></td>
-                                        <td>0500 780909</td>
-                                        <td>Nec Euismod In Company</td>
-                                        <td>
-                                            <pie-chart data="main.PieChart4.data" options="main.PieChart4.options"></pie-chart>
-                                        </td>
-                                        <td>40%</td>
-                                        <td>Jul 16, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Betha project</td>
-                                        <td><img src="images/gallery/2s.jpg"></td>
-                                        <td>0800 1111</td>
-                                        <td>Erat Volutpat</td>
-                                        <td>
-                                            <pie-chart data="main.PieChart3.data" options="main.PieChart3.options"></pie-chart>
-                                        </td>
-                                        <td>75%</td>
-                                        <td>Jul 18, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Gamma project</td>
-                                        <td><img src="images/gallery/2s.jpg"></td>
-                                        <td>(016977) 0648</td>
-                                        <td>Tellus Ltd</td>
-                                        <td>
-                                            <pie-chart data="main.PieChart6.data" options="main.PieChart6.options"></pie-chart>
-                                        </td>
-                                        <td>18%</td>
-                                        <td>Jul 22, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Alpha project</td>
-                                        <td><img src="images/gallery/2s.jpg"></td>
-                                        <td>0500 780909</td>
-                                        <td>Nec Euismod In Company</td>
-                                        <td>
-                                            <pie-chart data="main.PieChart.data" options="main.PieChart.options"></pie-chart>
-                                        </td>
-                                        <td>40%</td>
-                                        <td>Jul 16, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                </tbody>
+                            <table ng-table="tableParams" class="table table-striped">
+                                <tr ng-repeat="category in $data">
+                                    <td title="'Image'" sortable="'image'">
+                                        <img ng-src="{{category.img_path || 'images/banner_def.png'}}" onerror="this.src='images/banner_def.png'" class="img-responsive" width="200px">
+                                    </td>
+                                    <td title="'Name'" sortable="'name'">{{category.name}}</td>
+                                    <!-- <td title="'Sort Order'">
+                                        <div class="btn-group" uib-dropdown dropdown-append-to-body>
+                                            <button id="btn-append-to-body" type="button" class="btn btn-primary btn-sm" uib-dropdown-toggle>
+                                                1 <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+                                                <li role="menuitem"><a href="#">2</a></li>
+                                                <li role="menuitem"><a href="#">3</a></li>
+                                                <li role="menuitem"><a href="#">4</a></li>
+                                                <li role="menuitem"><a href="#">5</a></li>
+                                                <li role="menuitem"><a href="#">6</a></li>
+                                            </ul>
+                                        </div>
+                                    </td> -->
+                                    <td title="'Publish'">
+                                        <div class="btn-group" uib-dropdown dropdown-append-to-body>
+                                            <button id="btn-append-to-body" type="button" class="btn btn-primary btn-sm" uib-dropdown-toggle>
+                                                {{category.isPublished == 1 ? 'Publish' : 'Un-Publish'}} <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+                                                <li role="menuitem"><a href="" ng-click="publishBanner('publish',category)">Publish</a></li>
+                                                <li role="menuitem"><a href="" ng-click="publishBanner('unpublish',category)">Un-Publish</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td title="''" class="pull-right">
+                                        <a class="btn btn-sm btn-default" uib-tooltip="Update" ng-click="updateBanner(category)">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        <a class="btn btn-sm btn-danger" uib-tooltip="Delete" ng-click="deleteBanner(category)">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
                             </table>
                         </div>
                     </div>

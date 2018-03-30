@@ -51,11 +51,11 @@
                                     <td title="'Seller Approval'">{{seller.sellerApprovalDate | date: 'MMM/dd/yyyy'}}</td>
                                     <td title="'Seller Application'">{{seller.sellerApplicationDate | date: 'MMM/dd/yyyy'}}</td>
                                     <td title="''" class="pull-right">
-                                        <a class="btn btn-xs btn-default" ng-click="updateCourier(user)">
-                                            <i class="fa fa-edit"></i>
+                                        <a class="btn btn-xs btn-default" ng-click="approveApplicant(seller)" ng-if="showApproveIco">
+                                            <i class="fa fa-thumbs-up"></i>
                                         </a>
-                                        <a class="btn btn-xs btn-danger" ng-click="deleteSelected(user)">
-                                            <i class="fa fa-trash"></i>
+                                        <a class="btn btn-xs btn-default" ng-click="viewApplication(seller)">
+                                            <i class="fa fa-eye"></i>
                                         </a>
                                     </td>
                                 </tr>
