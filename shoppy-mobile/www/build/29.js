@@ -1,14 +1,14 @@
 webpackJsonp([29],{
 
-/***/ 648:
+/***/ 710:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatdetailPageModule", function() { return ChatdetailPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MakepaymentPageModule", function() { return MakepaymentPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__chatdetail__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__makepayment__ = __webpack_require__(205);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ChatdetailPageModule = (function () {
-    function ChatdetailPageModule() {
+var MakepaymentPageModule = (function () {
+    function MakepaymentPageModule() {
     }
-    ChatdetailPageModule = __decorate([
+    MakepaymentPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__chatdetail__["b" /* ChatdetailPage */],
+                __WEBPACK_IMPORTED_MODULE_2__makepayment__["a" /* MakepaymentPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__chatdetail__["b" /* ChatdetailPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__makepayment__["a" /* MakepaymentPage */]),
             ],
         })
-    ], ChatdetailPageModule);
-    return ChatdetailPageModule;
+    ], MakepaymentPageModule);
+    return MakepaymentPageModule;
 }());
 
-//# sourceMappingURL=chatdetail.module.js.map
+//# sourceMappingURL=makepayment.module.js.map
 
 /***/ })
 

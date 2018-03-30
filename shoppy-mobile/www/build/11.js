@@ -1,14 +1,14 @@
 webpackJsonp([11],{
 
-/***/ 665:
+/***/ 728:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PaymentmethodPageModule", function() { return PaymentmethodPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductVariationEntryPageModule", function() { return ProductVariationEntryPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__paymentmethod__ = __webpack_require__(433);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__product_variation_entry__ = __webpack_require__(198);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var PaymentmethodPageModule = (function () {
-    function PaymentmethodPageModule() {
+var ProductVariationEntryPageModule = (function () {
+    function ProductVariationEntryPageModule() {
     }
-    PaymentmethodPageModule = __decorate([
+    ProductVariationEntryPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__paymentmethod__["a" /* PaymentmethodPage */],
+                __WEBPACK_IMPORTED_MODULE_2__product_variation_entry__["a" /* ProductVariationEntryPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__paymentmethod__["a" /* PaymentmethodPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__product_variation_entry__["a" /* ProductVariationEntryPage */]),
             ],
         })
-    ], PaymentmethodPageModule);
-    return PaymentmethodPageModule;
+    ], ProductVariationEntryPageModule);
+    return ProductVariationEntryPageModule;
 }());
 
-//# sourceMappingURL=paymentmethod.module.js.map
+//# sourceMappingURL=product-variation-entry.module.js.map
 
 /***/ })
 
