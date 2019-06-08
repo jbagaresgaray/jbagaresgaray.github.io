@@ -2642,3 +2642,10 @@ h6 {
 .switch-wrap p {
   margin: 0;
 }
+
+#particles-js{
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
