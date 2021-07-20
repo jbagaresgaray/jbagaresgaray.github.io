@@ -2217,7 +2217,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .single-service .icon {
-  margin-right: 40px;
+  /*margin-right: 40px;*/
+  margin: 0 auto;
+  text-align: center;
+}
+
+.single-service .icon img {
+  height: 250px;
+  width: 250px;
 }
 
 .single-service a {
@@ -2648,4 +2655,12 @@ h6 {
   left: 0;
   right: 0;
   width: 100%;
+}
+
+.logo-circle {
+  background-color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
 }

@@ -1,8 +1,10 @@
 $(document).ready(function() {
   "use strict";
 
-  console.log("particlesJS");
-  particlesJS("particles-js", {
+  var particle = document.getElementById("particles-js");
+  if (typeof(particle) != 'undefined' && particle != null)
+{
+    particlesJS("particles-js", {
     particles: {
       number: {
         value: 80,
@@ -112,6 +114,9 @@ $(document).ready(function() {
     },
     retina_detect: true
   });
+}
+
+
 
   var window_width = $(window).width(),
     window_height = window.innerHeight,
