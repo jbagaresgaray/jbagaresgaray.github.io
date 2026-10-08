@@ -75,12 +75,16 @@ export function validateContact(values: ContactValues): ContactErrors {
   return errors;
 }
 
+// On Vercel the form posts to its own API route. The GitHub Pages build has no server,
+// so it points the form at the Vercel deployment instead (see .github/workflows/deploy.yml).
+const CONTACT_ENDPOINT = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT || "/api/contact";
+
 export async function submitContact(
   values: ContactValues,
   spamChecks: { website: string; elapsed: number },
 ): Promise<SubmitResult> {
   try {
-    const response = await fetch("/api/contact", {
+    const response = await fetch(CONTACT_ENDPOINT, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...values, ...spamChecks }),

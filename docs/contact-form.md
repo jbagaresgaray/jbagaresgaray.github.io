@@ -1,6 +1,6 @@
 # Contact form
 
-The form in [`src/components/Contact.tsx`](../src/components/Contact.tsx) posts to the API route [`src/app/api/contact/route.ts`](../src/app/api/contact/route.ts). That route runs as a Vercel function and emails each submission to both `philipgaray2@gmail.com` and `dev.philipcesar@gmail.com`, following Resend's [Send emails with Next.js](https://resend.com/docs/send-with-nextjs) guide:
+The form in [`src/components/Contact.tsx`](../src/components/Contact.tsx) posts to the API route [`src/app/api/contact/route.ts`](../src/app/api/contact/route.ts). That route runs as a Vercel function (the GitHub Pages copy of the site calls it across domains, see below) and emails each submission to both `philipgaray2@gmail.com` and `dev.philipcesar@gmail.com`, following Resend's [Send emails with Next.js](https://resend.com/docs/send-with-nextjs) guide:
 
 - The [`resend`](https://www.npmjs.com/package/resend) SDK sends the email with `resend.emails.send()`.
 - The email body is the React component [`src/components/EmailTemplate.tsx`](../src/components/EmailTemplate.tsx), passed as `react`. A plain-text version goes alongside it. `@react-email/render` is installed because the SDK needs it to render the `react` template.
@@ -22,6 +22,31 @@ The form in [`src/components/Contact.tsx`](../src/components/Contact.tsx) posts 
 | `{ "ok": false, "error": "rate_limited" }` | 429 | Too many messages from this IP |
 | `{ "ok": false, "error": "server" }` | 500 / 502 | Key missing, or Resend rejected the email or couldn't be reached |
 | `{ "ok": false, "error": "quota" }` | 503 | Resend's sending limit was hit |
+
+## Two deployments: GitHub Pages and Vercel
+
+The site is published to **GitHub Pages** as a static export, and **Vercel** runs the same app with its API route. GitHub Pages can't run server code, so the form on the Pages site posts across domains to the Vercel API.
+
+| | GitHub Pages | Vercel |
+|---|---|---|
+| Built by | `.github/workflows/deploy.yml` on every push to `master` | Vercel's Git integration |
+| Build mode | `STATIC_EXPORT=true` → `output: "export"` into `out/` | Normal server build |
+| Contact form posts to | `NEXT_PUBLIC_CONTACT_ENDPOINT` (the Vercel API) | Its own `/api/contact` |
+
+The API only answers browsers on origins in `CONTACT_ALLOWED_ORIGINS`, which defaults to `https://jbagaresgaray.github.io`. Other sites' browsers are blocked by CORS.
+
+To connect them:
+
+1. Deploy to Vercel and set the environment variables below. Then note the production URL, for example `https://your-project.vercel.app`.
+2. In GitHub, go to **Settings → Secrets and variables → Actions → Variables** and add a variable named `CONTACT_ENDPOINT` with the value `https://your-project.vercel.app/api/contact`:
+
+   ```bash
+   gh variable set CONTACT_ENDPOINT --body "https://your-project.vercel.app/api/contact"
+   ```
+
+3. Re-run the **Deploy to GitHub Pages** workflow, or push, so the new value is built into the page.
+
+If `CONTACT_ENDPOINT` isn't set, the Pages form posts to `/api/contact` on github.io, which doesn't exist, and visitors see the error message with your email address.
 
 ## Set up Resend
 

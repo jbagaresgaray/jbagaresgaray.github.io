@@ -26,20 +26,45 @@ const RATE_LIMIT = 5;
 const RATE_WINDOW_MS = 10 * 60 * 1000;
 const recentSends = new Map<string, number[]>();
 
+// Sites on other domains allowed to post to this endpoint: the GitHub Pages copy of the
+// site calls it cross-origin. Override with CONTACT_ALLOWED_ORIGINS (comma-separated).
+const ALLOWED_ORIGINS = (process.env.CONTACT_ALLOWED_ORIGINS ?? "https://jbagaresgaray.github.io")
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
+function corsHeaders(request: Request): Record<string, string> {
+  const origin = request.headers.get("origin");
+  if (!origin || !ALLOWED_ORIGINS.includes(origin)) return {};
+  return {
+    "Access-Control-Allow-Origin": origin,
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Max-Age": "86400",
+    Vary: "Origin",
+  };
+}
+
+// Browsers send this preflight before a cross-origin JSON POST.
+export function OPTIONS(request: Request) {
+  return new Response(null, { status: 204, headers: corsHeaders(request) });
+}
+
 export async function POST(request: Request) {
+  const cors = corsHeaders(request);
   let body: Record<string, unknown>;
   try {
     body = await request.json();
     if (!body || typeof body !== "object") throw new Error("Body is not an object");
   } catch {
-    return reply({ ok: false, error: "bad_request" }, 400);
+    return reply(cors, { ok: false, error: "bad_request" }, 400);
   }
 
   // Report success to bots so they don't learn to dodge the traps.
   const honeypotFilled = typeof body.website === "string" && body.website.trim() !== "";
   if (honeypotFilled || !(Number(body.elapsed) >= MIN_FILL_TIME_MS)) {
     console.log("Dropped a submission caught by the spam checks.");
-    return reply({ ok: true });
+    return reply(cors, { ok: true });
   }
 
   const text = (value: unknown) => (typeof value === "string" ? value.trim() : "");
@@ -51,9 +76,9 @@ export async function POST(request: Request) {
     message: text(body.message),
   };
   const fields = validateContact(values);
-  if (Object.keys(fields).length > 0) return reply({ ok: false, error: "validation", fields }, 400);
+  if (Object.keys(fields).length > 0) return reply(cors, { ok: false, error: "validation", fields }, 400);
 
-  if (!withinRateLimit(clientIp(request))) return reply({ ok: false, error: "rate_limited" }, 429);
+  if (!withinRateLimit(clientIp(request))) return reply(cors, { ok: false, error: "rate_limited" }, 429);
 
   const submittedAt = `${new Intl.DateTimeFormat("en-US", {
     dateStyle: "full",
@@ -83,19 +108,19 @@ export async function POST(request: Request) {
       // Resend explains rejections, such as an unverified domain or an invalid key.
       console.error(`Resend rejected the email (${error.statusCode ?? "no status"} ${error.name}): ${error.message}`);
       return error.statusCode === 429
-        ? reply({ ok: false, error: "quota" }, 503)
-        : reply({ ok: false, error: "server" }, 502);
+        ? reply(cors, { ok: false, error: "quota" }, 503)
+        : reply(cors, { ok: false, error: "server" }, 502);
     }
   } catch (err) {
     console.error("Could not send through Resend:", err);
-    return reply({ ok: false, error: "server" }, 502);
+    return reply(cors, { ok: false, error: "server" }, 502);
   }
 
-  return reply({ ok: true });
+  return reply(cors, { ok: true });
 }
 
-function reply(result: SubmitResult, status = 200) {
-  return NextResponse.json(result, { status });
+function reply(headers: Record<string, string>, result: SubmitResult, status = 200) {
+  return NextResponse.json(result, { status, headers });
 }
 
 function clientIp(request: Request) {
