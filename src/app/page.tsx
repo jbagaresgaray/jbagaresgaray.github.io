@@ -9,10 +9,13 @@ import About from "@/components/landing/About";
 import Faq from "@/components/landing/Faq";
 import ContactSection from "@/components/landing/ContactSection";
 import SiteFooter from "@/components/landing/SiteFooter";
+import { homePageJsonLd } from "@/lib/structured-data";
 
 export default function Home() {
   return (
     <>
+      {/* Structured data for search engines: WebSite, ProfilePage, Person and FAQPage. */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: homePageJsonLd() }} />
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:text-paper"

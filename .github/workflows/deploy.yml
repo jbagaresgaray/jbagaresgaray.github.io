@@ -44,6 +44,9 @@ jobs:
           # https://your-project.vercel.app/api/contact
           NEXT_PUBLIC_CONTACT_ENDPOINT: ${{ vars.CONTACT_ENDPOINT }}
 
+      - name: Check SEO tags
+        run: npm run seo:check
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

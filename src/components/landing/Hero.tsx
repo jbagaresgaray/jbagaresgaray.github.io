@@ -9,7 +9,7 @@ const proofPoints = [
 const disciplines = ["Frontend development", "Mobile apps · iOS & Android", "Full-stack development"];
 
 // Mirrors the skills table on the résumé, in the same order.
-const stack = [
+export const stack = [
   { category: "Languages", skills: ["TypeScript", "JavaScript", "HTML5", "CSS", "Sass/SCSS"] },
   {
     category: "Mobile",

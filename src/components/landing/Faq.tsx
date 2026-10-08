@@ -1,6 +1,6 @@
 import { Plus, SectionHeading } from "./ui";
 
-const faqs = [
+export const faqs = [
   {
     question: "What kinds of projects do you take on?",
     answer:

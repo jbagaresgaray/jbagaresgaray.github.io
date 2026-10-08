@@ -1,6 +1,6 @@
 import { ArrowRight, Check, SectionHeading, buttonPrimary } from "./ui";
 
-const services = [
+export const services = [
   {
     number: "01",
     title: "Web Apps & Frontend",
