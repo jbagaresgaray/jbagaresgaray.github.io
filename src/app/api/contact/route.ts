@@ -15,9 +15,6 @@ const RECIPIENTS = ["philipgaray2@gmail.com", "dev.philipcesar@gmail.com"];
 const TEST_SENDER = "Portfolio Contact Form <onboarding@resend.dev>";
 const RESEND_ACCOUNT_EMAIL = "dev.philipcesar@gmail.com";
 
-// Throws "Missing API key" on the first request if RESEND_API_KEY isn't set.
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // Anti-spam. A real person takes longer than this to fill in the form.
 const MIN_FILL_TIME_MS = 3000;
 // Per-IP send limit. Kept in memory, so it's per server instance: enough to blunt
@@ -79,6 +76,16 @@ export async function POST(request: Request) {
   if (Object.keys(fields).length > 0) return reply(cors, { ok: false, error: "validation", fields }, 400);
 
   if (!withinRateLimit(clientIp(request))) return reply(cors, { ok: false, error: "rate_limited" }, 429);
+
+  // Created per request rather than at module scope: `new Resend()` throws without a key,
+  // and `next build` loads this module while collecting page data, including in CI and
+  // the GitHub Pages export, where no key exists.
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    console.error("RESEND_API_KEY is not set; see docs/contact-form.md.");
+    return reply(cors, { ok: false, error: "server" }, 500);
+  }
+  const resend = new Resend(apiKey);
 
   const submittedAt = `${new Intl.DateTimeFormat("en-US", {
     dateStyle: "full",

@@ -100,6 +100,6 @@ Function logs are under **Vercel → Project → Logs** (filter by `/api/contact
 
 - **`403 validation_error`, "You can only send testing emails to your own email address (…)":** you're in test mode, and the address in the brackets doesn't match `RESEND_ACCOUNT_EMAIL` in `route.ts`, for example because you switched Resend accounts. Update the constant to match.
 - **`403`, "The … domain is not verified":** `CONTACT_FROM_EMAIL` uses a domain that isn't verified in Resend yet. Finish step 3 of *Go live*, or clear the variable to go back to test mode.
-- **`Missing API key. Pass it to the constructor`:** `RESEND_API_KEY` isn't set for that environment (Production, Preview or Development), or you haven't redeployed since adding it.
+- **`RESEND_API_KEY is not set`:** the key is missing for that environment (Production, Preview or Development), or you haven't redeployed since adding it. The form shows visitors the error message with your email address.
 - **`401` / `invalid_api_key`:** the key is wrong or has been revoked.
 - **Resend shows the email as delivered, but it never arrived:** check spam. Resend's own log is at <https://resend.com/emails>.
