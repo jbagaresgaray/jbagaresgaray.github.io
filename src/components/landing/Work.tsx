@@ -81,6 +81,18 @@ const liveApps: LiveApp[] = [
     googlePlay: "https://play.google.com/store/apps/details?id=com.dishdashdine.app",
   },
   {
+    slug: "smallsoftware",
+    title: "Small Software",
+    category: "Business",
+    summary: "An employee app for franchise crews to check shifts, chat with their team, request time off and find company resources.",
+    highlight: "Built the crew app for multi-unit franchise operators",
+    role: "Senior mobile developer",
+    stack: ["React Native", "TypeScript", "Redux Toolkit"],
+    brand: "#d80060",
+    screenAlt: "Small Software app screens: a team chat, the weekly shift schedule and a time-off request",
+    googlePlay: "https://play.google.com/store/apps/details?id=com.smallsoftware.s2&hl=en",
+  },
+  {
     slug: "taskspur",
     title: "TaskSpur",
     category: "Productivity",

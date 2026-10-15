@@ -24,7 +24,7 @@ export const faqs = [
   {
     question: "Do you handle App Store and Google Play releases?",
     answer:
-      "Yes. I’ve shipped apps for Purpl, Wander, Baby Journey, FutureMe, Dish Dash Dine and TaskSpur, so I can take care of builds, signing, store listings and review submissions for you.",
+      "Yes. I’ve shipped apps for Purpl, Wander, Baby Journey, FutureMe, Dish Dash Dine, Small Software and TaskSpur, so I can take care of builds, signing, store listings and review submissions for you.",
   },
   {
     question: "How do we work across time zones?",
