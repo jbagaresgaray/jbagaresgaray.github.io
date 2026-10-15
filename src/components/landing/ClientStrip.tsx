@@ -1,5 +1,5 @@
 // Companies from the work history I've built products for.
-const clients = ["AirAsia", "Perx", "Wander", "FutureMe", "Purpl", "Dish Dash Dine", "Narnoo"];
+const clients = ["AirAsia", "Perx", "Wander", "Baby Journey", "FutureMe", "Purpl", "Dish Dash Dine", "Narnoo"];
 
 export default function ClientStrip() {
   return (

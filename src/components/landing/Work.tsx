@@ -44,6 +44,19 @@ const liveApps: LiveApp[] = [
     googlePlay: "https://play.google.com/store/apps/details?id=com.wander.com.app",
   },
   {
+    slug: "babyjourney",
+    title: "Baby Journey",
+    category: "Health & parenting",
+    summary: "Follow your pregnancy week by week, then your child’s growth and milestones up to age five, with advice from midwives and doctors.",
+    highlight: "Shipped features for the largest pregnancy app in the Nordics",
+    role: "Senior mobile developer",
+    stack: ["React Native", "TypeScript", "Redux Toolkit", "Firebase"],
+    brand: "#4d3d71",
+    screenAlt: "Baby Journey app screens: a daily mood log, the week-by-week pregnancy tracker and a child’s height chart",
+    appStore: "https://apps.apple.com/dk/app/baby-journey-pregnancy-app/id1515225502",
+    googlePlay: "https://play.google.com/store/apps/details?id=se.babyjourney&hl=en",
+  },
+  {
     slug: "futureme",
     title: "FutureMe",
     category: "Lifestyle",
@@ -116,6 +129,10 @@ const earlierWork = [
     alt: "Four Kegit screens: scanning kegs by QR code, the selected-kegs list, keg history and sign-in",
   },
 ];
+
+// On large screens featured cards sit two to a row and the rest three to a row, so the
+// number featured soaks up the remainder and the last row is never left half-empty.
+const featuredCount = [0, 4, 2][liveApps.length % 3];
 
 function platforms(app: LiveApp) {
   if (app.appStore && app.googlePlay) return "iOS & Android";
@@ -207,7 +224,7 @@ export default function Work() {
           eyebrow="Selected work"
           title="Apps people use every day."
           titleId="work-title"
-          lead="Live on the App Store and Google Play, built for startups and growing companies in fintech, travel, food and productivity."
+          lead="Live on the App Store and Google Play, built for startups and growing companies in fintech, travel, health, food and productivity."
         />
 
         <div className="flex flex-col gap-6">
@@ -217,8 +234,8 @@ export default function Work() {
           </h3>
           <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-6">
             {liveApps.map((app, i) => (
-              <li key={app.slug} className={i < 2 ? "lg:col-span-3" : "lg:col-span-2"}>
-                <LiveAppCard app={app} featured={i < 2} />
+              <li key={app.slug} className={i < featuredCount ? "lg:col-span-3" : "lg:col-span-2"}>
+                <LiveAppCard app={app} featured={i < featuredCount} />
               </li>
             ))}
           </ul>
