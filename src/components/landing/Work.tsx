@@ -12,6 +12,8 @@ type LiveApp = {
   brand: string;
   screenAlt: string;
   appStore?: string;
+  // Shows a "coming soon" badge in place of the App Store link until the listing is live.
+  appStoreSoon?: boolean;
   googlePlay?: string;
 };
 
@@ -42,6 +44,19 @@ const liveApps: LiveApp[] = [
     screenAlt: "Wander app screens: a grid of vacation homes, the home feed and a property listing",
     appStore: "https://apps.apple.com/us/app/wa-nder/id1582777762",
     googlePlay: "https://play.google.com/store/apps/details?id=com.wander.com.app",
+  },
+  {
+    slug: "chozi",
+    title: "Chozi",
+    category: "Real estate",
+    summary: "Buy, sell and rent property across Costa Rica: search homes on a map, post a Signal with what you need and connect with verified agents.",
+    highlight: "Building Costa Rica’s all-in-one real estate app",
+    role: "Lead senior mobile developer",
+    stack: ["React Native", "TypeScript", "Expo", "Reanimated", "TanStack React Query", "Firebase"],
+    brand: "#3c8cff",
+    screenAlt: "Chozi app screens: listing prices on a map, homes for sale and rent in Escazú, and a property’s details",
+    appStoreSoon: true,
+    googlePlay: "https://play.google.com/store/apps/details?id=com.chozi.mobileapp",
   },
   {
     slug: "babyjourney",
@@ -148,6 +163,7 @@ const featuredCount = [0, 4, 2][liveApps.length % 3];
 
 function platforms(app: LiveApp) {
   if (app.appStore && app.googlePlay) return "iOS & Android";
+  if (app.appStoreSoon) return "Android · iOS soon";
   return app.appStore ? "iOS" : "Android";
 }
 
@@ -163,6 +179,14 @@ function StoreLink({ href, store, app }: { href: string; store: string; app: str
       <span className="sr-only">: {app} (opens in a new tab)</span>
       <ArrowUpRight />
     </a>
+  );
+}
+
+function IosSoon() {
+  return (
+    <span className="inline-flex items-center gap-1.5 rounded-md border border-dashed border-line px-4 py-2 font-display text-[13px] font-medium uppercase tracking-[0.04em] text-muted">
+      <span className="normal-case">iOS</span> · Soon
+    </span>
   );
 }
 
@@ -221,6 +245,7 @@ function LiveAppCard({ app, featured }: { app: LiveApp; featured: boolean }) {
 
         <div className="mt-auto flex flex-wrap gap-2 border-t border-line pt-5">
           {app.appStore && <StoreLink href={app.appStore} store="App Store" app={app.title} />}
+          {app.appStoreSoon && <IosSoon />}
           {app.googlePlay && <StoreLink href={app.googlePlay} store="Google Play" app={app.title} />}
         </div>
       </div>
@@ -236,7 +261,7 @@ export default function Work() {
           eyebrow="Selected work"
           title="Apps people use every day."
           titleId="work-title"
-          lead="Live on the App Store and Google Play, built for startups and growing companies in fintech, travel, health, food and productivity."
+          lead="Live on the App Store and Google Play, built for startups and growing companies in fintech, travel, real estate, health, food and productivity."
         />
 
         <div className="flex flex-col gap-6">
