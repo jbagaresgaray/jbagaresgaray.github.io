@@ -43,7 +43,7 @@ export default function Services() {
   return (
     <section id="services" aria-labelledby="services-title" className="bg-surface py-20 sm:py-28">
       <div className="shell flex flex-col gap-12">
-        <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+        <div className="reveal flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <SectionHeading
             eyebrow="Services"
             title="Web, mobile and back end. One developer."
@@ -56,7 +56,7 @@ export default function Services() {
         </div>
 
         {/* Equal cards on purpose: the three services are parallel offers, not a ranking. */}
-        <ol className="grid gap-4 lg:grid-cols-3">
+        <ol className="reveal grid gap-4 lg:grid-cols-3">
           {services.map((service) => (
             <li key={service.title} className="flex flex-col gap-6 rounded-xl border border-line bg-paper p-7">
               <span className="font-display text-3xl font-bold text-brand-ink">{service.number}</span>

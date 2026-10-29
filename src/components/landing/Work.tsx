@@ -243,7 +243,7 @@ function LiveAppCard({ app, featured }: { app: LiveApp; featured: boolean }) {
 
 export default function Work() {
   return (
-    <section id="work" aria-labelledby="work-title" className="py-20 sm:py-28">
+    <section id="work" aria-labelledby="work-title" className="bg-surface py-20 sm:py-28">
       <div className="shell flex flex-col gap-12">
         <SectionHeading
           eyebrow="Selected work"
@@ -259,7 +259,7 @@ export default function Work() {
           </h3>
           <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-6">
             {liveApps.map((app, i) => (
-              <li key={app.slug} className={i < featuredCount ? "lg:col-span-3" : "lg:col-span-2"}>
+              <li key={app.slug} className={`reveal ${i < featuredCount ? "lg:col-span-3" : "lg:col-span-2"}`}>
                 <LiveAppCard app={app} featured={i < featuredCount} />
               </li>
             ))}
@@ -270,10 +270,10 @@ export default function Work() {
           <h3 className="text-sm font-medium uppercase tracking-[0.16em] text-ink">Earlier work</h3>
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {earlierWork.map((project) => (
-              <li key={project.title}>
+              <li key={project.title} className="reveal">
                 {/* A compact row on phones, a card from tablet width up. */}
-                <article className="flex h-full overflow-hidden rounded-xl border border-line bg-surface sm:flex-col">
-                  <div className="w-28 shrink-0 overflow-hidden border-r border-line bg-paper sm:aspect-[4/3] sm:w-auto sm:border-r-0 sm:border-b">
+                <article className="flex h-full overflow-hidden rounded-xl border border-line bg-paper sm:flex-col">
+                  <div className="w-28 shrink-0 overflow-hidden border-r border-line bg-surface sm:aspect-[4/3] sm:w-auto sm:border-r-0 sm:border-b">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={project.image}
@@ -299,7 +299,7 @@ export default function Work() {
           </ul>
         </div>
 
-        <div className="relative flex flex-col items-start justify-between gap-6 overflow-hidden rounded-xl bg-linear-to-r from-brand-start to-brand-end p-8 text-white sm:flex-row sm:items-center sm:p-10">
+        <div className="reveal relative flex flex-col items-start justify-between gap-6 overflow-hidden rounded-xl bg-linear-to-r from-brand-start to-brand-end p-8 text-white sm:flex-row sm:items-center sm:p-10">
           <p className="max-w-xl text-balance font-display text-2xl font-bold uppercase sm:text-3xl">
             Have an app idea? I&apos;ll help you get it into the stores.
           </p>

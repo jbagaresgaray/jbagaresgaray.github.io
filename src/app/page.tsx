@@ -25,10 +25,11 @@ export default function Home() {
       <SiteHeader />
       <main id="main">
         <Hero />
+        {/* The shipped apps are the proof, so they come straight after the hero. */}
+        <Work />
         <ClientStrip />
         <WhyMe />
         <Services />
-        <Work />
         <Process />
         <About />
         <Faq />

@@ -38,7 +38,7 @@ export function SectionHeading({
   dark?: boolean;
 }) {
   return (
-    <div className="flex max-w-3xl flex-col gap-4">
+    <div className="reveal flex max-w-3xl flex-col gap-4">
       <Eyebrow dark={dark}>{eyebrow}</Eyebrow>
       <h2
         id={titleId}

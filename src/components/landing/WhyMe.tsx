@@ -37,7 +37,7 @@ export default function WhyMe() {
           lead="A designer hands off to a developer, who waits on a copywriter, while you chase all three. Every handoff costs time, money and a little of the original idea."
         />
 
-        <div className="grid gap-4 lg:grid-cols-3">
+        <div className="reveal grid gap-4 lg:grid-cols-3">
           {alternatives.map((option) => (
             <div key={option.title} className="flex flex-col gap-5 rounded-xl border border-line bg-surface p-7">
               <h3 className="text-lg font-semibold uppercase tracking-[0.02em]">{option.title}</h3>

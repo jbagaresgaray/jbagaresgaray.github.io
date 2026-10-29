@@ -92,6 +92,32 @@ body {
   }
 }
 
+/* Section headings, each app card and each section's main block rise into place as
+   they scroll into view, so the eye moves through the work one row at a time. Pure CSS:
+   browsers without scroll-driven animations show everything as is, and it is off under
+   reduced motion. The range is a fixed scroll distance, not a share of the element's
+   height, so a tall block is fully in place before its top reaches the middle of a
+   phone screen. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 10rem;
+    }
+  }
+}
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* Land anchor jumps below the sticky header. */
 [id] {
   scroll-margin-top: 5.5rem;

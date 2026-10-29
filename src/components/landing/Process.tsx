@@ -35,7 +35,7 @@ export default function Process() {
           dark
         />
 
-        <ol className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <ol className="reveal grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, i) => (
             <li key={step.title} className="flex flex-col gap-4 rounded-xl border border-white/10 bg-white/[0.03] p-7">
               <span className="flex h-11 w-11 items-center justify-center rounded-md bg-brand-start font-display text-base font-semibold text-white">

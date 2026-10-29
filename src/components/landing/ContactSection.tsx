@@ -12,7 +12,7 @@ export default function ContactSection() {
   return (
     <section id="contact" aria-labelledby="contact-title" className="bg-ink py-20 text-paper sm:py-28">
       <div className="shell grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-        <div className="flex flex-col gap-8">
+        <div className="reveal flex flex-col gap-8">
           <div className="flex flex-col gap-4">
             <Eyebrow dark>Start a project</Eyebrow>
             <h2 id="contact-title" className="text-balance text-4xl font-bold uppercase leading-[1.08] sm:text-5xl">
@@ -54,7 +54,10 @@ export default function ContactSection() {
           </div>
         </div>
 
-        <ContactForm />
+        {/* A grid wrapper so the form still stretches to the height of the left column. */}
+        <div className="reveal grid">
+          <ContactForm />
+        </div>
       </div>
     </section>
   );

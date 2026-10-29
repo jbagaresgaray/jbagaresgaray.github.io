@@ -57,7 +57,7 @@ export default function Faq() {
           }
         />
 
-        <div className="flex flex-col divide-y divide-line border-y border-line">
+        <div className="reveal flex flex-col divide-y divide-line border-y border-line">
           {faqs.map((faq) => (
             <details key={faq.question} className="group py-2">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-4 font-display text-lg font-medium transition-colors hover:text-brand-start [&::-webkit-details-marker]:hidden">

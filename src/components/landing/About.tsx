@@ -10,7 +10,7 @@ export default function About() {
   return (
     <section id="about" aria-labelledby="about-title" className="py-20 sm:py-28">
       <div className="shell grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
-        <div className="flex flex-col gap-6">
+        <div className="reveal flex flex-col gap-6">
           <Eyebrow>About</Eyebrow>
           <h2 id="about-title" className="text-balance text-3xl font-bold uppercase leading-[1.1] sm:text-4xl lg:text-[2.75rem]">
             Hi, I&apos;m Philip. I sit where design, code and words meet.
@@ -25,7 +25,7 @@ export default function About() {
           </dl>
         </div>
 
-        <div className="flex flex-col gap-6 text-pretty text-lg leading-relaxed text-muted">
+        <div className="reveal flex flex-col gap-6 text-pretty text-lg leading-relaxed text-muted">
           <p>
             For more than 12 years I&apos;ve helped startups and established companies turn ideas into apps for iOS,
             Android, web and desktop, from a #1 mindfulness app in New Zealand to products for AirAsia, Wander and

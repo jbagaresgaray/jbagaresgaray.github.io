@@ -4,7 +4,7 @@ The look is adapted from the Satner template. The owner kept it as the brand on 
 
 Reading this as: a freelance developer's portfolio for startup founders and product teams, in a Satner-inspired indigo-violet style.
 
-Dial: ENERGY 2 / RHYTHM 2 / MOTION 1
+Dial: ENERGY 2 / RHYTHM 2 / MOTION 2
 
 ## Palette
 
@@ -43,11 +43,17 @@ The giant faded word behind the hero, and the gradient disc framing the portrait
 
 ## Layout and rhythm (RHYTHM 2)
 
+Section order follows the Portfolio Grid pattern (hero, then the work, then about and contact): the shipped apps come straight after the hero because they are the proof, and the client names follow as an extension of the work. The work section is lavender so it reads as its own section after the white hero.
+
 Consistent, with a few breaks: two dark bands (Process, Contact) and split layouts (hero, About, FAQ, Contact) interrupt the light card grids. The three Services cards are equal on purpose: they are parallel offers, not a ranking.
 
-## Motion (MOTION 1)
+## Motion (MOTION 2)
 
-Hover and state transitions only, plus smooth scrolling to anchors. Nothing loops, and all of it stops under `prefers-reduced-motion`.
+- Hover and state transitions, plus smooth scrolling to anchors.
+- One scroll reveal: section headings, each app card, each earlier-work card and each section's main block fade in and rise 1.5rem as they enter the screen. Purpose: the eye moves through the work one row of apps at a time, and each new section announces itself as you reach it.
+- The hero never animates, so the first screen is complete on load.
+- The reveal is tied to scroll position (CSS scroll-driven animation), not a timer: it finishes within the first 10rem of scrolling after an element appears, so it never lags behind a fast scroll, and a fixed distance means a tall block on a phone is fully in place before it reaches mid-screen.
+- Nothing loops. Browsers without scroll-driven animations show everything as is, and all motion stops under `prefers-reduced-motion`.
 
 ## Owner overrides (antislop R-37)
 
