@@ -1,26 +1,22 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Landing page palette, inspired by Satner: white pages, lavender surfaces,
-     deep navy ink and an indigo-to-violet brand gradient. White text sits on the
-     gradient; on lavender, brand-ink is the accent text colour. DESIGN.md records
-     where each colour, the gradient and the glow are allowed. */
-  --color-paper: #ffffff;
-  --color-surface: #f7f6fe;
-  --color-ink: #1c1b33;
-  --color-muted: #64637a;
-  --color-line: #e6e4f3;
-  --color-brand-start: #4458dc;
-  --color-brand-end: #854fee;
-  --color-brand-ink: #4b37c4;
-  --color-brand-soft: #eeebfd;
-  --color-brand-light: #b9b0ff;
-  --color-success: #1fae5b;
+  /* Editorial palette: warm paper, warm ink and one terracotta accent.
+     DESIGN.md records what each colour is for and why. */
+  --color-paper: #faf7f2;
+  --color-surface: #f2ede4;
+  --color-ink: #1f1d1a;
+  --color-muted: #5c574f;
+  --color-line: #e0d8cb;
+  --color-accent: #a8461f;
+  --color-accent-soft: #f5e6dc;
+  --color-accent-light: #e7a07f;
+  --color-success: #1f8a4c;
   --color-error: #b42318;
 
   /* Set by next/font in src/app/layout.tsx. */
-  --font-sans: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-rubik), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-newsreader), ui-serif, Georgia, serif;
 }
 
 html {
@@ -32,8 +28,7 @@ body {
   color: var(--color-ink);
   font-family: var(--font-sans);
   font-weight: 400;
-  line-height: 1.5;
-  letter-spacing: -0.005em;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -64,34 +59,6 @@ body {
   }
 }
 
-@layer components {
-  /* White button with a brand-gradient border (Satner's outline button). */
-  .gradient-border {
-    border: 2px solid transparent;
-    background:
-      linear-gradient(var(--color-paper), var(--color-paper)) padding-box,
-      linear-gradient(90deg, var(--color-brand-start), var(--color-brand-end)) border-box;
-  }
-
-  /* Text filled with the brand gradient. */
-  .gradient-text {
-    background-image: linear-gradient(90deg, var(--color-brand-start), var(--color-brand-end));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-box-decoration-break: clone;
-    box-decoration-break: clone;
-  }
-
-  /* Lighter gradient text for dark sections. */
-  .gradient-text-light {
-    background-image: linear-gradient(90deg, #a5b1ff, #cdb9ff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-}
-
 /* Land anchor jumps below the sticky header. */
 [id] {
   scroll-margin-top: 5.5rem;
@@ -110,8 +77,8 @@ body {
 }
 
 ::selection {
-  background: var(--color-brand-soft);
-  color: var(--color-brand-ink);
+  background: var(--color-accent-soft);
+  color: var(--color-ink);
 }
 
 /* Page container: 16px side gutters on phones, centred at up to 1200px. */
@@ -143,6 +110,6 @@ body {
   transition: text-decoration-color 150ms;
 }
 .link:hover {
-  text-decoration-color: var(--color-brand-end);
+  text-decoration-color: var(--color-accent);
   text-decoration-thickness: 2px;
 }

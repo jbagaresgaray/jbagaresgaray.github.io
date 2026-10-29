@@ -1,4 +1,4 @@
-import { ArrowUpRight, SectionHeading, buttonLight } from "./ui";
+import { ArrowUpRight, SectionHeading, buttonPrimary } from "./ui";
 
 type LiveApp = {
   slug: string;
@@ -170,7 +170,7 @@ function StoreLink({ href, store, app }: { href: string; store: string; app: str
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex min-h-11 items-center gap-1.5 rounded-md border border-line px-4 py-2 font-display text-[13px] font-medium uppercase tracking-[0.04em] transition-colors hover:border-brand-start hover:text-brand-start"
+      className="inline-flex min-h-11 items-center gap-1.5 rounded-sm border border-line px-4 py-2 text-sm font-semibold transition-colors hover:border-ink"
     >
       {store}
       <span className="sr-only">: {app} (opens in a new tab)</span>
@@ -181,7 +181,7 @@ function StoreLink({ href, store, app }: { href: string; store: string; app: str
 
 function LiveAppCard({ app, featured }: { app: LiveApp; featured: boolean }) {
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-xl border border-line bg-paper">
+    <article className="flex h-full flex-col overflow-hidden rounded-md border border-line bg-paper">
       {/* Store screenshots rising from the bottom of a brand-coloured banner */}
       <div
         className={`flex items-end justify-center gap-[3%] overflow-hidden px-[7%] pt-[7%] ${
@@ -218,7 +218,7 @@ function LiveAppCard({ app, featured }: { app: LiveApp; featured: boolean }) {
             className="h-12 w-12 shrink-0 rounded-xl border border-line"
           />
           <div className="flex flex-col">
-            <h4 className="text-xl font-semibold">{app.title}</h4>
+            <h4 className="text-2xl font-medium">{app.title}</h4>
             <p className="text-sm text-muted">
               {app.category} · {platforms(app)}
             </p>
@@ -226,7 +226,7 @@ function LiveAppCard({ app, featured }: { app: LiveApp; featured: boolean }) {
         </div>
 
         <p className="text-pretty text-[15px] leading-relaxed text-muted">{app.summary}</p>
-        <p className="w-fit rounded-md bg-brand-soft px-3.5 py-2 text-sm font-medium text-brand-ink">{app.highlight}</p>
+        <p className="w-fit rounded-sm bg-accent-soft px-3.5 py-2 text-sm font-medium text-accent">{app.highlight}</p>
         <p className="flex flex-col gap-1 text-sm text-muted">
           <span className="font-medium text-ink">{app.role}</span>
           <span>{app.stack.join(", ")}</span>
@@ -253,9 +253,9 @@ export default function Work() {
         />
 
         <div className="flex flex-col gap-6">
-          <h3 className="flex items-center gap-3 text-sm font-medium uppercase tracking-[0.16em] text-ink">
+          <h3 className="flex items-baseline gap-3 text-2xl font-medium">
             Live in the stores
-            <span className="rounded-md bg-brand-ink px-2.5 py-0.5 text-xs tracking-normal text-white">{liveApps.length} apps</span>
+            <span className="font-sans text-base font-normal text-muted">{liveApps.length} apps</span>
           </h3>
           <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-6">
             {liveApps.map((app, i) => (
@@ -267,12 +267,12 @@ export default function Work() {
         </div>
 
         <div className="flex flex-col gap-6">
-          <h3 className="text-sm font-medium uppercase tracking-[0.16em] text-ink">Earlier work</h3>
+          <h3 className="text-2xl font-medium">Earlier work</h3>
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {earlierWork.map((project) => (
               <li key={project.title}>
                 {/* A compact row on phones, a card from tablet width up. */}
-                <article className="flex h-full overflow-hidden rounded-xl border border-line bg-surface sm:flex-col">
+                <article className="flex h-full overflow-hidden rounded-md border border-line bg-surface sm:flex-col">
                   <div className="w-28 shrink-0 overflow-hidden border-r border-line bg-paper sm:aspect-[4/3] sm:w-auto sm:border-r-0 sm:border-b">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
@@ -286,7 +286,7 @@ export default function Work() {
                     />
                   </div>
                   <div className="flex flex-1 flex-col gap-2 p-4 sm:gap-3 sm:p-5">
-                    <h4 className="text-lg font-semibold">{project.title}</h4>
+                    <h4 className="text-xl font-medium">{project.title}</h4>
                     <p className="text-pretty text-sm leading-relaxed text-muted">{project.summary}</p>
                     <p className="mt-auto pt-2 text-sm">
                       <span className="font-medium">{project.role}</span>
@@ -299,11 +299,11 @@ export default function Work() {
           </ul>
         </div>
 
-        <div className="relative flex flex-col items-start justify-between gap-6 overflow-hidden rounded-xl bg-linear-to-r from-brand-start to-brand-end p-8 text-white sm:flex-row sm:items-center sm:p-10">
-          <p className="max-w-xl text-balance font-display text-2xl font-bold uppercase sm:text-3xl">
+        <div className="flex flex-col items-start justify-between gap-6 border-t border-ink pt-8 sm:flex-row sm:items-center">
+          <p className="max-w-xl text-balance font-display text-2xl sm:text-3xl">
             Have an app idea? I&apos;ll help you get it into the stores.
           </p>
-          <a href="#contact" className={`${buttonLight} shrink-0`}>
+          <a href="#contact" className={`${buttonPrimary} shrink-0`}>
             Start a project
           </a>
         </div>

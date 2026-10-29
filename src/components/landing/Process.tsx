@@ -25,26 +25,23 @@ const steps = [
 
 export default function Process() {
   return (
-    <section id="process" aria-labelledby="process-title" className="bg-ink py-20 text-paper sm:py-28">
+    <section id="process" aria-labelledby="process-title" className="bg-surface py-20 sm:py-28">
       <div className="shell flex flex-col gap-12">
         <SectionHeading
           eyebrow="How it works"
           title="A simple process, built around your launch."
           titleId="process-title"
           lead="No black boxes. You always know what’s happening, what’s next and what it costs."
-          dark
         />
 
-        <ol className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <ol className="grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {steps.map((step, i) => (
-            <li key={step.title} className="flex flex-col gap-4 rounded-xl border border-white/10 bg-white/[0.03] p-7">
-              <span className="flex h-11 w-11 items-center justify-center rounded-md bg-brand-start font-display text-base font-semibold text-white">
-                {i + 1}
-              </span>
-              <h3 className="text-lg font-semibold uppercase tracking-[0.02em]">{step.title}</h3>
-              <p className="text-[15px] leading-relaxed text-paper/70">{step.body}</p>
-              <p className="mt-auto border-t border-paper/15 pt-4 text-sm">
-                <span className="text-paper/50">You get: </span>
+            <li key={step.title} className="flex flex-col gap-4 border-t border-ink pt-6">
+              <span className="font-display text-xl text-muted italic">{i + 1}</span>
+              <h3 className="text-2xl font-medium">{step.title}</h3>
+              <p className="text-base leading-relaxed text-muted">{step.body}</p>
+              <p className="mt-auto border-t border-line pt-4 text-sm">
+                <span className="text-muted">You get: </span>
                 {step.outcome}
               </p>
             </li>

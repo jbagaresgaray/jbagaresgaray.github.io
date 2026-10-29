@@ -18,7 +18,7 @@ export default function SiteFooter() {
     <footer className="border-t border-paper/10 bg-ink text-paper">
       <div className="shell flex flex-col gap-8 py-10 lg:flex-row lg:items-center lg:justify-between">
         <div className="flex flex-col gap-1">
-          <p className="font-display text-lg font-semibold">Philip Cesar Garay</p>
+          <p className="font-display text-xl font-medium">Philip Cesar Garay</p>
           <p className="text-sm text-paper/60">Freelance UI/UX designer, full-stack developer and copywriter.</p>
         </div>
         <nav aria-label="Footer">

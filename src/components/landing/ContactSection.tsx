@@ -1,6 +1,6 @@
 import { CONTACT_EMAIL } from "@/lib/contact";
 import ContactForm from "./ContactForm";
-import { ArrowUpRight, Eyebrow } from "./ui";
+import { ArrowUpRight, SectionLabel } from "./ui";
 
 const nextSteps = [
   "I read your message myself and reply personally.",
@@ -11,50 +11,50 @@ const nextSteps = [
 export default function ContactSection() {
   return (
     <section id="contact" aria-labelledby="contact-title" className="bg-ink py-20 text-paper sm:py-28">
-      <div className="shell grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-        <div className="flex flex-col gap-8">
-          <div className="flex flex-col gap-4">
-            <Eyebrow dark>Start a project</Eyebrow>
-            <h2 id="contact-title" className="text-balance text-4xl font-bold uppercase leading-[1.08] sm:text-5xl">
-              Have a project in mind? Let&apos;s make it <span className="gradient-text-light">happen.</span>
-            </h2>
-            <p className="text-pretty text-lg leading-relaxed text-paper/70">
-              Whether it&apos;s a new product, a redesign or a page that isn&apos;t converting, tell me about it.
-            </p>
+      <div className="shell flex flex-col gap-6">
+        <SectionLabel dark>Start a project</SectionLabel>
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-4">
+              <h2 id="contact-title" className="text-balance text-4xl font-medium leading-[1.1] tracking-[-0.01em] sm:text-5xl">
+                Have a project in mind? Let&apos;s make it <em className="text-accent-light">happen.</em>
+              </h2>
+              <p className="text-pretty text-lg leading-relaxed text-paper/70">
+                Whether it&apos;s a new product, a redesign or a page that isn&apos;t converting, tell me about it.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-4">
+              <h3 className="text-lg text-paper/80 italic">What happens next</h3>
+              <ol className="flex flex-col gap-4">
+                {nextSteps.map((step, i) => (
+                  <li key={step} className="flex items-baseline gap-4 text-base leading-snug text-paper/85">
+                    <span className="w-4 shrink-0 font-display text-lg text-accent-light italic">{i + 1}</span>
+                    <span>{step}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+
+            <div className="mt-auto flex flex-col gap-3 border-t border-paper/15 pt-8 text-base">
+              <p className="text-paper/60">Prefer email?</p>
+              <a href={`mailto:${CONTACT_EMAIL}`} className="link inline-flex min-h-11 w-fit items-center text-xl font-medium">
+                {CONTACT_EMAIL}
+              </a>
+              <a
+                href="https://www.linkedin.com/in/jbagaresgaray/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 w-fit items-center gap-1.5 text-paper/70 transition-colors hover:text-paper"
+              >
+                Or connect on LinkedIn <ArrowUpRight />
+                <span className="sr-only">(opens in a new tab)</span>
+              </a>
+            </div>
           </div>
 
-          <div className="flex flex-col gap-4">
-            <h3 className="text-sm font-medium uppercase tracking-[0.2em] text-brand-light">What happens next</h3>
-            <ol className="flex flex-col gap-4">
-              {nextSteps.map((step, i) => (
-                <li key={step} className="flex items-start gap-4 text-[15px] leading-snug text-paper/85">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-brand-start font-display text-[13px] font-semibold text-white">
-                    {i + 1}
-                  </span>
-                  <span className="pt-1">{step}</span>
-                </li>
-              ))}
-            </ol>
-          </div>
-
-          <div className="mt-auto flex flex-col gap-3 border-t border-paper/15 pt-8 text-[15px]">
-            <p className="text-paper/60">Prefer email?</p>
-            <a href={`mailto:${CONTACT_EMAIL}`} className="link inline-flex min-h-11 w-fit items-center text-xl font-medium">
-              {CONTACT_EMAIL}
-            </a>
-            <a
-              href="https://www.linkedin.com/in/jbagaresgaray/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-11 w-fit items-center gap-1.5 text-paper/70 transition-colors hover:text-paper"
-            >
-              Or connect on LinkedIn <ArrowUpRight />
-              <span className="sr-only">(opens in a new tab)</span>
-            </a>
-          </div>
+          <ContactForm />
         </div>
-
-        <ContactForm />
       </div>
     </section>
   );

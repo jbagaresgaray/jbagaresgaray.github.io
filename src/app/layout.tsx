@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Roboto, Rubik } from "next/font/google";
+import { Newsreader, Source_Sans_3 } from "next/font/google";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-// Display face for headings and UI labels, body face for running text (as on Satner).
-const rubik = Rubik({ subsets: ["latin"], variable: "--font-rubik", display: "swap" });
-const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--font-roboto", display: "swap" });
+// Serif for headings (built for long-form reading on screens), humanist sans for text.
+const newsreader = Newsreader({ subsets: ["latin"], style: ["normal", "italic"], variable: "--font-newsreader", display: "swap" });
+const sourceSans = Source_Sans_3({ subsets: ["latin"], variable: "--font-source-sans", display: "swap" });
 
 // Share images, the favicon and the Apple touch icon come from the file conventions in
 // this folder (opengraph-image.png, twitter-image.png, icon.svg, apple-icon.png).
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#4458dc",
+  themeColor: "#faf7f2",
 };
 
 export default function RootLayout({
@@ -67,7 +67,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${rubik.variable} ${roboto.variable}`}>
+    <html lang="en" className={`${newsreader.variable} ${sourceSans.variable}`}>
       <body className="antialiased">{children}</body>
     </html>
   );
