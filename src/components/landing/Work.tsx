@@ -12,8 +12,6 @@ type LiveApp = {
   brand: string;
   screenAlt: string;
   appStore?: string;
-  // Shows a "coming soon" badge in place of the App Store link until the listing is live.
-  appStoreSoon?: boolean;
   googlePlay?: string;
 };
 
@@ -55,7 +53,7 @@ const liveApps: LiveApp[] = [
     stack: ["React Native", "TypeScript", "Expo", "Reanimated", "TanStack React Query", "Firebase"],
     brand: "#3c8cff",
     screenAlt: "Chozi app screens: listing prices on a map, homes for sale and rent in Escazú, and a property’s details",
-    appStoreSoon: true,
+    appStore: "https://apps.apple.com/us/app/chozi/id6782366803",
     googlePlay: "https://play.google.com/store/apps/details?id=com.chozi.mobileapp",
   },
   {
@@ -163,7 +161,6 @@ const featuredCount = [0, 4, 2][liveApps.length % 3];
 
 function platforms(app: LiveApp) {
   if (app.appStore && app.googlePlay) return "iOS & Android";
-  if (app.appStoreSoon) return "Android · iOS soon";
   return app.appStore ? "iOS" : "Android";
 }
 
@@ -179,14 +176,6 @@ function StoreLink({ href, store, app }: { href: string; store: string; app: str
       <span className="sr-only">: {app} (opens in a new tab)</span>
       <ArrowUpRight />
     </a>
-  );
-}
-
-function IosSoon() {
-  return (
-    <span className="inline-flex items-center gap-1.5 rounded-md border border-dashed border-line px-4 py-2 font-display text-[13px] font-medium uppercase tracking-[0.04em] text-muted">
-      <span className="normal-case">iOS</span> · Soon
-    </span>
   );
 }
 
@@ -245,7 +234,6 @@ function LiveAppCard({ app, featured }: { app: LiveApp; featured: boolean }) {
 
         <div className="mt-auto flex flex-wrap gap-2 border-t border-line pt-5">
           {app.appStore && <StoreLink href={app.appStore} store="App Store" app={app.title} />}
-          {app.appStoreSoon && <IosSoon />}
           {app.googlePlay && <StoreLink href={app.googlePlay} store="Google Play" app={app.title} />}
         </div>
       </div>
