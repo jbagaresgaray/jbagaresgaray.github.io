@@ -53,12 +53,15 @@ Consistent, with a few breaks: two dark bands (Process, Contact) and split layou
 
 - Hover and state transitions, plus smooth scrolling to anchors.
 - One scroll reveal: section headings, each app card, each earlier-work card and each section's main block fade in and rise 1.5rem as they enter the screen. Purpose: the eye moves through the work one row of apps at a time, and each new section announces itself as you reach it.
+- The tech stack is an auto-sliding carousel (the owner's choice, 2026-10-29): each category keeps its name fixed on the left while its logos slide past in their own lane, alternating direction row to row, at about 4 seconds per logo. Purpose: the whole stack is on show and alive without a long static table, and the category grouping stays scannable. Lanes fade at the edges to read as continuing.
 - The hero never animates, so the first screen is complete on load.
 - The reveal is tied to scroll position (CSS scroll-driven animation), not a timer: it finishes within the first 10rem of scrolling after an element appears, so it never lags behind a fast scroll, and a fixed distance means a tall block on a phone is fully in place before it reaches mid-screen.
-- Nothing loops. Browsers without scroll-driven animations show everything as is, and all motion stops under `prefers-reduced-motion`.
+- The stack carousel is the only thing that loops. Because it moves for more than 5 seconds it has a Pause motion toggle (a native checkbox, so it works without JavaScript), each lane pauses on hover so a logo can be read, screen readers get one plain list per category instead of the repeating lanes, and under `prefers-reduced-motion` the static list replaces it.
+- Browsers without scroll-driven animations show everything as is, and all motion stops under `prefers-reduced-motion`.
 
 ## Owner overrides (antislop R-37)
 
 - Kept the blue-violet gradient as the brand colour (R-01), 2026-10-29.
 - Kept uppercase display type with wide-tracked labels (R-06), 2026-10-29.
 - Full-colour technology logos in the stack section, beyond the 2–3 colour palette (R-29), 2026-10-29.
+- A looping logo carousel in the stack section, replacing "nothing loops" for that section only, 2026-10-29.

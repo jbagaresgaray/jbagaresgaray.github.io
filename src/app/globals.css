@@ -118,6 +118,34 @@ body {
   }
 }
 
+/* Tech stack carousel (TechStack.tsx): each category's logos slide past in their own lane,
+   alternating direction, so the whole stack is on show without a long static table. The
+   lane fades at both edges to read as continuing. It pauses on hover (to read a logo) and
+   with the Pause motion toggle; under reduced motion the static list replaces it. */
+@media (prefers-reduced-motion: no-preference) {
+  .marquee {
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent, #000 2.5rem, #000 calc(100% - 2.5rem), transparent);
+  }
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee var(--marquee-duration, 40s) linear infinite;
+  }
+  [data-direction="reverse"] .marquee-track {
+    animation-direction: reverse;
+  }
+  .marquee:hover .marquee-track,
+  [data-stack]:has(.marquee-toggle input:checked) .marquee-track {
+    animation-play-state: paused;
+  }
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 /* Land anchor jumps below the sticky header. */
 [id] {
   scroll-margin-top: 5.5rem;
