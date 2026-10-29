@@ -28,6 +28,7 @@ export default function Process() {
     <section id="process" aria-labelledby="process-title" className="bg-ink py-20 text-paper sm:py-28">
       <div className="shell flex flex-col gap-12">
         <SectionHeading
+          index="04"
           eyebrow="How it works"
           title="A simple process, built around your launch."
           titleId="process-title"
@@ -35,16 +36,17 @@ export default function Process() {
           dark
         />
 
-        <ol className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        {/* Huge step numerals carry the sequence before the detail. */}
+        <ol className="reveal grid gap-10 border-t-2 border-paper/40 pt-8 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {steps.map((step, i) => (
-            <li key={step.title} className="flex flex-col gap-4 rounded-xl border border-white/10 bg-white/[0.03] p-7">
-              <span className="flex h-11 w-11 items-center justify-center rounded-md bg-brand-start font-display text-base font-semibold text-white">
-                {i + 1}
+            <li key={step.title} className="flex flex-col gap-4">
+              <span className="text-7xl leading-none font-extrabold tracking-[-0.04em] [font-stretch:125%]">
+                {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="text-lg font-semibold uppercase tracking-[0.02em]">{step.title}</h3>
-              <p className="text-[15px] leading-relaxed text-paper/70">{step.body}</p>
-              <p className="mt-auto border-t border-paper/15 pt-4 text-sm">
-                <span className="text-paper/50">You get: </span>
+              <h3 className="text-xl font-extrabold tracking-[-0.01em]">{step.title}</h3>
+              <p className="text-base leading-relaxed text-paper/65">{step.body}</p>
+              <p className="mt-auto border-t border-paper/25 pt-4 text-sm">
+                <span className="text-paper/65">You get: </span>
                 {step.outcome}
               </p>
             </li>

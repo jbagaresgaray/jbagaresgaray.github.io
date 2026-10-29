@@ -43,38 +43,41 @@ export default function Services() {
   return (
     <section id="services" aria-labelledby="services-title" className="bg-surface py-20 sm:py-28">
       <div className="shell flex flex-col gap-12">
-        <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-          <SectionHeading
-            eyebrow="Services"
-            title="Web, mobile and back end. One developer."
-            titleId="services-title"
-            lead="Hire me for one layer or the whole stack. Projects that need a web app, a mobile app and the API behind them are where I save clients the most time."
-          />
-          <a href="#contact" className={`${buttonPrimary} shrink-0 self-start lg:self-auto`}>
-            Get a project estimate
-          </a>
-        </div>
+        <SectionHeading
+          index="02"
+          eyebrow="Services"
+          title="Web, mobile and back end. One developer."
+          titleId="services-title"
+          lead="Hire me for one layer or the whole stack. Projects that need a web app, a mobile app and the API behind them are where I save clients the most time."
+          action={
+            <a href="#contact" className={`${buttonPrimary} shrink-0 self-start lg:self-auto`}>
+              Get a project estimate
+            </a>
+          }
+        />
 
-        {/* Equal cards on purpose: the three services are parallel offers, not a ranking. */}
-        <ol className="grid gap-4 lg:grid-cols-3">
+        {/* Rows of equal weight, led by huge numerals: the services are parallel offers, not a ranking. */}
+        <ol className="reveal flex flex-col">
           {services.map((service) => (
-            <li key={service.title} className="flex flex-col gap-6 rounded-xl border border-line bg-paper p-7">
-              <span className="font-display text-3xl font-bold text-brand-ink">{service.number}</span>
-              <div className="flex flex-col gap-2">
-                <h3 className="text-xl font-semibold uppercase tracking-[0.02em]">{service.title}</h3>
-                <p className="text-[15px] text-muted">{service.promise}</p>
+            <li key={service.title} className="grid gap-6 border-t-2 border-ink py-10 lg:grid-cols-12 lg:gap-8">
+              <span className="text-6xl leading-none font-extrabold tracking-[-0.04em] [font-stretch:125%] lg:col-span-3 lg:text-8xl">
+                {service.number}
+              </span>
+              <div className="flex flex-col gap-2 lg:col-span-4">
+                <h3 className="text-2xl font-extrabold tracking-[-0.02em] [font-stretch:125%]">{service.title}</h3>
+                <p className="text-base text-muted">{service.promise}</p>
+                <p className="mt-3 text-sm">
+                  <span className="font-bold">Ideal for:</span> <span className="text-muted">{service.idealFor}</span>
+                </p>
               </div>
-              <ul className="flex flex-col gap-3 border-t border-line pt-6">
+              <ul className="flex flex-col gap-2.5 lg:col-span-5">
                 {service.deliverables.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-[15px] leading-snug">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-start" />
+                  <li key={item} className="flex items-start gap-3 text-base leading-snug">
+                    <Check className="mt-1 h-3.5 w-3.5 shrink-0" />
                     {item}
                   </li>
                 ))}
               </ul>
-              <p className="mt-auto rounded-lg bg-surface px-4 py-3 text-sm">
-                <span className="font-semibold">Ideal for:</span> <span className="text-muted">{service.idealFor}</span>
-              </p>
             </li>
           ))}
         </ol>

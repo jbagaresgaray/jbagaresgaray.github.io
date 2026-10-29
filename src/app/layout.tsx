@@ -1,11 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Roboto, Rubik } from "next/font/google";
+import { Archivo } from "next/font/google";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-// Display face for headings and UI labels, body face for running text (as on Satner).
-const rubik = Rubik({ subsets: ["latin"], variable: "--font-rubik", display: "swap" });
-const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--font-roboto", display: "swap" });
+// One family with a width axis: expanded for poster-like headlines, normal width for text.
+const archivo = Archivo({ subsets: ["latin"], axes: ["wdth"], variable: "--font-archivo", display: "swap" });
 
 // Share images, the favicon and the Apple touch icon come from the file conventions in
 // this folder (opengraph-image.png, twitter-image.png, icon.svg, apple-icon.png).
@@ -58,7 +57,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#4458dc",
+  themeColor: "#f7f6f2",
 };
 
 export default function RootLayout({
@@ -67,7 +66,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${rubik.variable} ${roboto.variable}`}>
+    <html lang="en" className={archivo.variable}>
       <body className="antialiased">{children}</body>
     </html>
   );

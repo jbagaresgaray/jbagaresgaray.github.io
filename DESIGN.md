@@ -1,55 +1,45 @@
-# Design direction
+# Design direction (experiment: bold studio)
 
-The look is adapted from the Satner template. The owner kept it as the brand on 2026-10-29; this file records it so later changes follow the same rules.
+This branch tries a "bold studio" direction, the third option offered to the owner on 2026-10-29. The details below were supplied by the agent, not the owner. Agent-picked style tends toward default AI taste, so treat it as a draft to react to; master keeps the Satner-inspired direction.
 
-Reading this as: a freelance developer's portfolio for startup founders and product teams, in a Satner-inspired indigo-violet style.
+Reading this as: a freelance developer's portfolio for startup founders and product teams, with the confidence of a design-studio site: oversized type, asymmetric layouts, one loud colour.
 
-Dial: ENERGY 2 / RHYTHM 2 / MOTION 1
+Dial: ENERGY 3 / RHYTHM 3 / MOTION 2
 
 ## Palette
 
 Tokens live in `src/app/globals.css`.
 
-| Token | Hex | Use |
-|---|---|---|
-| `paper` | #ffffff | Page background |
-| `surface` | #f7f6fe | Lavender sections and form fields |
-| `ink` | #1c1b33 | Text and the dark bands |
-| `muted` | #64637a | Secondary text |
-| `line` | #e6e4f3 | Borders and dividers |
-| `brand-start` to `brand-end` | #4458dc to #854fee | The brand gradient |
-| `brand-ink` | #4b37c4 | Accent text and small brand marks on light backgrounds |
-| `brand-light` | #b9b0ff | Accent text on the dark bands |
-| `success`, `error` | #1fae5b, #b42318 | Availability and form states only |
+| Token | Hex | Use | Why |
+|---|---|---|---|
+| `paper` | #f7f6f2 | Page background | An off-white that keeps the orange from vibrating |
+| `surface` | #ecebe5 | Alternate sections, form fields | One step deeper than paper |
+| `ink` | #0d0d0d | Text, buttons on light, the dark bands | Near-black for poster contrast |
+| `muted` | #57564f | Secondary text | 6.2:1 or better on both light backgrounds |
+| `line` | #d9d7cf | Borders and dividers | Quiet structure |
+| `accent` | #ff5b14 | The headline marker, primary buttons, the contact band | One saturated colour that is not the blue-violet default |
+| `success`, `error` | #1f8a4c, #b42318 | Availability dot and form states only | State colours, not decoration |
 
-## The gradient is the accent
-
-The gradient marks actions and one highlight per section: primary buttons, the header call to action, the monogram, the headline accent words, the "Working with me" card and the work-section call to action. Numbers, step badges, icons and section labels use solid `brand-ink` (or `brand-start` on the dark bands).
+Accent rules: the orange is never used as text on the light backgrounds (2.9:1 fails); text on orange is always full `ink` (6.3:1).
 
 ## Type
 
-- Rubik for headings and UI labels; Roboto for running text.
-- Section headings, buttons, nav and section labels are uppercase, labels with wide tracking. This bold display voice is part of the kept look.
+- Archivo for everything. Headings use its expanded width (font-stretch 125%) at weight 800, so oversized headlines read like a poster; body text uses the normal width.
+- Sentence case throughout, no uppercase labels or wide tracking. Small section labels are muted text with a running number.
 
 ## Identity motif
 
-The giant faded word behind the hero, and the gradient disc framing the portrait.
+Oversized expanded headlines with one phrase set on an orange marker, and big running numbers ("01", "02") on section labels and steps.
 
-## Elevation and glow
+## Surfaces
 
-- Violet glow only on primary buttons, the one focus accent.
-- A neutral shadow only where something sits on top of something else: the portrait, the discipline labels over it, the contact form on the dark band.
-- Cards sit flat. Only things you can click react to hover.
+- Radius stays small (4px) on controls; cards are square-cornered with a 2px ink border or flat fills. No pills.
+- No glow and no decorative shadows; only app screenshots keep a soft shadow over their banners.
 
-## Layout and rhythm (RHYTHM 2)
+## Layout and rhythm (RHYTHM 3)
 
-Consistent, with a few breaks: two dark bands (Process, Contact) and split layouts (hero, About, FAQ, Contact) interrupt the light card grids. The three Services cards are equal on purpose: they are parallel offers, not a ranking.
+Asymmetric, mixed compositions on a 12-column grid: a full-width headline over a 6/5 split in the hero, a dark strip of client names, a 5/7 comparison with the argued-for block widest, service rows led by huge numerals, a 7/5 app grid, a dark process band, an offset About, a FAQ with a sticky heading column, and an orange contact band.
 
-## Motion (MOTION 1)
+## Motion (MOTION 2)
 
-Hover and state transitions only, plus smooth scrolling to anchors. Nothing loops, and all of it stops under `prefers-reduced-motion`.
-
-## Owner overrides (antislop R-37)
-
-- Kept the blue-violet gradient as the brand colour (R-01), 2026-10-29.
-- Kept uppercase display type with wide-tracked labels (R-06), 2026-10-29.
+Each section's heading and main block rise into place as they scroll into view, so attention lands on the new section. It is pure CSS (scroll-driven animations): content is fully visible where the browser doesn't support it, nothing loops, and it is off under `prefers-reduced-motion`. Hover and state transitions otherwise.

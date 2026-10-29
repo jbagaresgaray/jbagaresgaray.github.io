@@ -39,74 +39,61 @@ export const stack = [
 
 export default function Hero() {
   return (
-    <section id="top" aria-labelledby="hero-title" className="relative overflow-hidden">
-      {/* Faded giant word behind the hero, as on Satner. */}
-      <p
-        className="pointer-events-none absolute top-10 -left-4 font-display text-[22vw] leading-none font-bold whitespace-nowrap text-brand-start/[0.045] uppercase select-none lg:top-16 lg:text-[15rem]"
-        aria-hidden="true"
-      >
-        Developer
-      </p>
-      <div className="shell relative grid items-center gap-12 pt-10 pb-16 sm:pt-14 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:pt-20 lg:pb-24">
-        {/* Copy */}
-        <div className="flex flex-col items-start gap-7">
-          <p className="inline-flex items-center gap-2.5 rounded-full border border-line bg-white py-1.5 pr-4 pl-2.5 text-sm font-medium">
-            <span className="h-2.5 w-2.5 rounded-full bg-success" aria-hidden="true" />
-            Taking on new projects
-          </p>
+    <section id="top" aria-labelledby="hero-title">
+      <div className="shell flex flex-col gap-10 pt-10 pb-16 sm:pt-14 lg:gap-14 lg:pt-20 lg:pb-24">
+        <p className="inline-flex items-center gap-2.5 text-sm font-semibold text-muted">
+          <span className="h-2 w-2 rounded-full bg-success" aria-hidden="true" />
+          Taking on new projects
+        </p>
 
-          <h1
-            id="hero-title"
-            className="text-balance text-[2.6rem] font-semibold leading-[1.05] tracking-[-0.01em] sm:text-6xl lg:text-[4.25rem]"
-          >
-            Web and mobile apps that launch fast and <span className="gradient-text">scale with you.</span>
-          </h1>
+        {/* A full-width, poster-sized headline; the one phrase on the orange marker. */}
+        <h1 id="hero-title" className="max-w-6xl text-balance text-[2.75rem] leading-[0.95] sm:text-7xl lg:text-[7.5rem]">
+          Web and mobile apps that launch fast and <span className="marker">scale with you.</span>
+        </h1>
 
-          <p className="max-w-xl text-pretty text-lg leading-relaxed text-muted sm:text-xl">
-            I&apos;m Philip, a frontend, mobile and full-stack developer with 12+ years of experience. I help
-            startups and product teams ship polished web and mobile apps, and the APIs behind them, from the
-            first commit to App Store launch.
-          </p>
+        {/* An asymmetric 6/5 split under the headline */}
+        <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-8">
+          <div className="flex flex-col items-start gap-7 lg:col-span-6">
+            <p className="max-w-xl text-pretty text-lg leading-relaxed text-muted sm:text-xl">
+              I&apos;m Philip, a frontend, mobile and full-stack developer with 12+ years of experience. I help
+              startups and product teams ship polished web and mobile apps, and the APIs behind them, from the
+              first commit to App Store launch.
+            </p>
 
-          <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-            <a href="#contact" className={buttonPrimary}>
-              Start your project
-            </a>
-            <a href="#work" className={buttonSecondary}>
-              See selected work
-            </a>
-          </div>
-          <p className="-mt-3 text-sm text-muted">No pitch deck needed. A few lines about your idea is enough.</p>
+            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+              <a href="#contact" className={buttonPrimary}>
+                Start your project
+              </a>
+              <a href="#work" className={buttonSecondary}>
+                See selected work
+              </a>
+            </div>
+            <p className="-mt-3 text-sm text-muted">No pitch deck needed. A few lines about your idea is enough.</p>
 
-          <div className="flex w-full flex-col gap-3 sm:max-w-xl">
-            <p className="font-display text-xs font-medium uppercase tracking-[0.2em] text-brand-ink">Tech I build with</p>
-            <dl className="flex flex-col divide-y divide-line border-y border-line" aria-label="Tech stack">
-              {stack.map((group) => (
-                <div key={group.category} className="grid gap-1 py-2.5 sm:grid-cols-[7.5rem_1fr] sm:gap-4">
-                  <dt className="font-display text-[13px] font-medium text-ink">{group.category}</dt>
-                  <dd className="text-[13px] leading-relaxed text-muted">{group.skills.join(" · ")}</dd>
+            <div className="flex w-full flex-col gap-3 sm:max-w-xl">
+              <p className="text-sm font-semibold text-muted">Tech I build with</p>
+              <dl className="flex flex-col divide-y divide-line border-y-2 border-ink" aria-label="Tech stack">
+                {stack.map((group) => (
+                  <div key={group.category} className="grid gap-1 py-2.5 sm:grid-cols-[7.5rem_1fr] sm:gap-4">
+                    <dt className="text-sm font-bold text-ink">{group.category}</dt>
+                    <dd className="text-sm leading-relaxed text-muted">{group.skills.join(" · ")}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+
+            <dl className="mt-2 grid w-full grid-cols-3 gap-4 sm:max-w-xl">
+              {proofPoints.map((point) => (
+                <div key={point.value} className="flex flex-col-reverse justify-end gap-1">
+                  <dt className="text-sm leading-snug text-muted">{point.label}</dt>
+                  <dd className="w-fit text-5xl font-extrabold tracking-[-0.03em] [font-stretch:125%] sm:text-6xl">{point.value}</dd>
                 </div>
               ))}
             </dl>
           </div>
 
-          <dl className="mt-2 grid w-full grid-cols-3 gap-4 border-t border-line pt-6 sm:max-w-xl">
-            {proofPoints.map((point) => (
-              <div key={point.value} className="flex flex-col-reverse justify-end gap-1">
-                <dt className="text-[13px] leading-snug text-muted sm:text-sm">{point.label}</dt>
-                <dd className="w-fit font-display text-3xl font-bold text-brand-ink sm:text-4xl">{point.value}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-
-        {/* Portrait */}
-        <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-          <div
-            className="absolute -top-6 -right-6 h-40 w-40 rounded-full bg-linear-to-br from-brand-start to-brand-end opacity-90 sm:h-56 sm:w-56"
-            aria-hidden="true"
-          />
-          <div className="relative overflow-hidden rounded-xl border-4 border-white bg-surface shadow-[0_30px_60px_-25px_rgba(28,27,51,0.35)]">
+          {/* Portrait, offset into the right-hand columns */}
+          <div className="mx-auto flex w-full max-w-md flex-col gap-4 lg:col-span-5 lg:col-start-8 lg:max-w-none">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/philip-portrait.jpg"
@@ -114,20 +101,16 @@ export default function Hero() {
               width={880}
               height={1100}
               fetchPriority="high"
-              className="aspect-[4/5] w-full object-cover grayscale contrast-[1.05]"
+              className="aspect-[4/5] w-full bg-surface object-cover grayscale contrast-[1.1]"
             />
+            <ul className="flex flex-col divide-y divide-line border-y-2 border-ink" aria-label="Disciplines">
+              {disciplines.map((discipline) => (
+                <li key={discipline} className="py-2.5 text-base font-bold">
+                  {discipline}
+                </li>
+              ))}
+            </ul>
           </div>
-
-          <ul className="absolute top-6 -left-3 hidden flex-col gap-2 sm:flex sm:-left-8" aria-label="Disciplines">
-            {disciplines.map((discipline) => (
-              <li
-                key={discipline}
-                className="w-fit rounded-md bg-white px-3.5 py-2 font-display text-[12px] font-medium tracking-[0.04em] text-brand-ink uppercase shadow-[0_8px_20px_-8px_rgba(28,27,51,0.3)]"
-              >
-                {discipline}
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </section>

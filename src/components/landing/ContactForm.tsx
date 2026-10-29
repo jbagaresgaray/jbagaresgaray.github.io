@@ -18,8 +18,8 @@ const emptyValues: ContactValues = { name: "", email: "", phone: "", subject: ""
 const fieldOrder: ContactField[] = ["name", "email", "phone", "subject", "message"];
 
 const fieldClass =
-  "w-full rounded-md border border-line bg-surface px-4 py-3 text-[15px] text-ink transition-colors placeholder:text-muted focus:border-brand-start focus:bg-white focus:outline-2 focus:outline-brand-start aria-[invalid=true]:border-error";
-const labelClass = "font-display text-sm font-medium text-ink";
+  "w-full rounded-sm border-2 border-line bg-surface px-4 py-3 text-base text-ink transition-colors placeholder:text-muted focus:border-ink focus:bg-white focus:outline-2 focus:outline-ink aria-[invalid=true]:border-error";
+const labelClass = "text-sm font-bold text-ink";
 
 function errorMessage(error: string) {
   if (error === "validation") return <>Please fix the highlighted fields and try again.</>;
@@ -128,12 +128,12 @@ export default function ContactForm() {
         ref={successRef}
         tabIndex={-1}
         role="status"
-        className="flex min-h-[28rem] flex-col items-start justify-center gap-5 rounded-xl bg-white p-7 text-ink outline-none sm:p-10"
+        className="flex min-h-[28rem] flex-col items-start justify-center gap-5 bg-white p-7 text-ink outline-none sm:p-10"
       >
-        <span className="flex h-12 w-12 items-center justify-center rounded-md bg-brand-ink text-white">
+        <span className="flex h-12 w-12 items-center justify-center rounded-sm bg-ink text-paper">
           <Check className="h-6 w-6" />
         </span>
-        <p className="font-display text-2xl font-semibold">Thank you, your message has been sent.</p>
+        <p className="text-3xl font-extrabold tracking-[-0.02em] [font-stretch:125%]">Thank you, your message has been sent.</p>
         <p className="text-[15px] text-muted">I&apos;ll reply to the email address you gave me.</p>
         <button type="button" onClick={resetForm} className="link inline-flex min-h-11 items-center text-sm font-medium">
           Send another message
@@ -147,7 +147,7 @@ export default function ContactForm() {
       ref={formRef}
       onSubmit={handleSubmit}
       noValidate
-      className="relative flex flex-col gap-5 rounded-xl bg-white p-6 text-ink shadow-[0_30px_60px_-30px_rgba(0,0,0,0.5)] sm:p-8"
+      className="relative flex flex-col gap-5 bg-white p-6 text-ink sm:p-8"
     >
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="flex flex-col gap-2">
@@ -268,7 +268,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-linear-to-r from-brand-start to-brand-end px-6 py-4 font-display text-sm font-medium uppercase tracking-[0.06em] text-white shadow-[0_10px_30px_rgba(118,85,225,0.3)] transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-start disabled:cursor-wait disabled:opacity-70"
+        className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-sm bg-ink px-6 py-4 text-base font-bold text-paper transition-colors hover:bg-ink/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink disabled:cursor-wait disabled:opacity-70"
       >
         {status === "sending" ? "Sending..." : "Send Message"}
       </button>

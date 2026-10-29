@@ -38,13 +38,9 @@ export default function SiteHeader() {
       <div className="shell flex h-16 items-center justify-between gap-3 sm:h-[4.5rem] sm:gap-6">
         <a
           href="#top"
-          className="flex min-h-11 items-center gap-2.5 font-display text-[15px] font-semibold whitespace-nowrap sm:text-[17px]"
+          className="flex min-h-11 items-center text-base font-extrabold tracking-[-0.02em] whitespace-nowrap [font-stretch:125%] sm:text-lg"
           aria-label="Philip Cesar Garay, home"
         >
-          {/* Monogram only from tablet width up, so the full name and the CTA fit on phones. */}
-          <span className="hidden h-9 w-9 items-center justify-center rounded-lg bg-linear-to-br from-brand-start to-brand-end text-xs font-semibold text-white sm:flex">
-            PG
-          </span>
           Philip Cesar Garay
         </a>
 
@@ -54,7 +50,7 @@ export default function SiteHeader() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="inline-flex min-h-11 items-center px-3.5 font-display text-[13px] font-medium uppercase tracking-[0.08em] text-ink/75 transition-colors hover:text-brand-start"
+                  className="inline-flex min-h-11 items-center px-3.5 text-[15px] font-semibold text-ink/70 transition-colors hover:text-ink"
                 >
                   {link.label}
                 </a>
@@ -67,7 +63,7 @@ export default function SiteHeader() {
           {/* Visible on all but the narrowest phones, where the menu carries it instead. */}
           <a
             href="#contact"
-            className="inline-flex min-h-11 items-center rounded-md bg-linear-to-r from-brand-start to-brand-end px-3.5 py-2.5 font-display text-[12px] font-medium uppercase tracking-[0.04em] whitespace-nowrap text-white transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-start max-[359px]:hidden sm:px-5 sm:text-[13px]"
+            className="inline-flex min-h-11 items-center rounded-sm bg-accent px-4 text-sm font-bold whitespace-nowrap text-ink transition-colors hover:bg-ink hover:text-paper focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink max-[359px]:hidden sm:px-5 sm:text-[15px]"
           >
             Start a project
           </a>
@@ -77,7 +73,7 @@ export default function SiteHeader() {
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
-            className="flex h-11 w-11 items-center justify-center rounded-md border border-line text-ink lg:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-sm border-2 border-ink text-ink lg:hidden"
           >
             <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" viewBox="0 0 24 24" aria-hidden="true">
               {menuOpen ? <path d="M6 6l12 12M18 6 6 18" /> : <path d="M4 8h16M4 16h16" />}
@@ -91,7 +87,7 @@ export default function SiteHeader() {
           <ul className="shell flex flex-col py-3">
             {navLinks.map((link) => (
               <li key={link.href} className="border-b border-line">
-                <a href={link.href} onClick={() => setMenuOpen(false)} className="block py-4 font-display text-lg font-medium uppercase tracking-[0.06em]">
+                <a href={link.href} onClick={() => setMenuOpen(false)} className="block py-4 text-3xl font-extrabold tracking-[-0.02em] [font-stretch:125%]">
                   {link.label}
                 </a>
               </li>
