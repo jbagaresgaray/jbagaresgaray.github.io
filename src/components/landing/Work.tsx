@@ -122,6 +122,14 @@ export const liveApps: LiveApp[] = [
 
 const earlierWork = [
   {
+    title: "J3 TMS",
+    summary: "A training management system where J3 Solutions tracks courses and issues training certificates.",
+    highlight: "Rebuilt as version 2 of J3’s certificate system",
+    role: "Full-stack developer",
+    image: "/images/work/j3-tms.jpg",
+    alt: "J3 TMS sign-in screen: the J3 logo above “Training Certificates v2” and a username and password form, beside an illustrated city",
+  },
+  {
     title: "Stars of Aroha",
     summary: "New Zealand’s bi-cultural mindfulness app, with guided meditations that play offline.",
     highlight: "#1 in NZ’s App Store mindfulness category",
@@ -268,12 +276,20 @@ export default function Work() {
 
         <div className="flex flex-col gap-6">
           <h3 className="text-sm font-medium uppercase tracking-[0.16em] text-ink">Earlier work</h3>
-          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {earlierWork.map((project) => (
-              <li key={project.title} className="reveal">
-                {/* A compact row on phones, a card from tablet width up. */}
-                <article className="flex h-full overflow-hidden rounded-xl border border-line bg-paper sm:flex-col">
-                  <div className="w-28 shrink-0 overflow-hidden border-r border-line bg-surface sm:aspect-[4/3] sm:w-auto sm:border-r-0 sm:border-b">
+          {/* Five projects: the first spans two columns, so the rest fill 2 + 2 on tablets
+              and 1 + 3 on desktops with no half-empty row. */}
+          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {earlierWork.map((project, i) => (
+              <li key={project.title} className={`reveal ${i === 0 ? "sm:col-span-2" : ""}`}>
+                {/* A compact row on phones, a card from tablet width up; the wide lead card stays a row. */}
+                <article
+                  className={`flex h-full overflow-hidden rounded-xl border border-line bg-paper ${i === 0 ? "" : "sm:flex-col"}`}
+                >
+                  <div
+                    className={`w-28 shrink-0 overflow-hidden border-r border-line bg-surface ${
+                      i === 0 ? "sm:w-1/2" : "sm:aspect-[4/3] sm:w-auto sm:border-r-0 sm:border-b"
+                    }`}
+                  >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={project.image}
