@@ -38,7 +38,7 @@ export default function SiteHeader() {
       <div className="shell flex h-16 items-center justify-between gap-3 sm:h-[4.5rem] sm:gap-6">
         <a
           href="#top"
-          className="flex items-center gap-2.5 font-display text-[15px] font-semibold whitespace-nowrap sm:text-[17px]"
+          className="flex min-h-11 items-center gap-2.5 font-display text-[15px] font-semibold whitespace-nowrap sm:text-[17px]"
           aria-label="Philip Cesar Garay, home"
         >
           {/* Monogram only from tablet width up, so the full name and the CTA fit on phones. */}
@@ -54,7 +54,7 @@ export default function SiteHeader() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="px-3.5 py-2 font-display text-[13px] font-medium uppercase tracking-[0.08em] text-ink/75 transition-colors hover:text-brand-start"
+                  className="inline-flex min-h-11 items-center px-3.5 font-display text-[13px] font-medium uppercase tracking-[0.08em] text-ink/75 transition-colors hover:text-brand-start"
                 >
                   {link.label}
                 </a>
@@ -67,7 +67,7 @@ export default function SiteHeader() {
           {/* Visible on all but the narrowest phones, where the menu carries it instead. */}
           <a
             href="#contact"
-            className="inline-flex items-center rounded-md bg-linear-to-r from-brand-start to-brand-end px-3.5 py-2.5 font-display text-[12px] font-medium uppercase tracking-[0.04em] whitespace-nowrap text-white shadow-[0_8px_20px_rgba(118,85,225,0.3)] transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-start max-[359px]:hidden sm:px-5 sm:text-[13px]"
+            className="inline-flex min-h-11 items-center rounded-md bg-linear-to-r from-brand-start to-brand-end px-3.5 py-2.5 font-display text-[12px] font-medium uppercase tracking-[0.04em] whitespace-nowrap text-white shadow-[0_8px_20px_rgba(118,85,225,0.3)] transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-start max-[359px]:hidden sm:px-5 sm:text-[13px]"
           >
             Start a project
           </a>
@@ -77,7 +77,7 @@ export default function SiteHeader() {
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
-            className="flex h-10 w-10 items-center justify-center rounded-md border border-line text-ink lg:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-md border border-line text-ink lg:hidden"
           >
             <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" viewBox="0 0 24 24" aria-hidden="true">
               {menuOpen ? <path d="M6 6l12 12M18 6 6 18" /> : <path d="M4 8h16M4 16h16" />}

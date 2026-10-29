@@ -1,8 +1,10 @@
 import { ArrowRight, buttonPrimary, buttonSecondary } from "./ui";
+import { liveApps } from "./Work";
 
 const proofPoints = [
   { value: "12+", label: "years shipping web & mobile apps" },
-  { value: "5", label: "apps live on the App Store & Google Play" },
+  // Counted from the work section, so the two never disagree.
+  { value: String(liveApps.length), label: "apps live on the App Store & Google Play" },
   { value: "9", label: "countries of clients, from NZ to France" },
 ];
 
@@ -49,10 +51,7 @@ export default function Hero() {
         {/* Copy */}
         <div className="flex flex-col items-start gap-7">
           <p className="inline-flex items-center gap-2.5 rounded-full border border-line bg-white py-1.5 pr-4 pl-2.5 text-sm font-medium shadow-[0_6px_20px_-8px_rgba(68,88,220,0.25)]">
-            <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-60" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-success" />
-            </span>
+            <span className="h-2.5 w-2.5 rounded-full bg-success" aria-hidden="true" />
             Taking on new projects
           </p>
 

@@ -16,7 +16,7 @@ type LiveApp = {
 };
 
 // Screenshots and icons come from each app's store listing (public/images/work/<slug>/).
-const liveApps: LiveApp[] = [
+export const liveApps: LiveApp[] = [
   {
     slug: "purpl",
     title: "Purpl",
@@ -170,7 +170,7 @@ function StoreLink({ href, store, app }: { href: string; store: string; app: str
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-1.5 rounded-md border border-line px-4 py-2 font-display text-[13px] font-medium uppercase tracking-[0.04em] transition-colors hover:border-brand-start hover:text-brand-start"
+      className="inline-flex min-h-11 items-center gap-1.5 rounded-md border border-line px-4 py-2 font-display text-[13px] font-medium uppercase tracking-[0.04em] transition-colors hover:border-brand-start hover:text-brand-start"
     >
       {store}
       <span className="sr-only">: {app} (opens in a new tab)</span>

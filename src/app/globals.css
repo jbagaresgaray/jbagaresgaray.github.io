@@ -44,6 +44,23 @@ body {
   h4 {
     font-family: var(--font-display);
   }
+
+  /* Tailwind v4 leaves buttons and selects on the default arrow cursor. */
+  button:not(:disabled),
+  [role="button"]:not(:disabled),
+  select:not(:disabled),
+  summary,
+  label[for] {
+    cursor: pointer;
+  }
+  :disabled {
+    cursor: not-allowed;
+  }
+
+  /* A pressed state for every control, distinct from hover. */
+  :is(a[href], button:not(:disabled), summary):active {
+    opacity: 0.8;
+  }
 }
 
 @layer components {

@@ -44,14 +44,14 @@ export default function ContactSection() {
 
           <div className="mt-auto flex flex-col gap-3 border-t border-paper/15 pt-8 text-[15px]">
             <p className="text-paper/60">Prefer email?</p>
-            <a href={`mailto:${CONTACT_EMAIL}`} className="link w-fit text-xl font-medium">
+            <a href={`mailto:${CONTACT_EMAIL}`} className="link inline-flex min-h-11 w-fit items-center text-xl font-medium">
               {CONTACT_EMAIL}
             </a>
             <a
               href="https://www.linkedin.com/in/jbagaresgaray/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-fit items-center gap-1.5 text-paper/70 transition-colors hover:text-paper"
+              className="inline-flex min-h-11 w-fit items-center gap-1.5 text-paper/70 transition-colors hover:text-paper"
             >
               Or connect on LinkedIn <ArrowUpRight />
               <span className="sr-only">(opens in a new tab)</span>

@@ -22,10 +22,10 @@ export default function SiteFooter() {
           <p className="text-sm text-paper/60">Freelance UI/UX designer, full-stack developer and copywriter.</p>
         </div>
         <nav aria-label="Footer">
-          <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-paper/70">
+          <ul className="flex flex-wrap gap-x-6 text-sm text-paper/70">
             {footerLinks.map((link) => (
               <li key={link.href}>
-                <a href={link.href} className="transition-colors hover:text-paper">
+                <a href={link.href} className="inline-flex min-h-11 min-w-11 items-center transition-colors hover:text-paper">
                   {link.label}
                 </a>
               </li>
@@ -38,7 +38,7 @@ export default function SiteFooter() {
               <a
                 href={link.href}
                 {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                className="transition-colors hover:text-paper"
+                className="inline-flex min-h-11 min-w-11 items-center transition-colors hover:text-paper"
               >
                 {link.label}
               </a>
@@ -46,7 +46,7 @@ export default function SiteFooter() {
           ))}
         </ul>
       </div>
-      <div className="shell border-t border-paper/10 py-6 text-[13px] text-paper/45">
+      <div className="shell border-t border-paper/10 py-6 text-[13px] text-paper/60">
         © {new Date().getFullYear()} Philip Cesar Garay. All rights reserved.
       </div>
     </footer>

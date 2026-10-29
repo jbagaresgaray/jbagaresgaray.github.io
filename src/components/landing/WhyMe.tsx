@@ -58,7 +58,7 @@ export default function WhyMe() {
             <h3 className="text-lg font-semibold uppercase tracking-[0.02em]">Working with me</h3>
             <ul className="flex flex-col gap-3.5">
               {withMe.map((point) => (
-                <li key={point} className="flex items-start gap-3 text-[15px] leading-snug text-white/90">
+                <li key={point} className="flex items-start gap-3 text-[15px] leading-snug text-white">
                   <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white text-brand-ink">
                     <Check className="h-3 w-3" />
                   </span>

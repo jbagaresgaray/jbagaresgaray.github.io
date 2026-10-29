@@ -18,7 +18,7 @@ const emptyValues: ContactValues = { name: "", email: "", phone: "", subject: ""
 const fieldOrder: ContactField[] = ["name", "email", "phone", "subject", "message"];
 
 const fieldClass =
-  "w-full rounded-md border border-line bg-surface px-4 py-3 text-[15px] text-ink outline-none transition-colors placeholder:text-ink/35 focus:border-brand-start focus:bg-white focus:shadow-[0_0_0_3px_rgba(68,88,220,0.12)] aria-[invalid=true]:border-error";
+  "w-full rounded-md border border-line bg-surface px-4 py-3 text-[15px] text-ink transition-colors placeholder:text-muted focus:border-brand-start focus:bg-white focus:outline-2 focus:outline-brand-start aria-[invalid=true]:border-error";
 const labelClass = "font-display text-sm font-medium text-ink";
 
 function errorMessage(error: string) {
@@ -135,7 +135,7 @@ export default function ContactForm() {
         </span>
         <p className="font-display text-2xl font-semibold">Thank you, your message has been sent.</p>
         <p className="text-[15px] text-muted">I&apos;ll reply to the email address you gave me.</p>
-        <button type="button" onClick={resetForm} className="link text-sm font-medium">
+        <button type="button" onClick={resetForm} className="link inline-flex min-h-11 items-center text-sm font-medium">
           Send another message
         </button>
       </div>
@@ -161,7 +161,7 @@ export default function ContactForm() {
             required
             maxLength={MAX_LENGTH.name}
             className={fieldClass}
-            placeholder="Jane Smith"
+            placeholder="Your name"
           />
           <FieldError field="name" error={errors.name} />
         </div>
@@ -176,7 +176,7 @@ export default function ContactForm() {
             required
             maxLength={MAX_LENGTH.email}
             className={fieldClass}
-            placeholder="jane@company.com"
+            placeholder="you@example.com"
           />
           <FieldError field="email" error={errors.email} />
         </div>
@@ -193,7 +193,7 @@ export default function ContactForm() {
             autoComplete="tel"
             maxLength={MAX_LENGTH.phone}
             className={fieldClass}
-            placeholder="+1 555 010 0100"
+            placeholder="Include your country code"
           />
           <FieldError field="phone" error={errors.phone} />
         </div>
@@ -205,7 +205,7 @@ export default function ContactForm() {
             <select
               {...fieldProps("subject")}
               required
-              className={`${fieldClass} appearance-none pr-10 ${values.subject ? "" : "text-ink/35"}`}
+              className={`${fieldClass} appearance-none pr-10 ${values.subject ? "" : "text-muted"}`}
             >
               <option value="" disabled>
                 Select a subject

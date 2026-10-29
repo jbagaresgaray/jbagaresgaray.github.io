@@ -8,7 +8,7 @@ export default function ClientStrip() {
         <p className="shrink-0 font-display text-xs font-medium uppercase tracking-[0.2em] text-brand-ink">Products built for teams at</p>
         <ul className="flex flex-wrap items-center gap-x-8 gap-y-3 sm:gap-x-10">
           {clients.map((client) => (
-            <li key={client} className="font-display text-lg font-semibold tracking-tight text-ink/40 transition-colors hover:text-brand-start sm:text-xl">
+            <li key={client} className="font-display text-lg font-semibold tracking-tight text-muted transition-colors hover:text-brand-start sm:text-xl">
               {client}
             </li>
           ))}

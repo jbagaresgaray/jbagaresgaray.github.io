@@ -5,7 +5,7 @@
 export const site = {
   url: (process.env.NEXT_PUBLIC_SITE_URL || "https://jbagaresgaray.github.io").replace(/\/$/, ""),
   name: "Philip Cesar Garay",
-  title: "Philip Cesar Garay — Frontend, Mobile & Full-Stack Developer",
+  title: "Philip Cesar Garay | Frontend, Mobile & Full-Stack Developer",
   description:
     "Freelance frontend, mobile and full-stack developer with 12+ years' experience. React, React Native, Flutter, Angular and Node.js apps for startups.",
   jobTitle: "Freelance Frontend, Mobile & Full-Stack Developer",
