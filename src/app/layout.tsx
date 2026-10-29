@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Roboto, Rubik } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-// Display face for headings and UI labels, body face for running text (as on Satner).
-const rubik = Rubik({ subsets: ["latin"], variable: "--font-rubik", display: "swap" });
-const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--font-roboto", display: "swap" });
+// Coral's faces (src/app/tokens.css): General Sans throughout, loaded from Fontshare in the
+// head below (it is not on Google Fonts), and Geist Mono for figures in a column.
+const geistMono = Geist_Mono({ subsets: ["latin"], weight: "400", variable: "--font-geist-mono", display: "swap" });
 
 // Share images, the favicon and the Apple touch icon come from the file conventions in
 // this folder (opengraph-image.png, twitter-image.png, icon.svg, apple-icon.png).
@@ -58,7 +58,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#4458dc",
+  // Coral's paper (--color-paper).
+  themeColor: "oklch(97% 0.006 55)",
 };
 
 export default function RootLayout({
@@ -67,8 +68,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${rubik.variable} ${roboto.variable}`}>
-      <body className="antialiased">{children}</body>
+    <html lang="en" className={geistMono.variable}>
+      <head>
+        <link rel="preconnect" href="https://api.fontshare.com" />
+        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="" />
+        <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" />
+      </head>
+      <body>{children}</body>
     </html>
   );
 }

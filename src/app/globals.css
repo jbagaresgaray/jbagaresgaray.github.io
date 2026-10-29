@@ -1,52 +1,33 @@
+/* Hallmark · shape: Stat-Led (draw 84b98f) · genre: modern-minimal · theme: Coral (deal 1/3, seed freelance-developer-portfolio-shipped-005c·0c543de5·2026-10-29·r0) · redesign: full
+ * hero: Poster · nav: banner over a retracting bar · footer: colophon block · imagery: the product (the apps' store screens printed as stationery) and one photograph (the portrait) · signature: the desk of the eight live apps with the portrait among them, the count set huge beside it and "Live" pressed into the pile
+ * axes: light/grotesk-sans/warm · posture: restrained · contrast: pass · fold: pass · job: hire · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S5 R4 V5 · weakest: P, the page argues by showing the desk rather than saying why; the handoff section keeps the one claim a reader could dispute */
+/* Hallmark · note · the app screens and icons keep their own colours on the cotton prints · they are the product, and Coral's "built stationery answers first" covers the cards they are printed on, not what is on them */
+/* Hallmark · hero-review: fix · 4 findings · 4 resolved (the count set huge, "Live" pressed into the lead print's margin, the screens softened into the cotton, one lead print with smaller prints around it) */
+/* Hallmark · finish-review: subagent · fix · 5 findings · 5 resolved (the seven apps each on a desk tile, screens at phone shape; earlier work as four cotton index cards, pictures printed in; service numbers in their own column; Why me cards sized to their words, "Working with me" on cotton ringed in ink; form labels in sentence case) */
+/* Hallmark · moved "Products built for teams at …" from About's facts to under the Work heading, then reworded it to "Also built for teams at AirAsia and Perx." · master showed the client names on the second screen; About put them ten screens down; the other eight names are the apps and projects shown right below it (69, judged) */
+/* Hallmark · waive 44c · the measured visual is the lead print alone, not the desk around it · at 1440 the whole desk of nine prints spans about 205 to 800px and centres within about 10px of the copy beside it */
+/* Hallmark · answered F20 · the hero pile is three rows of three, and every app's prints are one row of three; the tilts, overlaps and the third print dropped a step make the render read a lone last row */
+/* Hallmark · answered F4 · the cotton card is Coral's quiet control, a raised sheet of paper rather than a fill; the ink card is the one primary */
+/* Hallmark · dismissed 28a · the first image in Work.tsx sits far below the fold; the hero's prints load eagerly and the first carries fetchpriority */
+/* Hallmark · dismissed 49 · the LinkedIn and GitHub buttons carry .btn, which sets white-space: nowrap */
+/* Hallmark · dropped the giant "Developer" word behind the hero, the gradient disc and the three discipline tags over the portrait · 66 names decoration text, and the tags repeat the three services */
+/* Hallmark · dropped "I help startups and product teams ship polished web and mobile apps, and the APIs behind them, from the first commit to App Store launch." · 58 allows the hero one sentence; About says it in "For more than 12 years I've helped startups" */
+/* Hallmark · dropped the eyebrows "Selected work", "Services", "Why work with me", "How it works", "About", "FAQ" and "Start a project" · 54; each heading already says what its section shows */
+/* Hallmark · dropped "All rights reserved" and the PG monogram tile · 19 names the stock footer line; the tile was the gradient (2a) */
+/* Hallmark · reworded "Live in the stores 8 apps" to the hero's figure "8 apps live on the App Store & Google Play" · Stat-Led leads with the owner's own number, and 67 names the tracked-caps label it was set in */
+/* Hallmark · reworded "Start your project" to "Start a project" · the nav and hero buttons start one action, so they share one label */
+/* Hallmark · moved "Taking on new projects. No pitch deck needed. A few lines about your idea is enough." into the banner over the nav · the drawn chrome is a banner, and these are the page's standing facts */
+/* Hallmark · reworded the stack lists from "A · B · C" to "A, B, C" and moved the hero's tech table into Services · 63 names middle-dot strings; 58 keeps the hero to one sentence */
+/* Hallmark · note · src/components/EmailTemplate.tsx is the email the contact API sends; its colours sit in one token block because email clients ignore CSS variables */
+
 @import "tailwindcss";
+@import "./tokens.css";
+@import "./base.css" layer(base);
 
-@theme inline {
-  /* Landing page palette, inspired by Satner: white pages, lavender surfaces,
-     deep navy ink and an indigo-to-violet brand gradient. White text sits on the
-     gradient; on lavender, brand-ink is the accent text colour. DESIGN.md records
-     where each colour, the gradient and the glow are allowed. */
-  --color-paper: #ffffff;
-  --color-surface: #f7f6fe;
-  --color-ink: #1c1b33;
-  --color-muted: #64637a;
-  --color-line: #e6e4f3;
-  --color-brand-start: #4458dc;
-  --color-brand-end: #854fee;
-  --color-brand-ink: #4b37c4;
-  --color-brand-soft: #eeebfd;
-  --color-brand-light: #b9b0ff;
-  --color-success: #1fae5b;
-  --color-error: #b42318;
-
-  /* Set by next/font in src/app/layout.tsx. */
-  --font-sans: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-rubik), ui-sans-serif, system-ui, sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--color-paper);
-  color: var(--color-ink);
-  font-family: var(--font-sans);
-  font-weight: 400;
-  line-height: 1.5;
-  letter-spacing: -0.005em;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
+/* Every control shows it can be used: a pointer, a not-allowed cursor when disabled, and a
+   pressed state distinct from hover. */
 @layer base {
-  h1,
-  h2,
-  h3,
-  h4 {
-    font-family: var(--font-display);
-  }
-
-  /* Tailwind v4 leaves buttons and selects on the default arrow cursor. */
   button:not(:disabled),
   [role="button"]:not(:disabled),
   select:not(:disabled),
@@ -57,92 +38,1251 @@ body {
   :disabled {
     cursor: not-allowed;
   }
-
-  /* A pressed state for every control, distinct from hover. */
-  :is(a[href], button:not(:disabled), summary):active {
+  a[href]:active,
+  summary:active {
     opacity: 0.8;
   }
-}
-
-@layer components {
-  /* White button with a brand-gradient border (Satner's outline button). */
-  .gradient-border {
-    border: 2px solid transparent;
-    background:
-      linear-gradient(var(--color-paper), var(--color-paper)) padding-box,
-      linear-gradient(90deg, var(--color-brand-start), var(--color-brand-end)) border-box;
-  }
-
-  /* Text filled with the brand gradient. */
-  .gradient-text {
-    background-image: linear-gradient(90deg, var(--color-brand-start), var(--color-brand-end));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-box-decoration-break: clone;
-    box-decoration-break: clone;
-  }
-
-  /* Lighter gradient text for dark sections. */
-  .gradient-text-light {
-    background-image: linear-gradient(90deg, #a5b1ff, #cdb9ff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: var(--display-weight);
   }
 }
 
-/* Land anchor jumps below the sticky header. */
-[id] {
-  scroll-margin-top: 5.5rem;
+/* The page: twelve columns inside one capped container (layout.md § 1). */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gap-columns);
+}
+/* Each section carries half its gap on each side, so two neighbours part by one whole gap. */
+.section {
+  padding-block: calc(var(--section-gap) / 2);
+}
+.section--long {
+  padding-block: calc(var(--section-gap-l) / 2);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-md);
+  max-width: 50rem;
+  margin-bottom: var(--space-2xl);
 }
-
-::selection {
-  background: var(--color-brand-soft);
-  color: var(--color-brand-ink);
+.head__action {
+  margin-top: var(--space-xs);
 }
-
-/* Page container: 16px side gutters on phones, centred at up to 1200px. */
-.shell {
-  width: 100%;
-  max-width: 75rem;
-  margin-inline: auto;
-  padding-inline: 1rem;
+.lead {
+  color: var(--color-ink-2);
 }
-@media (min-width: 640px) {
-  .shell {
-    padding-inline: 1.5rem;
-  }
+.muted {
+  color: var(--color-muted);
 }
-@media (min-width: 1024px) {
-  .shell {
-    padding-inline: 2rem;
-  }
+.label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-muted);
 }
-
-/* Links inherit colour and have no underline (Tailwind's preflight). Rules here sit
-   outside Tailwind's layers and would beat its utilities, so don't style `a` itself. */
-
-/* Underlined text link, for links inside sentences. */
+.num {
+  font-family: var(--font-outlier);
+  font-variant-numeric: tabular-nums;
+}
 .link {
   text-decoration: underline;
-  text-underline-offset: 0.18em;
   text-decoration-thickness: 1px;
-  transition: text-decoration-color 150ms;
+  text-underline-offset: 0.2em;
+  text-decoration-color: var(--color-accent);
 }
 .link:hover {
-  text-decoration-color: var(--color-brand-end);
-  text-decoration-thickness: 2px;
+  text-decoration-color: var(--color-accent-2);
+}
+
+/* Coral's materials (coral.md § Surfaces): cotton stock lit from the left, a felt desk, the ink board. */
+.stock {
+  background-color: var(--color-cotton);
+  background-image: linear-gradient(100deg, var(--color-cotton), transparent 45%), var(--tex-cotton);
+  color: var(--color-print);
+  border-radius: var(--radius-stock);
+  box-shadow: var(--edge-stock), var(--cast-stock);
+}
+.desk {
+  background-color: var(--color-desk);
+  background-image: radial-gradient(90% 120% at 0% 30%, var(--color-cotton), transparent 62%), var(--tex-desk);
+}
+.board {
+  background: var(--color-board);
+  color: var(--color-board-type);
+}
+
+/* Letterpress cards, not pills: the label pressed in, a lift on hover, a press on click. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  min-height: 48px;
+  padding: 0 var(--space-lg);
+  border: 0;
+  border-radius: var(--radius-stock);
+  font: 500 var(--text-md) / 1 var(--font-body);
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform var(--dur-short) var(--ease-out),
+    box-shadow var(--dur-short) var(--ease-out);
+}
+.btn--card {
+  background-color: var(--color-cotton);
+  background-image: var(--tex-cotton);
+  color: var(--color-print);
+  text-shadow: 0.5px 0.75px 0 var(--color-cotton);
+  box-shadow: var(--edge-stock), var(--cast-stock);
+}
+.btn--ink {
+  background: var(--color-board);
+  color: var(--color-board-type);
+  text-shadow: 0 -0.75px 0 var(--color-ink);
+  box-shadow: var(--cast-stock);
+}
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--edge-stock), var(--cast-stock-lift);
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+.btn[aria-busy="true"] {
+  cursor: progress;
+}
+.btn--small {
+  min-height: 44px;
+  padding: 0 var(--space-md);
+}
+
+.skip {
+  position: absolute;
+  left: var(--space-md);
+  top: calc(-1 * var(--space-3xl));
+  z-index: var(--z-toast);
+  padding: var(--space-xs) var(--space-md);
+  background: var(--color-board);
+  color: var(--color-board-type);
+}
+.skip:focus-visible {
+  top: var(--space-md);
+}
+
+/* Chrome: a banner over a bar that tucks away while you read down and returns on any scroll up. */
+.banner {
+  background: var(--color-paper-3);
+  border-bottom: var(--rule-hair) solid var(--color-rule);
+}
+.banner p {
+  padding-block: var(--space-xs);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-ink-2);
+}
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky-nav);
+  background: var(--color-paper);
+  border-bottom: var(--rule-hair) solid transparent;
+  transition:
+    transform var(--dur-long) var(--ease-out),
+    border-color var(--dur-short) var(--ease-out);
+}
+.nav[data-scrolled="true"] {
+  border-bottom-color: var(--color-rule);
+}
+.nav[data-tucked="true"] {
+  transform: translateY(-100%);
+}
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  min-height: 68px;
+}
+.nav__mark {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font: 600 var(--text-lg) / 1 var(--font-display);
+  letter-spacing: var(--tracking-display);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nav__end {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+.nav__links {
+  display: flex;
+  align-items: center;
+  margin: 0 var(--space-sm) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.nav__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 var(--space-sm);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-ink-2);
+  text-decoration: none;
+}
+.nav__links a:hover {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-underline-offset: 0.3em;
+}
+.nav__toggle {
+  display: none;
+  width: 44px;
+  padding: 0;
+}
+.nav__menu {
+  border-top: var(--rule-hair) solid var(--color-rule);
+  background: var(--color-paper);
+}
+.nav__menu ul {
+  margin: 0;
+  padding-block: var(--space-sm);
+  list-style: none;
+}
+.nav__menu li + li {
+  border-top: var(--rule-hair) solid var(--color-rule);
+}
+.nav__menu a:not(.btn) {
+  display: flex;
+  align-items: center;
+  min-height: 56px;
+  font: 600 var(--text-lg) / 1 var(--font-display);
+  text-decoration: none;
+}
+.nav__menu .btn {
+  width: 100%;
+  margin-block: var(--space-md) var(--space-xs);
+}
+@media (max-width: 64rem) {
+  .nav__links {
+    display: none;
+  }
+  .nav__toggle {
+    display: inline-flex;
+  }
+}
+@media (max-width: 30rem) {
+  .nav__cta {
+    display: none;
+  }
+}
+
+/* Hero: the Poster posture on the desk, the copy low on the left, the prints on the right. */
+.hero {
+  position: relative;
+  overflow: clip;
+}
+.press-filter {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+.hero__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gap-columns);
+  align-items: center;
+  min-height: max(36rem, calc(100dvh - 7rem));
+  padding-block: var(--space-xl);
+}
+.hero__copy {
+  grid-column: 1 / span 5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-lg);
+}
+.hero__figure {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-md);
+}
+/* Stat-Led: the owner's count is the biggest thing on the screen, its unit beside it. */
+.hero__count {
+  font: 600 clamp(8rem, 11vw + 1rem, 14rem) / 0.8 var(--font-display);
+  letter-spacing: -0.06em;
+  font-variant-numeric: tabular-nums;
+}
+.hero__unit {
+  max-width: 12ch;
+  padding-bottom: var(--space-sm);
+  font-size: var(--text-title);
+  font-weight: 500;
+  line-height: 1.15;
+}
+.hero h1 {
+  max-width: 22ch;
+  font-size: clamp(1.75rem, 1.4vw + 1rem, 2.625rem);
+  line-height: 1.08;
+}
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+/* The desk: a lead print two by two, the portrait and seven smaller prints around it, with air. */
+.hero__prints {
+  grid-column: 6 / -1;
+  justify-self: start;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-md);
+  width: min(100%, 40rem);
+  margin: 0 0 0 var(--space-xl);
+  padding: 0;
+  list-style: none;
+}
+.hero__prints > li {
+  transform: rotate(var(--r));
+}
+.hero__lead {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.hero__lead .print {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-bottom: var(--space-2xl);
+}
+/* Sized to match two small prints stacked, so the tall store screen never stretches the grid. */
+.hero__lead .print__screen {
+  aspect-ratio: 27 / 25;
+}
+
+/* A print: a store screen (or the portrait) on a cotton card, its name at the head. */
+.print {
+  position: relative;
+  margin: 0;
+  padding: var(--space-xs);
+}
+.print__screen,
+.print [data-slot] {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 3px;
+}
+/* Printed, not pasted: the screens keep their colours, a little softened into the cotton. */
+.print__screen,
+.file__pic img {
+  filter: saturate(0.78) sepia(0.1) contrast(0.97);
+  mix-blend-mode: multiply;
+}
+.print figcaption {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-2xs) var(--space-2xs) var(--space-xs);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  line-height: 1.2;
+}
+.print figcaption img {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border-radius: 22%;
+}
+
+/* The settled state pressed into the lead print's margin (coral.md § Surfaces): coral ink,
+   uneven where the stock took it, tilted a few degrees. */
+.stamp {
+  position: absolute;
+  right: var(--space-md);
+  bottom: var(--space-xs);
+  font: 600 var(--text-2xl) / 1 var(--font-display);
+  letter-spacing: -0.02em;
+  color: var(--color-paid);
+  transform: rotate(-6deg);
+  filter: url(#press);
+  pointer-events: none;
+}
+
+/* The prints settle onto the desk once on load; the markup already holds where they land,
+   so with no motion or no animation support they are simply there. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__prints > li {
+    animation: settle 700ms var(--ease-out) backwards;
+    animation-delay: calc(var(--i) * 110ms);
+  }
+}
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(-28px) rotate(calc(var(--r) + 6deg));
+  }
+}
+
+/* Services: three rows, then the stack as index cards with offset tabs. */
+.offers {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: var(--rule-hair) solid var(--color-rule-2);
+}
+.offers__row {
+  row-gap: var(--space-lg);
+  padding-block: var(--space-xl);
+  border-bottom: var(--rule-hair) solid var(--color-rule-2);
+}
+.offers__num {
+  grid-column: 1 / span 1;
+  align-self: baseline;
+  color: var(--color-muted);
+}
+.offers__name {
+  grid-column: 2 / span 3;
+  align-self: baseline;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+.offers .ticks {
+  grid-column: 5 / span 5;
+}
+.offers__fit {
+  grid-column: 10 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+.ticks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ticks li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+.ticks svg {
+  flex-shrink: 0;
+  margin-top: var(--space-2xs);
+}
+
+.stack {
+  margin-top: var(--space-3xl);
+}
+.stack > h3 {
+  margin-bottom: var(--space-xl);
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-2xl) var(--gap-columns);
+  margin: 0;
+}
+.cards__card {
+  position: relative;
+  padding: var(--space-lg);
+  padding-top: var(--space-xl);
+}
+.cards__tab {
+  position: absolute;
+  top: calc(-1 * var(--space-lg));
+  left: var(--tab, var(--space-md));
+  padding: var(--space-2xs) var(--space-md) var(--space-sm);
+  border-radius: var(--radius-stock) var(--radius-stock) 0 0;
+  font-weight: 600;
+  box-shadow: var(--edge-stock);
+}
+.cards__card:nth-child(3n + 2) .cards__tab {
+  --tab: 34%;
+}
+.cards__card:nth-child(3n) .cards__tab {
+  --tab: 58%;
+}
+.cards dd {
+  margin: 0;
+  color: var(--color-ink-2);
+}
+
+/* Work: one app opened on the desk, its record sheet laid over the prints' edge. */
+.case {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gap-columns);
+  row-gap: var(--space-xl);
+  align-items: center;
+  margin-bottom: var(--space-3xl);
+  padding: var(--space-2xl) var(--space-xl);
+  border-radius: var(--radius-card);
+}
+/* The prints and the sheet share one row: the sheet is laid over the prints' right edge. */
+.case__prints {
+  grid-row: 1;
+  grid-column: 1 / span 8;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-lg);
+}
+.case__prints .print__screen {
+  aspect-ratio: 9 / 16;
+}
+.case__prints > :nth-child(1) {
+  transform: rotate(-2deg);
+}
+.case__prints > :nth-child(3) {
+  transform: rotate(2.5deg) translateY(var(--space-md));
+}
+.case__sheet {
+  grid-row: 1;
+  grid-column: 8 / -1;
+  position: relative;
+  z-index: var(--z-raised);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-xl) var(--space-lg);
+  transform: rotate(1deg);
+}
+.app-name {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+.app-name img {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 22%;
+}
+.spec {
+  margin: 0;
+}
+.spec > div {
+  display: grid;
+  grid-template-columns: minmax(0, 7.5rem) minmax(0, 1fr);
+  column-gap: var(--space-md);
+  padding-block: var(--space-xs);
+  border-top: var(--rule-hair) solid var(--color-rule);
+}
+.spec dt {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-muted);
+}
+.spec dd {
+  margin: 0;
+}
+.stores {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--space-md);
+}
+.stores a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: var(--color-accent);
+}
+.stores a:hover {
+  text-decoration-color: var(--color-accent-2);
+}
+
+/* The other seven: each app on its own patch of desk, two to a row, its record sheet laid over the prints' foot. */
+.desks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-xl) var(--gap-columns);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.desks__tile {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-xl) var(--space-lg) var(--space-lg);
+  border-radius: var(--radius-card);
+}
+.desks__prints {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-md);
+  padding-inline: var(--space-xs);
+}
+/* Near the phone's own shape, so most of each screen reads. */
+.desks__prints .print__screen {
+  aspect-ratio: 9 / 16;
+}
+.desks__prints > :nth-child(1) {
+  transform: rotate(-1.5deg);
+}
+.desks__prints > :nth-child(3) {
+  transform: rotate(2deg) translateY(var(--space-xs));
+}
+.desks__sheet {
+  position: relative;
+  z-index: var(--z-raised);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin: calc(-1 * var(--space-lg)) var(--space-sm) 0;
+  padding: var(--space-lg);
+}
+/* On a tile the record runs in two columns, each label over its value, so the sheet stays shorter than the prints. */
+.desks__sheet .spec {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--space-lg);
+}
+.desks__sheet .spec > div {
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+  row-gap: var(--space-2xs);
+}
+/* An odd one out takes the row alone, its prints beside its sheet as Purpl's are. */
+.desks__tile:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gap-columns);
+  align-items: center;
+}
+.desks__tile:last-child:nth-child(odd) .desks__prints {
+  grid-row: 1;
+  grid-column: 1 / span 7;
+}
+.desks__tile:last-child:nth-child(odd) .desks__sheet {
+  grid-row: 1;
+  grid-column: 7 / -1;
+  margin: 0;
+}
+
+/* Earlier work: four index cards in one row, the picture printed at the head of each. */
+.earlier {
+  margin-top: var(--space-3xl);
+}
+.earlier > h3 {
+  margin-bottom: var(--space-lg);
+}
+.file {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-xl) var(--gap-columns);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.file__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-xs) var(--space-xs) var(--space-lg);
+}
+.file__card > :not(.file__pic) {
+  margin-inline: var(--space-sm);
+}
+.file__pic {
+  margin: 0 0 var(--space-xs);
+}
+.file__pic img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 3px;
+}
+.file__card .app-name {
+  font-size: var(--text-title);
+}
+.file__facts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  margin-top: auto;
+  padding-top: var(--space-sm);
+  border-top: var(--rule-hair) solid var(--color-rule);
+  font-size: var(--text-sm);
+}
+.file__facts > :first-child {
+  font-weight: 500;
+}
+.work__close {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  margin-top: var(--space-3xl);
+}
+.statement {
+  max-width: 24ch;
+  font: 600 var(--text-2xl) / 1.15 var(--font-display);
+  letter-spacing: var(--tracking-display);
+  text-wrap: balance;
+}
+
+/* Why me: three cards on the page, each as tall as its words; the argued-for one ringed in board ink. */
+.trio {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gap-columns);
+  align-items: start;
+}
+.trio__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  padding: var(--space-xl);
+}
+.trio__card .ticks {
+  color: var(--color-muted);
+}
+.trio__card--me {
+  box-shadow: 0 0 0 2px var(--color-board), var(--cast-stock-lift);
+}
+.trio__card--me .ticks {
+  color: var(--color-print);
+}
+.trio__card--me .btn {
+  align-self: flex-start;
+}
+
+/* Process: a work order on cotton, each stage a ruled row. */
+.order {
+  padding: var(--space-xl) var(--space-2xl);
+}
+.order ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.order__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 3fr) minmax(0, 6fr) minmax(0, 3fr);
+  column-gap: var(--gap-columns);
+  row-gap: var(--space-xs);
+  padding-block: var(--space-lg);
+  border-bottom: var(--rule-hair) solid var(--color-rule);
+}
+.order ol > li:last-child {
+  border-bottom: 0;
+}
+.order__labels {
+  padding-block: var(--space-xs);
+  border-bottom: var(--rule-hair) solid var(--color-rule-2);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-muted);
+}
+.order .num {
+  font-size: var(--text-lg);
+}
+.order__inline {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* About on the board: the statement large, the words in three columns, the owner's figures, the facts. */
+.about {
+  padding-block: var(--section-gap-s);
+}
+.about__statement {
+  max-width: 22ch;
+  margin-bottom: var(--space-2xl);
+  font-size: var(--text-display);
+  line-height: 1.04;
+}
+.about__text {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gap-columns);
+  color: var(--color-board-type);
+}
+.figures {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: var(--space-3xl) 0 var(--space-2xl);
+  border-top: var(--rule-hair) solid color-mix(in oklab, var(--color-board-type) 22%, transparent);
+}
+.figures > div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: var(--space-xs);
+  padding: var(--space-lg) var(--space-lg) 0;
+  border-left: var(--rule-hair) solid color-mix(in oklab, var(--color-board-type) 22%, transparent);
+}
+.figures > :first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+.figures dt {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: color-mix(in oklab, var(--color-board-type) 75%, transparent);
+}
+.figures__value {
+  margin: 0;
+  font: 600 var(--text-display) / 1 var(--font-display);
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+.about__foot {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gap-columns);
+  row-gap: var(--space-xl);
+  align-items: start;
+}
+.about__foot .spec {
+  grid-column: 1 / span 8;
+}
+.about .spec > div {
+  border-top-color: color-mix(in oklab, var(--color-board-type) 22%, transparent);
+}
+.about .spec dt {
+  color: color-mix(in oklab, var(--color-board-type) 75%, transparent);
+}
+.about__links {
+  grid-column: 10 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+/* FAQ: the head on four columns beside the questions on eight. */
+.faq {
+  row-gap: var(--space-xl);
+}
+.faq > .head {
+  grid-column: 1 / span 4;
+  margin: 0;
+}
+.faq__list {
+  grid-column: 5 / -1;
+  border-top: var(--rule-hair) solid var(--color-rule-2);
+}
+.faq__list details {
+  border-bottom: var(--rule-hair) solid var(--color-rule-2);
+}
+.faq__list summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  min-height: 64px;
+  font-size: var(--text-lead);
+  font-weight: 500;
+  list-style: none;
+}
+.faq__list summary::-webkit-details-marker {
+  display: none;
+}
+.faq__list summary:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-underline-offset: 0.25em;
+}
+.faq__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: var(--radius-stock);
+  background: var(--color-cotton);
+  box-shadow: var(--edge-stock), var(--cast-stock);
+  transition: transform var(--dur-short) var(--ease-out);
+}
+details[open] .faq__icon {
+  transform: rotate(45deg);
+}
+.faq__list details > p {
+  padding-bottom: var(--space-lg);
+  padding-right: var(--space-2xl);
+  color: var(--color-ink-2);
+}
+
+/* Contact: the words beside the form, the form on a cotton letter sheet. */
+.contact {
+  row-gap: var(--space-2xl);
+  align-items: start;
+}
+.contact__intro {
+  grid-column: 1 / span 5;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+.contact__intro .head {
+  margin: 0;
+}
+.contact__form {
+  grid-column: 7 / -1;
+  padding: var(--space-xl);
+}
+.next {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: next;
+}
+.next li {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: var(--space-sm);
+  counter-increment: next;
+  color: var(--color-ink-2);
+}
+.next li::before {
+  content: counter(next);
+  font-family: var(--font-outlier);
+  color: var(--color-muted);
+}
+.contact__email {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2xs);
+  padding-top: var(--space-lg);
+  border-top: var(--rule-hair) solid var(--color-rule-2);
+}
+.contact__email a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+.contact__address {
+  font-size: var(--text-lg);
+  font-weight: 500;
+}
+
+.titleblock {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-lg) var(--space-md);
+}
+.titleblock__cell {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  min-width: 0;
+}
+.titleblock__cell--wide {
+  grid-column: 1 / -1;
+}
+.titleblock label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-ink-2);
+}
+.field {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 var(--space-md);
+  border: var(--rule-hair) solid var(--color-muted);
+  border-radius: var(--radius-input);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+.field::placeholder {
+  color: var(--color-muted);
+  opacity: 1;
+}
+.field:focus-visible {
+  outline-color: var(--color-focus);
+}
+.field[aria-invalid="true"] {
+  border-color: var(--color-error);
+}
+.field:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+textarea.field {
+  min-height: 9rem;
+  padding-block: var(--space-sm);
+  resize: vertical;
+}
+select.field {
+  appearance: none;
+  padding-right: var(--space-2xl);
+}
+.select {
+  position: relative;
+}
+.select svg {
+  position: absolute;
+  top: 50%;
+  right: var(--space-md);
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--color-muted);
+}
+.field-error {
+  min-height: 1lh;
+  font-size: var(--text-sm);
+  color: var(--color-error);
+}
+.titleblock__foot {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.titleblock__foot .btn {
+  width: 100%;
+}
+.form-alert {
+  grid-column: 1 / -1;
+  padding: var(--space-sm) var(--space-md);
+  border: var(--rule-hair) solid var(--color-error);
+  border-radius: var(--radius-input);
+}
+.form-done {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-md);
+  min-height: 28rem;
+  outline: none;
+}
+.form-done__title {
+  font: 600 var(--text-2xl) / 1.15 var(--font-display);
+}
+.honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Footer: a colophon, who and where in one paragraph, the links beneath. */
+.footer {
+  padding-block: var(--space-3xl) var(--space-xl);
+  border-top: var(--rule-hair) solid var(--color-rule-2);
+}
+.footer__colophon {
+  max-width: 44ch;
+  font-size: var(--text-lead);
+  color: var(--color-ink-2);
+}
+.footer__name {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-md) var(--space-xl);
+  margin-block: var(--space-xl) var(--space-md);
+}
+.footer ul {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--space-lg);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.footer ul a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-ink-2);
+  text-decoration: none;
+}
+.footer ul a:hover {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+}
+
+/* Under 60rem every composition stacks in reading order (layout.md § 5). */
+@media (max-width: 60rem) {
+  .hero__copy,
+  .hero__prints,
+  .case__prints,
+  .case__sheet,
+  .about__foot .spec,
+  .about__links,
+  .faq > .head,
+  .faq__list,
+  .contact__intro,
+  .contact__form {
+    grid-column: 1 / -1;
+  }
+  /* The service number hangs in its own narrow column; everything else reads beside it. */
+  .offers__num {
+    grid-column: 1 / span 2;
+  }
+  .offers__name,
+  .offers .ticks,
+  .offers__fit {
+    grid-column: 3 / -1;
+  }
+  .hero__inner {
+    min-height: 0;
+    row-gap: var(--space-2xl);
+  }
+  .case__prints,
+  .case__sheet {
+    grid-row: auto;
+  }
+  .case__sheet {
+    transform: none;
+  }
+  .hero__prints {
+    justify-self: stretch;
+    width: auto;
+    margin-left: 0;
+  }
+  .cards,
+  .trio,
+  .about__text {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .desks {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .desks__tile:last-child:nth-child(odd) {
+    display: flex;
+  }
+  .desks__tile:last-child:nth-child(odd) .desks__sheet {
+    margin: calc(-1 * var(--space-lg)) var(--space-sm) 0;
+  }
+  .file {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .order {
+    padding: var(--space-md) var(--space-lg);
+  }
+  .order__labels {
+    display: none;
+  }
+  .order__row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .order__inline {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+    font-weight: 500;
+    color: var(--color-muted);
+  }
+  .figures {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .figures > div,
+  .figures > :first-child {
+    padding: var(--space-md) 0 0;
+    border-left: 0;
+  }
+  .figures > div + div {
+    border-top: var(--rule-hair) solid color-mix(in oklab, var(--color-board-type) 22%, transparent);
+  }
+}
+@media (max-width: 40rem) {
+  .hero__actions {
+    flex-direction: column;
+    align-self: stretch;
+  }
+  .hero__actions .btn {
+    width: 100%;
+  }
+  .hero__prints {
+    gap: var(--space-sm);
+  }
+  .hero__lead {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+  .hero__lead .print__screen {
+    aspect-ratio: 4 / 3;
+  }
+  .print figcaption {
+    font-size: var(--text-xs);
+  }
+  .print figcaption img {
+    display: none;
+  }
+  .stamp {
+    font-size: var(--text-xl);
+  }
+  .case {
+    padding: var(--space-lg) var(--space-md);
+  }
+  .case__prints,
+  .desks__prints {
+    gap: var(--space-xs);
+  }
+  .desks__tile {
+    padding: var(--space-lg) var(--space-sm) var(--space-sm);
+  }
+  .desks__sheet,
+  .desks__tile:last-child:nth-child(odd) .desks__sheet {
+    margin-inline: 0;
+    padding: var(--space-md);
+  }
+  .file {
+    gap: var(--space-md) var(--space-sm);
+  }
+  .file__card > :not(.file__pic) {
+    margin-inline: var(--space-2xs);
+  }
+  .titleblock {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .faq__list details > p {
+    padding-right: 0;
+  }
 }

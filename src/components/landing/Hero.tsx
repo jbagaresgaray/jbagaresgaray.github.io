@@ -1,134 +1,96 @@
-import { buttonPrimary, buttonSecondary } from "./ui";
-import { liveApps } from "./Work";
+import type { CSSProperties } from "react";
+import { liveApps, type LiveApp } from "./Work";
 
-const proofPoints = [
-  { value: "12+", label: "years shipping web & mobile apps" },
-  // Counted from the work section, so the two never disagree.
-  { value: String(liveApps.length), label: "apps live on the App Store & Google Play" },
-  { value: "9", label: "countries of clients, from NZ to France" },
-];
+// The desk: one lead print, then smaller prints laid around it with air between, each tilted a
+// little as if set down by hand. The order fills a four-column grid: the lead takes the top-left
+// two by two, the portrait the top-right corner.
+const tilts = [-1.5, 2.5, -2, 3, -3, 2, -2.5, 1.5, -1];
 
-const disciplines = ["Frontend development", "Mobile apps · iOS & Android", "Full-stack development"];
+const place = (i: number) => ({ "--r": `${tilts[i]}deg`, "--i": i }) as CSSProperties;
 
-// Mirrors the skills table on the résumé, in the same order.
-export const stack = [
-  { category: "Languages", skills: ["TypeScript", "JavaScript", "HTML5", "CSS", "Sass/SCSS"] },
-  {
-    category: "Mobile",
-    skills: [
-      "React Native",
-      "Flutter",
-      "Ionic (Angular, React, Vue)",
-      "Capacitor",
-      "Cordova",
-      "Native iOS & Android",
-      "App Store & Google Play releases",
-    ],
-  },
-  {
-    category: "Web frontend",
-    skills: ["React", "Angular", "AngularJS", "Vue", "Angular Material", "Material UI", "Bootstrap", "Nx monorepos"],
-  },
-  {
-    category: "State & data",
-    skills: ["Redux Toolkit", "Redux Thunk", "NgRx", "GraphQL", "Apollo Client", "REST APIs"],
-  },
-  { category: "Backend", skills: ["Node.js", "Express", "NestJS", "MySQL/MariaDB", "MongoDB", "Firebase"] },
-  { category: "Desktop", skills: ["Electron", "OpenFin"] },
-];
-
-export default function Hero() {
+function AppPrint({ app, i, lead = false }: { app: LiveApp; i: number; lead?: boolean }) {
   return (
-    <section id="top" aria-labelledby="hero-title" className="relative overflow-hidden">
-      {/* Faded giant word behind the hero, as on Satner. */}
-      <p
-        className="pointer-events-none absolute top-10 -left-4 font-display text-[22vw] leading-none font-bold whitespace-nowrap text-brand-start/[0.045] uppercase select-none lg:top-16 lg:text-[15rem]"
-        aria-hidden="true"
-      >
-        Developer
-      </p>
-      <div className="shell relative grid items-center gap-12 pt-10 pb-16 sm:pt-14 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:pt-20 lg:pb-24">
-        {/* Copy */}
-        <div className="flex flex-col items-start gap-7">
-          <p className="inline-flex items-center gap-2.5 rounded-full border border-line bg-white py-1.5 pr-4 pl-2.5 text-sm font-medium">
-            <span className="h-2.5 w-2.5 rounded-full bg-success" aria-hidden="true" />
-            Taking on new projects
+    <li style={place(i)} className={lead ? "hero__lead" : undefined}>
+      {/* The name heads the card; the store screen is printed beneath it. */}
+      <figure className="print stock">
+        <figcaption>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={`/images/work/${app.slug}/icon.png`} alt="" width={160} height={160} />
+          {app.title}
+        </figcaption>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          className="print__screen"
+          src={`/images/work/${app.slug}/screen-2.jpg`}
+          alt={app.screenAlt}
+          width={415}
+          height={900}
+          fetchPriority={lead ? "high" : undefined}
+        />
+        {/* The settled state pressed into the lead print's margin (Coral): the apps are live. */}
+        {lead && (
+          <span className="stamp" aria-hidden="true">
+            Live
+          </span>
+        )}
+      </figure>
+    </li>
+  );
+}
+
+// The Poster hero: the count of live apps set huge beside a felt desk of their printed screens.
+export default function Hero() {
+  const [lead, second, ...others] = liveApps;
+  return (
+    <section id="top" aria-labelledby="hero-title" className="hero desk">
+      {/* The pressed-ink filter: ink that sits unevenly in the cotton. */}
+      <svg className="press-filter" aria-hidden="true" focusable="false">
+        <filter id="press">
+          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4" result="noise" />
+          <feColorMatrix in="noise" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 2.4 -0.7" result="mask" />
+          <feComposite in="SourceGraphic" in2="mask" operator="in" />
+        </filter>
+      </svg>
+
+      <div className="container hero__inner">
+        <div className="hero__copy">
+          <p className="hero__figure">
+            <span className="hero__count">{liveApps.length}</span>
+            <span className="hero__unit">apps live on the App Store &amp; Google Play</span>
           </p>
-
-          <h1
-            id="hero-title"
-            className="text-balance text-[2.6rem] font-semibold leading-[1.05] tracking-[-0.01em] sm:text-6xl lg:text-[4.25rem]"
-          >
-            Web and mobile apps that launch fast and <span className="gradient-text">scale with you.</span>
-          </h1>
-
-          <p className="max-w-xl text-pretty text-lg leading-relaxed text-muted sm:text-xl">
-            I&apos;m Philip, a frontend, mobile and full-stack developer with 12+ years of experience. I help
-            startups and product teams ship polished web and mobile apps, and the APIs behind them, from the
-            first commit to App Store launch.
-          </p>
-
-          <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-            <a href="#contact" className={buttonPrimary}>
-              Start your project
+          <h1 id="hero-title">Web and mobile apps that launch fast and scale with you.</h1>
+          <p className="lead">I&apos;m Philip, a frontend, mobile and full-stack developer with 12+ years of experience.</p>
+          <div className="hero__actions">
+            <a href="#contact" className="btn btn--ink">
+              Start a project
             </a>
-            <a href="#work" className={buttonSecondary}>
+            <a href="#work" className="btn btn--card">
               See selected work
             </a>
           </div>
-          <p className="-mt-3 text-sm text-muted">No pitch deck needed. A few lines about your idea is enough.</p>
+        </div>
 
-          <div className="flex w-full flex-col gap-3 sm:max-w-xl">
-            <p className="font-display text-xs font-medium uppercase tracking-[0.2em] text-brand-ink">Tech I build with</p>
-            <dl className="flex flex-col divide-y divide-line border-y border-line" aria-label="Tech stack">
-              {stack.map((group) => (
-                <div key={group.category} className="grid gap-1 py-2.5 sm:grid-cols-[7.5rem_1fr] sm:gap-4">
-                  <dt className="font-display text-[13px] font-medium text-ink">{group.category}</dt>
-                  <dd className="text-[13px] leading-relaxed text-muted">{group.skills.join(" · ")}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-
-          <dl className="mt-2 grid w-full grid-cols-3 gap-4 border-t border-line pt-6 sm:max-w-xl">
-            {proofPoints.map((point) => (
-              <div key={point.value} className="flex flex-col-reverse justify-end gap-1">
-                <dt className="text-[13px] leading-snug text-muted sm:text-sm">{point.label}</dt>
-                <dd className="w-fit font-display text-3xl font-bold text-brand-ink sm:text-4xl">{point.value}</dd>
+        <ul className="hero__prints">
+          <AppPrint app={lead} i={0} lead />
+          <AppPrint app={second} i={1} />
+          <li style={place(2)}>
+            <figure className="print stock">
+              <figcaption>Philip Cesar Garay</figcaption>
+              <div data-slot="portrait" data-alt="Philip Cesar Garay, smiling with arms crossed">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/philip-portrait.jpg"
+                  alt="Philip Cesar Garay, smiling with arms crossed"
+                  width={880}
+                  height={1100}
+                />
               </div>
-            ))}
-          </dl>
-        </div>
-
-        {/* Portrait */}
-        <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-          <div
-            className="absolute -top-6 -right-6 h-40 w-40 rounded-full bg-linear-to-br from-brand-start to-brand-end opacity-90 sm:h-56 sm:w-56"
-            aria-hidden="true"
-          />
-          <div className="relative overflow-hidden rounded-xl border-4 border-white bg-surface shadow-[0_30px_60px_-25px_rgba(28,27,51,0.35)]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/philip-portrait.jpg"
-              alt="Philip Cesar Garay, smiling with arms crossed"
-              width={880}
-              height={1100}
-              fetchPriority="high"
-              className="aspect-[4/5] w-full object-cover grayscale contrast-[1.05]"
-            />
-          </div>
-
-          <ul className="absolute top-6 -left-3 hidden flex-col gap-2 sm:flex sm:-left-8" aria-label="Disciplines">
-            {disciplines.map((discipline) => (
-              <li
-                key={discipline}
-                className="w-fit rounded-md bg-white px-3.5 py-2 font-display text-[12px] font-medium tracking-[0.04em] text-brand-ink uppercase shadow-[0_8px_20px_-8px_rgba(28,27,51,0.3)]"
-              >
-                {discipline}
-              </li>
-            ))}
-          </ul>
-        </div>
+            </figure>
+          </li>
+          {others.map((app, n) => (
+            <AppPrint key={app.slug} app={app} i={n + 3} />
+          ))}
+        </ul>
       </div>
     </section>
   );

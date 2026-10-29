@@ -1,4 +1,4 @@
-import { Check, Cross, SectionHeading, buttonLight } from "./ui";
+import { Check, Cross } from "./ui";
 
 const alternatives = [
   {
@@ -28,25 +28,25 @@ const withMe = [
 
 export default function WhyMe() {
   return (
-    <section aria-labelledby="why-title" className="py-20 sm:py-28">
-      <div className="shell flex flex-col gap-12">
-        <SectionHeading
-          eyebrow="Why work with me"
-          title="Most launches stall in the handoffs."
-          titleId="why-title"
-          lead="A designer hands off to a developer, who waits on a copywriter, while you chase all three. Every handoff costs time, money and a little of the original idea."
-        />
+    <section aria-labelledby="why-title" className="section">
+      <div className="container">
+        <div className="head">
+          <h2 id="why-title">Most launches stall in the handoffs.</h2>
+          <p className="lead">
+            A designer hands off to a developer, who waits on a copywriter, while you chase all three. Every handoff
+            costs time, money and a little of the original idea.
+          </p>
+        </div>
 
-        <div className="grid gap-4 lg:grid-cols-3">
+        {/* Three ways to staff a launch as three cards; the argued-for one in board ink. */}
+        <div className="trio">
           {alternatives.map((option) => (
-            <div key={option.title} className="flex flex-col gap-5 rounded-xl border border-line bg-surface p-7">
-              <h3 className="text-lg font-semibold uppercase tracking-[0.02em]">{option.title}</h3>
-              <ul className="flex flex-col gap-3.5">
+            <div key={option.title} className="trio__card stock">
+              <h3>{option.title}</h3>
+              <ul className="ticks muted">
                 {option.points.map((point) => (
-                  <li key={point} className="flex items-start gap-3 text-[15px] leading-snug text-muted">
-                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ink/[0.06] text-ink/50">
-                      <Cross className="h-3 w-3" />
-                    </span>
+                  <li key={point}>
+                    <Cross />
                     {point}
                   </li>
                 ))}
@@ -54,19 +54,17 @@ export default function WhyMe() {
             </div>
           ))}
 
-          <div className="flex flex-col gap-5 rounded-xl bg-linear-to-br from-brand-start to-brand-end p-7 text-white">
-            <h3 className="text-lg font-semibold uppercase tracking-[0.02em]">Working with me</h3>
-            <ul className="flex flex-col gap-3.5">
+          <div className="trio__card trio__card--me stock">
+            <h3>Working with me</h3>
+            <ul className="ticks">
               {withMe.map((point) => (
-                <li key={point} className="flex items-start gap-3 text-[15px] leading-snug text-white">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white text-brand-ink">
-                    <Check className="h-3 w-3" />
-                  </span>
+                <li key={point}>
+                  <Check />
                   {point}
                 </li>
               ))}
             </ul>
-            <a href="#contact" className={`${buttonLight} mt-auto self-start`}>
+            <a href="#contact" className="btn btn--ink">
               Start a project
             </a>
           </div>

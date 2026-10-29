@@ -12,14 +12,11 @@ import {
   type ContactField,
   type ContactValues,
 } from "@/lib/contact";
-import { Check } from "./ui";
+import { Check, ChevronDown } from "./ui";
 
 const emptyValues: ContactValues = { name: "", email: "", phone: "", subject: "", message: "" };
 const fieldOrder: ContactField[] = ["name", "email", "phone", "subject", "message"];
 
-const fieldClass =
-  "w-full rounded-md border border-line bg-surface px-4 py-3 text-[15px] text-ink transition-colors placeholder:text-muted focus:border-brand-start focus:bg-white focus:outline-2 focus:outline-brand-start aria-[invalid=true]:border-error";
-const labelClass = "font-display text-sm font-medium text-ink";
 
 function errorMessage(error: string) {
   if (error === "validation") return <>Please fix the highlighted fields and try again.</>;
@@ -37,10 +34,11 @@ function errorMessage(error: string) {
   );
 }
 
+// Always rendered, empty until there is an error, so its line is held and the fields below
+// don't jump when one appears.
 function FieldError({ field, error }: { field: ContactField; error?: string }) {
-  if (!error) return null;
   return (
-    <p id={`contact-${field}-error`} className="text-[13px] text-error">
+    <p id={`contact-${field}-error`} className="field-error">
       {error}
     </p>
   );
@@ -128,14 +126,12 @@ export default function ContactForm() {
         ref={successRef}
         tabIndex={-1}
         role="status"
-        className="flex min-h-[28rem] flex-col items-start justify-center gap-5 rounded-xl bg-white p-7 text-ink outline-none sm:p-10"
+        className="form-done"
       >
-        <span className="flex h-12 w-12 items-center justify-center rounded-md bg-brand-ink text-white">
-          <Check className="h-6 w-6" />
-        </span>
-        <p className="font-display text-2xl font-semibold">Thank you, your message has been sent.</p>
-        <p className="text-[15px] text-muted">I&apos;ll reply to the email address you gave me.</p>
-        <button type="button" onClick={resetForm} className="link inline-flex min-h-11 items-center text-sm font-medium">
+        <Check size={32} />
+        <p className="form-done__title">Thank you, your message has been sent.</p>
+        <p className="muted">I&apos;ll reply to the email address you gave me.</p>
+        <button type="button" onClick={resetForm} className="btn btn--card">
           Send another message
         </button>
       </div>
@@ -147,12 +143,11 @@ export default function ContactForm() {
       ref={formRef}
       onSubmit={handleSubmit}
       noValidate
-      className="relative flex flex-col gap-5 rounded-xl bg-white p-6 text-ink shadow-[0_30px_60px_-30px_rgba(0,0,0,0.5)] sm:p-8"
+      className="titleblock"
     >
-      <div className="grid gap-5 sm:grid-cols-2">
-        <div className="flex flex-col gap-2">
-          <label htmlFor="contact-name" className={labelClass}>
-            Full Name <span aria-hidden="true">*</span>
+        <div className="titleblock__cell">
+          <label htmlFor="contact-name">
+            Full name <span aria-hidden="true">*</span>
           </label>
           <input
             {...fieldProps("name")}
@@ -160,14 +155,14 @@ export default function ContactForm() {
             autoComplete="name"
             required
             maxLength={MAX_LENGTH.name}
-            className={fieldClass}
+            className="field"
             placeholder="Your name"
           />
           <FieldError field="name" error={errors.name} />
         </div>
-        <div className="flex flex-col gap-2">
-          <label htmlFor="contact-email" className={labelClass}>
-            Email Address <span aria-hidden="true">*</span>
+        <div className="titleblock__cell">
+          <label htmlFor="contact-email">
+            Email address <span aria-hidden="true">*</span>
           </label>
           <input
             {...fieldProps("email")}
@@ -175,63 +170,47 @@ export default function ContactForm() {
             autoComplete="email"
             required
             maxLength={MAX_LENGTH.email}
-            className={fieldClass}
+            className="field"
             placeholder="you@example.com"
           />
           <FieldError field="email" error={errors.email} />
         </div>
-      </div>
-
-      <div className="grid gap-5 sm:grid-cols-2">
-        <div className="flex flex-col gap-2">
-          <label htmlFor="contact-phone" className={labelClass}>
-            Phone Number <span className="font-normal text-muted">(optional)</span>
+        <div className="titleblock__cell">
+          <label htmlFor="contact-phone">
+            Phone number <span className="muted">(optional)</span>
           </label>
           <input
             {...fieldProps("phone")}
             type="tel"
             autoComplete="tel"
             maxLength={MAX_LENGTH.phone}
-            className={fieldClass}
+            className="field"
             placeholder="Include your country code"
           />
           <FieldError field="phone" error={errors.phone} />
         </div>
-        <div className="flex flex-col gap-2">
-          <label htmlFor="contact-subject" className={labelClass}>
+        <div className="titleblock__cell">
+          <label htmlFor="contact-subject">
             What do you need? <span aria-hidden="true">*</span>
           </label>
-          <div className="relative">
-            <select
-              {...fieldProps("subject")}
-              required
-              className={`${fieldClass} appearance-none pr-10 ${values.subject ? "" : "text-muted"}`}
-            >
+          <div className="select">
+            <select {...fieldProps("subject")} required className="field">
               <option value="" disabled>
                 Select a subject
               </option>
               {CONTACT_SUBJECTS.map((subject) => (
-                <option key={subject} value={subject} className="text-ink">
+                <option key={subject} value={subject}>
                   {subject}
                 </option>
               ))}
             </select>
-            <svg
-              className="pointer-events-none absolute top-1/2 right-4 h-4 w-4 -translate-y-1/2 text-muted"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-            </svg>
+            <ChevronDown />
           </div>
           <FieldError field="subject" error={errors.subject} />
         </div>
-      </div>
 
-      <div className="flex flex-col gap-2">
-        <label htmlFor="contact-message" className={labelClass}>
+        <div className="titleblock__cell titleblock__cell--wide">
+          <label htmlFor="contact-message">
           Message <span aria-hidden="true">*</span>
         </label>
         <textarea
@@ -239,14 +218,14 @@ export default function ContactForm() {
           rows={5}
           required
           maxLength={MAX_LENGTH.message}
-          className={`${fieldClass} resize-y`}
+          className="field"
           placeholder="What are you building, who is it for, and when do you need it?"
         />
         <FieldError field="message" error={errors.message} />
       </div>
 
       {/* Honeypot: invisible to people, tempting to bots. Must stay empty. */}
-      <div aria-hidden="true" className="absolute top-auto -left-[10000px] h-px w-px overflow-hidden">
+      <div aria-hidden="true" className="honeypot">
         <label htmlFor="contact-website">Website</label>
         <input
           id="contact-website"
@@ -260,21 +239,22 @@ export default function ContactForm() {
       </div>
 
       {status === "error" && (
-        <p role="alert" className="rounded-md border border-error/30 bg-error/5 px-4 py-3 text-sm text-ink">
+        <p role="alert" className="form-alert">
           {errorMessage(submitError)}
         </p>
       )}
 
-      <button
-        type="submit"
-        disabled={status === "sending"}
-        className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-linear-to-r from-brand-start to-brand-end px-6 py-4 font-display text-sm font-medium uppercase tracking-[0.06em] text-white shadow-[0_10px_30px_rgba(118,85,225,0.3)] transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-start disabled:cursor-wait disabled:opacity-70"
-      >
-        {status === "sending" ? "Sending..." : "Send Message"}
-      </button>
-      <p className="text-center text-[13px] text-muted">
-        Fields marked * are required. Your details are only used to reply to you.
-      </p>
+      <div className="titleblock__foot">
+        <button
+          type="submit"
+          disabled={status === "sending"}
+          aria-busy={status === "sending"}
+          className="btn btn--ink"
+        >
+          {status === "sending" ? "Sending…" : "Send message"}
+        </button>
+        <p className="label">Fields marked * are required. Your details are only used to reply to you.</p>
+      </div>
     </form>
   );
 }

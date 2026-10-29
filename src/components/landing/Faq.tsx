@@ -1,4 +1,4 @@
-import { Plus, SectionHeading } from "./ui";
+import { Plus } from "./ui";
 
 export const faqs = [
   {
@@ -40,33 +40,29 @@ export const faqs = [
 
 export default function Faq() {
   return (
-    <section id="faq" aria-labelledby="faq-title" className="border-t border-line bg-surface py-20 sm:py-28">
-      <div className="shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-        <SectionHeading
-          eyebrow="FAQ"
-          title="Questions clients usually ask."
-          titleId="faq-title"
-          lead={
-            <>
-              Something else on your mind?{" "}
-              <a href="#contact" className="link text-ink">
-                Ask me directly
-              </a>
-              .
-            </>
-          }
-        />
+    <section id="faq" aria-labelledby="faq-title" className="section">
+      <div className="container grid faq">
+        <div className="head">
+          <h2 id="faq-title">Questions clients usually ask.</h2>
+          <p className="lead">
+            Something else on your mind?{" "}
+            <a href="#contact" className="link">
+              Ask me directly
+            </a>
+            .
+          </p>
+        </div>
 
-        <div className="flex flex-col divide-y divide-line border-y border-line">
+        <div className="faq__list">
           {faqs.map((faq) => (
-            <details key={faq.question} className="group py-2">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-4 font-display text-lg font-medium transition-colors hover:text-brand-start [&::-webkit-details-marker]:hidden">
+            <details key={faq.question}>
+              <summary>
                 {faq.question}
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-line text-brand-start transition duration-300 group-open:rotate-45 group-open:border-transparent group-open:bg-brand-ink group-open:text-white">
-                  <Plus className="h-4 w-4" />
+                <span className="faq__icon">
+                  <Plus />
                 </span>
               </summary>
-              <p className="max-w-2xl pb-5 pr-12 text-pretty text-[15px] leading-relaxed text-muted">{faq.answer}</p>
+              <p>{faq.answer}</p>
             </details>
           ))}
         </div>

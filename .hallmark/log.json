@@ -1,0 +1,70 @@
+[
+  {
+    "mode": "redesign",
+    "depth": "full",
+    "scope": "page",
+    "shape": "Stat-Led",
+    "theme": "coral",
+    "axes": "light/grotesk-sans/warm",
+    "hero": "Poster",
+    "nav": "banner over a retracting bar",
+    "footer": "colophon block",
+    "imagery": "product screens printed as stationery and one photograph",
+    "photos": [],
+    "entry": "the count of live apps beside a desk of their printed screens",
+    "fingerprint": "stat-led/poster/banner-bar/colophon/stationery/restrained",
+    "sections": [
+      "Hero (desk of prints, the count)",
+      "Services (rows) and the stack as tabbed index cards",
+      "Work (Purpl opened on the desk, the other seven on desk tiles two to a row, earlier work as four index cards, a statement close)",
+      "Why me (three cards, the argued-for one ringed in ink)",
+      "Process (a work order on cotton)",
+      "About (the board: statement, three columns, figures, facts)",
+      "FAQ (rows)",
+      "Contact (the form as a letter)",
+      "Footer (colophon)"
+    ],
+    "signature": "the desk of the eight live apps with the portrait, the count set huge and Live pressed into the lead print",
+    "waived": [
+      "44c"
+    ],
+    "prompt": "freelance developer portfolio of shipped web and mobile apps for founders and product teams hiring a developer, soft and warm tone",
+    "draw": "84b98f",
+    "genre": "modern-minimal",
+    "date": "2026-10-29"
+  },
+  {
+    "mode": "redesign",
+    "depth": "full",
+    "scope": "page",
+    "shape": "Marquee Hero",
+    "theme": "blueprint",
+    "axes": "mid/geometric-sans/neutral",
+    "hero": "Index",
+    "nav": "edge-aligned",
+    "footer": "mast",
+    "imagery": "product screens and one photograph",
+    "photos": [],
+    "entry": "register of the eight live apps",
+    "fingerprint": "marquee-hero/index/edge-aligned/mast/table-led/drenched",
+    "sections": [
+      "Hero (the app register)",
+      "Work (Purpl opened, seven rows, earlier work, a statement close)",
+      "Services (register) and the tech stack",
+      "Why me (three-column elevation)",
+      "Process (stage schedule, band)",
+      "About (cyanotype portrait, facts, dimension string)",
+      "FAQ (rows)",
+      "Contact (title-block form, band)",
+      "Footer (mast)"
+    ],
+    "signature": "the eight shipped apps as a drawing register on the first screen",
+    "waived": [
+      "23"
+    ],
+    "prompt": "freelance developer portfolio of shipped web and mobile apps for founders and product teams hiring a developer, technical tone",
+    "draw": "c00ad0",
+    "genre": "modern-minimal",
+    "date": "2026-10-29"
+  }
+]

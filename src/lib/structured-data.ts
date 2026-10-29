@@ -1,6 +1,5 @@
 import { faqs } from "@/components/landing/Faq";
-import { stack } from "@/components/landing/Hero";
-import { services } from "@/components/landing/Services";
+import { stack, services } from "@/components/landing/Services";
 import { site } from "@/lib/site";
 
 // JSON-LD for the home page, built from the same data the sections render so the

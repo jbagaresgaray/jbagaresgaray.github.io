@@ -6,7 +6,16 @@ import type { ContactValues } from "@/lib/contact";
 
 type EmailTemplateProps = ContactValues & { submittedAt: string };
 
-const labelCell: CSSProperties = { padding: "6px 16px 6px 0", color: "#666", verticalAlign: "top" };
+// The email's tokens. Email clients ignore CSS variables too, so the values are literal, kept
+// together here rather than scattered through the markup.
+const tokens = {
+  ink: "#111",
+  muted: "#666",
+  well: "#f5f5f5",
+  font: "Arial, sans-serif",
+};
+
+const labelCell: CSSProperties = { padding: "6px 16px 6px 0", color: tokens.muted, verticalAlign: "top" };
 const valueCell: CSSProperties = { padding: "6px 0" };
 
 export default function EmailTemplate({ name, email, phone, subject, message, submittedAt }: EmailTemplateProps) {
@@ -19,7 +28,7 @@ export default function EmailTemplate({ name, email, phone, subject, message, su
   ];
 
   return (
-    <div style={{ fontFamily: "Arial, sans-serif", fontSize: 14, lineHeight: 1.5, color: "#111" }}>
+    <div style={{ fontFamily: tokens.font, fontSize: 14, lineHeight: 1.5, color: tokens.ink }}>
       <p>You have received a new message from your website contact form.</p>
       <table style={{ borderCollapse: "collapse" }}>
         <tbody>
@@ -31,11 +40,11 @@ export default function EmailTemplate({ name, email, phone, subject, message, su
           ))}
         </tbody>
       </table>
-      <p style={{ margin: "20px 0 6px", color: "#666" }}>Message</p>
-      <div style={{ whiteSpace: "pre-wrap", padding: "12px 16px", background: "#f5f5f5", borderRadius: 6 }}>
+      <p style={{ margin: "20px 0 6px", color: tokens.muted }}>Message</p>
+      <div style={{ whiteSpace: "pre-wrap", padding: "12px 16px", background: tokens.well, borderRadius: 6 }}>
         {message}
       </div>
-      <p style={{ marginTop: 20, color: "#666" }}>Reply to this email to respond to {name}.</p>
+      <p style={{ marginTop: 20, color: tokens.muted }}>Reply to this email to respond to {name}.</p>
     </div>
   );
 }

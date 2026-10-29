@@ -1,6 +1,6 @@
-import { ArrowUpRight, SectionHeading, buttonLight } from "./ui";
+import { clients } from "./ClientStrip";
 
-type LiveApp = {
+export type LiveApp = {
   slug: string;
   title: string;
   category: string;
@@ -8,8 +8,6 @@ type LiveApp = {
   highlight: string;
   role: string;
   stack: string[];
-  // Banner colour behind the screenshots, taken from the app's own branding.
-  brand: string;
   screenAlt: string;
   appStore?: string;
   googlePlay?: string;
@@ -25,7 +23,6 @@ export const liveApps: LiveApp[] = [
     highlight: "Leading mobile development since 2021",
     role: "Lead senior mobile developer",
     stack: ["React Native", "TypeScript", "Redux Toolkit"],
-    brand: "#6c3fe0",
     screenAlt: "Purpl app screens: wallet balance, an incoming international transfer and cash-out details",
     appStore: "https://apps.apple.com/us/app/purpl-me/id1604057044",
     googlePlay: "https://play.google.com/store/apps/details?id=com.purplme.purplapp",
@@ -38,7 +35,6 @@ export const liveApps: LiveApp[] = [
     highlight: "Built the iOS and Android app with React Native and GraphQL",
     role: "Senior mobile developer",
     stack: ["React Native", "TypeScript", "GraphQL", "Apollo"],
-    brand: "#151515",
     screenAlt: "Wander app screens: a grid of vacation homes, the home feed and a property listing",
     appStore: "https://apps.apple.com/us/app/wa-nder/id1582777762",
     googlePlay: "https://play.google.com/store/apps/details?id=com.wander.com.app",
@@ -51,7 +47,6 @@ export const liveApps: LiveApp[] = [
     highlight: "Building Costa Rica’s all-in-one real estate app",
     role: "Lead senior mobile developer",
     stack: ["React Native", "TypeScript", "Expo", "Reanimated", "TanStack React Query", "Firebase"],
-    brand: "#3c8cff",
     screenAlt: "Chozi app screens: listing prices on a map, homes for sale and rent in Escazú, and a property’s details",
     appStore: "https://apps.apple.com/us/app/chozi/id6782366803",
     googlePlay: "https://play.google.com/store/apps/details?id=com.chozi.mobileapp",
@@ -64,7 +59,6 @@ export const liveApps: LiveApp[] = [
     highlight: "Shipped features for the largest pregnancy app in the Nordics",
     role: "Senior mobile developer",
     stack: ["React Native", "TypeScript", "Redux Toolkit", "Firebase"],
-    brand: "#4d3d71",
     screenAlt: "Baby Journey app screens: a daily mood log, the week-by-week pregnancy tracker and a child’s height chart",
     appStore: "https://apps.apple.com/dk/app/baby-journey-pregnancy-app/id1515225502",
     googlePlay: "https://play.google.com/store/apps/details?id=se.babyjourney&hl=en",
@@ -77,7 +71,6 @@ export const liveApps: LiveApp[] = [
     highlight: "Built and shipped in about four months, part-time",
     role: "Senior mobile developer",
     stack: ["React Native", "TypeScript", "Redux Toolkit"],
-    brand: "#2558f0",
     screenAlt: "FutureMe app screens: starting a letter, writing to your future self and choosing a delivery date",
     appStore: "https://apps.apple.com/us/app/futureme/id1607047236",
   },
@@ -89,7 +82,6 @@ export const liveApps: LiveApp[] = [
     highlight: "Built the mobile app for a UK food-ordering platform",
     role: "Senior mobile developer",
     stack: ["React Native", "TypeScript", "Redux Toolkit"],
-    brand: "#e3262e",
     screenAlt: "Dish Dash Dine app screens: a food banner, the sign-up screen and a feed of restaurant deals",
     googlePlay: "https://play.google.com/store/apps/details?id=com.dishdashdine.app",
   },
@@ -101,7 +93,6 @@ export const liveApps: LiveApp[] = [
     highlight: "Built the crew app for multi-unit franchise operators",
     role: "Senior mobile developer",
     stack: ["React Native", "TypeScript", "Redux Toolkit"],
-    brand: "#d80060",
     screenAlt: "Small Software app screens: a team chat, the weekly shift schedule and a time-off request",
     googlePlay: "https://play.google.com/store/apps/details?id=com.smallsoftware.s2&hl=en",
   },
@@ -113,7 +104,6 @@ export const liveApps: LiveApp[] = [
     highlight: "Built the web, admin and mobile apps in the suite",
     role: "Senior full-stack developer",
     stack: ["Angular", "Ionic", "Capacitor"],
-    brand: "#f6c331",
     screenAlt: "TaskSpur app screens: the navigation menu, the dashboard and a goal-planning calendar",
     appStore: "https://apps.apple.com/us/app/taskspur/id1523988901",
     googlePlay: "https://play.google.com/store/apps/details?id=com.taskspur.lig",
@@ -155,155 +145,165 @@ const earlierWork = [
   },
 ];
 
-// On large screens featured cards sit two to a row and the rest three to a row, so the
-// number featured soaks up the remainder and the last row is never left half-empty.
-const featuredCount = [0, 4, 2][liveApps.length % 3];
+// The clients the section does not already show below, as an app or an earlier project.
+const otherClients = new Intl.ListFormat("en", { type: "conjunction" }).format(
+  clients.filter(
+    (name) => !liveApps.some((app) => app.title === name) && !earlierWork.some((project) => project.title === name),
+  ),
+);
 
-function platforms(app: LiveApp) {
+export function platforms(app: LiveApp) {
   if (app.appStore && app.googlePlay) return "iOS & Android";
   return app.appStore ? "iOS" : "Android";
 }
 
 function StoreLink({ href, store, app }: { href: string; store: string; app: string }) {
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex min-h-11 items-center gap-1.5 rounded-md border border-line px-4 py-2 font-display text-[13px] font-medium uppercase tracking-[0.04em] transition-colors hover:border-brand-start hover:text-brand-start"
-    >
+    <a href={href} target="_blank" rel="noopener noreferrer" className="link">
       {store}
-      <span className="sr-only">: {app} (opens in a new tab)</span>
-      <ArrowUpRight />
+      <span className="visually-hidden">: {app} (opens in a new tab)</span>
     </a>
   );
 }
 
-function LiveAppCard({ app, featured }: { app: LiveApp; featured: boolean }) {
+export function StoreLinks({ app }: { app: LiveApp }) {
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-xl border border-line bg-paper">
-      {/* Store screenshots rising from the bottom of a brand-coloured banner */}
-      <div
-        className={`flex items-end justify-center gap-[3%] overflow-hidden px-[7%] pt-[7%] ${
-          featured ? "aspect-[16/10]" : "aspect-[4/3]"
-        }`}
-        style={{ backgroundColor: app.brand }}
-      >
-        {[1, 2, 3].map((n) => (
-          // eslint-disable-next-line @next/next/no-img-element
+    <span className="stores">
+      {app.appStore && <StoreLink href={app.appStore} store="App Store" app={app.title} />}
+      {app.googlePlay && <StoreLink href={app.googlePlay} store="Google Play" app={app.title} />}
+    </span>
+  );
+}
+
+// An app's three store screens, each printed on a cotton card.
+function Prints({ app, className }: { app: LiveApp; className: string }) {
+  return (
+    <div className={className}>
+      {[1, 2, 3].map((n) => (
+        <figure key={n} className="print stock">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            key={n}
+            className="print__screen"
             src={`/images/work/${app.slug}/screen-${n}.jpg`}
             alt={n === 2 ? app.screenAlt : ""}
             width={415}
             height={900}
             loading="lazy"
             decoding="async"
-            className={`aspect-[9/17] rounded-[0.9rem] object-cover object-top shadow-[0_18px_40px_-12px_rgba(0,0,0,0.45)] ${
-              n === 2 ? "z-10 w-[31%] translate-y-[6%]" : "w-[27%] translate-y-[16%]"
-            }`}
           />
-        ))}
+        </figure>
+      ))}
+    </div>
+  );
+}
+
+function Icon({ app }: { app: LiveApp }) {
+  // eslint-disable-next-line @next/next/no-img-element
+  return <img src={`/images/work/${app.slug}/icon.png`} alt="" width={160} height={160} loading="lazy" />;
+}
+
+// Everything a visitor needs beside an app's screens: what it is, where it runs, my part, and the way in.
+function AppSpec({ app }: { app: LiveApp }) {
+  return (
+    <dl className="spec">
+      <div>
+        <dt>Category</dt>
+        <dd>{app.category}</dd>
       </div>
-
-      <div className="flex flex-1 flex-col gap-5 p-6 sm:p-7">
-        <div className="flex items-center gap-4">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={`/images/work/${app.slug}/icon.png`}
-            alt=""
-            width={160}
-            height={160}
-            loading="lazy"
-            className="h-12 w-12 shrink-0 rounded-xl border border-line"
-          />
-          <div className="flex flex-col">
-            <h4 className="text-xl font-semibold">{app.title}</h4>
-            <p className="text-sm text-muted">
-              {app.category} · {platforms(app)}
-            </p>
-          </div>
-        </div>
-
-        <p className="text-pretty text-[15px] leading-relaxed text-muted">{app.summary}</p>
-        <p className="w-fit rounded-md bg-brand-soft px-3.5 py-2 text-sm font-medium text-brand-ink">{app.highlight}</p>
-        <p className="flex flex-col gap-1 text-sm text-muted">
-          <span className="font-medium text-ink">{app.role}</span>
-          <span>{app.stack.join(", ")}</span>
-        </p>
-
-        <div className="mt-auto flex flex-wrap gap-2 border-t border-line pt-5">
-          {app.appStore && <StoreLink href={app.appStore} store="App Store" app={app.title} />}
-          {app.googlePlay && <StoreLink href={app.googlePlay} store="Google Play" app={app.title} />}
-        </div>
+      <div>
+        <dt>Platforms</dt>
+        <dd>{platforms(app)}</dd>
       </div>
-    </article>
+      <div>
+        <dt>Role</dt>
+        <dd>{app.role}</dd>
+      </div>
+      <div>
+        <dt>Stack</dt>
+        <dd>{app.stack.join(", ")}</dd>
+      </div>
+      <div>
+        <dt>Highlight</dt>
+        <dd>{app.highlight}</dd>
+      </div>
+      <div>
+        <dt>In the stores</dt>
+        <dd>
+          <StoreLinks app={app} />
+        </dd>
+      </div>
+    </dl>
   );
 }
 
 export default function Work() {
+  const [lead, ...rest] = liveApps;
   return (
-    <section id="work" aria-labelledby="work-title" className="py-20 sm:py-28">
-      <div className="shell flex flex-col gap-12">
-        <SectionHeading
-          eyebrow="Selected work"
-          title="Apps people use every day."
-          titleId="work-title"
-          lead="Live on the App Store and Google Play, built for startups and growing companies in fintech, travel, real estate, health, food and productivity."
-        />
-
-        <div className="flex flex-col gap-6">
-          <h3 className="flex items-center gap-3 text-sm font-medium uppercase tracking-[0.16em] text-ink">
-            Live in the stores
-            <span className="rounded-md bg-brand-ink px-2.5 py-0.5 text-xs tracking-normal text-white">{liveApps.length} apps</span>
-          </h3>
-          <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-6">
-            {liveApps.map((app, i) => (
-              <li key={app.slug} className={i < featuredCount ? "lg:col-span-3" : "lg:col-span-2"}>
-                <LiveAppCard app={app} featured={i < featuredCount} />
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="flex flex-col gap-6">
-          <h3 className="text-sm font-medium uppercase tracking-[0.16em] text-ink">Earlier work</h3>
-          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {earlierWork.map((project) => (
-              <li key={project.title}>
-                {/* A compact row on phones, a card from tablet width up. */}
-                <article className="flex h-full overflow-hidden rounded-xl border border-line bg-surface sm:flex-col">
-                  <div className="w-28 shrink-0 overflow-hidden border-r border-line bg-paper sm:aspect-[4/3] sm:w-auto sm:border-r-0 sm:border-b">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={project.image}
-                      alt={project.alt}
-                      width={1600}
-                      height={1200}
-                      loading="lazy"
-                      decoding="async"
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <div className="flex flex-1 flex-col gap-2 p-4 sm:gap-3 sm:p-5">
-                    <h4 className="text-lg font-semibold">{project.title}</h4>
-                    <p className="text-pretty text-sm leading-relaxed text-muted">{project.summary}</p>
-                    <p className="mt-auto pt-2 text-sm">
-                      <span className="font-medium">{project.role}</span>
-                      <span className="block text-muted">{project.highlight}</span>
-                    </p>
-                  </div>
-                </article>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="relative flex flex-col items-start justify-between gap-6 overflow-hidden rounded-xl bg-linear-to-r from-brand-start to-brand-end p-8 text-white sm:flex-row sm:items-center sm:p-10">
-          <p className="max-w-xl text-balance font-display text-2xl font-bold uppercase sm:text-3xl">
-            Have an app idea? I&apos;ll help you get it into the stores.
+    <section id="work" aria-labelledby="work-title" className="section section--long">
+      <div className="container">
+        <div className="head">
+          <h2 id="work-title">Apps people use every day.</h2>
+          <p className="lead">
+            Live on the App Store and Google Play, built for startups and growing companies in fintech, travel, real
+            estate, health, food and productivity.
           </p>
-          <a href="#contact" className={`${buttonLight} shrink-0`}>
+          <p className="label">Also built for teams at {otherClients}.</p>
+        </div>
+
+        {/* One app opened as a case: its screens laid on the desk beside its record sheet. */}
+        <article className="case desk" aria-labelledby={`app-${lead.slug}`}>
+          <Prints app={lead} className="case__prints" />
+          <div className="case__sheet stock">
+            <h3 id={`app-${lead.slug}`} className="app-name">
+              <Icon app={lead} />
+              {lead.title}
+            </h3>
+            <p>{lead.summary}</p>
+            <AppSpec app={lead} />
+          </div>
+        </article>
+
+        {/* The other seven, each on its own patch of desk: its screens printed big enough to read,
+            its record sheet beneath. Two to a row; the last one takes the row alone. */}
+        <ol className="desks">
+          {rest.map((app) => (
+            <li key={app.slug} className="desks__tile desk">
+              <Prints app={app} className="desks__prints" />
+              <div className="desks__sheet stock">
+                <h3 className="app-name">
+                  <Icon app={app} />
+                  {app.title}
+                </h3>
+                <p className="muted">{app.summary}</p>
+                <AppSpec app={app} />
+              </div>
+            </li>
+          ))}
+        </ol>
+
+        <div className="earlier">
+          <h3>Earlier work</h3>
+          <ul className="file">
+            {earlierWork.map((project) => (
+              <li key={project.title} className="file__card stock">
+                <figure className="file__pic">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={project.image} alt={project.alt} width={1600} height={1200} loading="lazy" decoding="async" />
+                </figure>
+                <h4 className="app-name">{project.title}</h4>
+                <p className="muted">{project.summary}</p>
+                <p className="file__facts">
+                  <span>{project.role}</span>
+                  <span className="muted">{project.highlight}</span>
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="work__close">
+          <p className="statement">Have an app idea? I&apos;ll help you get it into the stores.</p>
+          <a href="#contact" className="btn btn--ink">
             Start a project
           </a>
         </div>

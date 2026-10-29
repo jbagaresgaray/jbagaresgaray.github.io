@@ -1,6 +1,5 @@
 import SiteHeader from "@/components/landing/SiteHeader";
 import Hero from "@/components/landing/Hero";
-import ClientStrip from "@/components/landing/ClientStrip";
 import WhyMe from "@/components/landing/WhyMe";
 import Services from "@/components/landing/Services";
 import Work from "@/components/landing/Work";
@@ -18,17 +17,17 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: homePageJsonLd() }} />
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:text-paper"
+        className="skip"
       >
         Skip to content
       </a>
       <SiteHeader />
       <main id="main">
+        {/* The desk of live apps, then what I do, the work itself, why one person, how, and who. */}
         <Hero />
-        <ClientStrip />
-        <WhyMe />
         <Services />
         <Work />
+        <WhyMe />
         <Process />
         <About />
         <Faq />
