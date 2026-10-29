@@ -1,5 +1,5 @@
 import { faqs } from "@/components/landing/Faq";
-import { stack } from "@/components/landing/Hero";
+import { stack } from "@/components/landing/TechStack";
 import { services } from "@/components/landing/Services";
 import { site } from "@/lib/site";
 
@@ -47,7 +47,7 @@ export function homePageJsonLd() {
           addressCountry: site.location.country,
         },
         sameAs: site.sameAs,
-        knowsAbout: stack.flatMap((group) => group.skills),
+        knowsAbout: stack.flatMap((group) => group.skills.map((skill) => skill.name)),
         makesOffer: services.map((service) => ({
           "@type": "Offer",
           itemOffered: {

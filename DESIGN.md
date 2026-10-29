@@ -22,6 +22,8 @@ Tokens live in `src/app/globals.css`.
 | `brand-light` | #b9b0ff | Accent text on the dark bands |
 | `success`, `error` | #1fae5b, #b42318 | Availability and form states only |
 
+Technology logos in the stack section keep their own brand colours (the owner's choice, 2026-10-29). They are content, like the app screenshots: no other element takes those colours, and the section sits on white so the logos read true.
+
 ## The gradient is the accent
 
 The gradient marks actions and one highlight per section: primary buttons, the header call to action, the monogram, the headline accent words, the "Working with me" card and the work-section call to action. Numbers, step badges, icons and section labels use solid `brand-ink` (or `brand-start` on the dark bands).
@@ -43,7 +45,7 @@ The giant faded word behind the hero, and the gradient disc framing the portrait
 
 ## Layout and rhythm (RHYTHM 2)
 
-Section order follows the Portfolio Grid pattern (hero, then the work, then about and contact): the shipped apps come straight after the hero because they are the proof, and the client names follow as an extension of the work. The work section is lavender so it reads as its own section after the white hero.
+Section order follows the Portfolio Grid pattern (hero, then the work, then about and contact): the shipped apps come straight after the hero because they are the proof, and the client names follow as an extension of the work. The work section is lavender so it reads as its own section after the white hero. The tech stack has its own white section after Services, backing up the offers with the tools, before the dark Process band.
 
 Consistent, with a few breaks: two dark bands (Process, Contact) and split layouts (hero, About, FAQ, Contact) interrupt the light card grids. The three Services cards are equal on purpose: they are parallel offers, not a ranking.
 
@@ -59,3 +61,4 @@ Consistent, with a few breaks: two dark bands (Process, Contact) and split layou
 
 - Kept the blue-violet gradient as the brand colour (R-01), 2026-10-29.
 - Kept uppercase display type with wide-tracked labels (R-06), 2026-10-29.
+- Full-colour technology logos in the stack section, beyond the 2–3 colour palette (R-29), 2026-10-29.

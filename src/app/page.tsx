@@ -3,6 +3,7 @@ import Hero from "@/components/landing/Hero";
 import ClientStrip from "@/components/landing/ClientStrip";
 import WhyMe from "@/components/landing/WhyMe";
 import Services from "@/components/landing/Services";
+import TechStack from "@/components/landing/TechStack";
 import Work from "@/components/landing/Work";
 import Process from "@/components/landing/Process";
 import About from "@/components/landing/About";
@@ -30,6 +31,7 @@ export default function Home() {
         <ClientStrip />
         <WhyMe />
         <Services />
+        <TechStack />
         <Process />
         <About />
         <Faq />

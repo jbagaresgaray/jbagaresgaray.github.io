@@ -10,33 +10,6 @@ const proofPoints = [
 
 const disciplines = ["Frontend development", "Mobile apps · iOS & Android", "Full-stack development"];
 
-// Mirrors the skills table on the résumé, in the same order.
-export const stack = [
-  { category: "Languages", skills: ["TypeScript", "JavaScript", "HTML5", "CSS", "Sass/SCSS"] },
-  {
-    category: "Mobile",
-    skills: [
-      "React Native",
-      "Flutter",
-      "Ionic (Angular, React, Vue)",
-      "Capacitor",
-      "Cordova",
-      "Native iOS & Android",
-      "App Store & Google Play releases",
-    ],
-  },
-  {
-    category: "Web frontend",
-    skills: ["React", "Angular", "AngularJS", "Vue", "Angular Material", "Material UI", "Bootstrap", "Nx monorepos"],
-  },
-  {
-    category: "State & data",
-    skills: ["Redux Toolkit", "Redux Thunk", "NgRx", "GraphQL", "Apollo Client", "REST APIs"],
-  },
-  { category: "Backend", skills: ["Node.js", "Express", "NestJS", "MySQL/MariaDB", "MongoDB", "Firebase"] },
-  { category: "Desktop", skills: ["Electron", "OpenFin"] },
-];
-
 export default function Hero() {
   return (
     <section id="top" aria-labelledby="hero-title" className="relative overflow-hidden">
@@ -77,18 +50,6 @@ export default function Hero() {
             </a>
           </div>
           <p className="-mt-3 text-sm text-muted">No pitch deck needed. A few lines about your idea is enough.</p>
-
-          <div className="flex w-full flex-col gap-3 sm:max-w-xl">
-            <p className="font-display text-xs font-medium uppercase tracking-[0.2em] text-brand-ink">Tech I build with</p>
-            <dl className="flex flex-col divide-y divide-line border-y border-line" aria-label="Tech stack">
-              {stack.map((group) => (
-                <div key={group.category} className="grid gap-1 py-2.5 sm:grid-cols-[7.5rem_1fr] sm:gap-4">
-                  <dt className="font-display text-[13px] font-medium text-ink">{group.category}</dt>
-                  <dd className="text-[13px] leading-relaxed text-muted">{group.skills.join(" · ")}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
 
           <dl className="mt-2 grid w-full grid-cols-3 gap-4 border-t border-line pt-6 sm:max-w-xl">
             {proofPoints.map((point) => (
