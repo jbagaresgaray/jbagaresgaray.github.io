@@ -127,7 +127,7 @@ const earlierWork = [
     highlight: "Rebuilt as version 2 of J3’s certificate system",
     role: "Full-stack developer",
     image: "/images/work/j3-tms.jpg",
-    alt: "J3 TMS sign-in screen: the J3 logo above “Training Certificates v2” and a username and password form, beside an illustrated city",
+    alt: "J3 TMS sign-in screen on desktop: the J3 logo above “Training Certificates v2” and a username and password form, with an illustrated city in the corner",
   },
   {
     title: "Stars of Aroha",
