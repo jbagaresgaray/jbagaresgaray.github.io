@@ -10,13 +10,8 @@ const nextSteps = [
 
 export default function ContactSection() {
   return (
-    <section id="contact" aria-labelledby="contact-title" className="relative overflow-hidden bg-ink py-20 text-paper sm:py-28">
-      {/* Soft brand glow in the corner of the dark band. */}
-      <div
-        className="pointer-events-none absolute -top-40 -right-32 h-[28rem] w-[28rem] rounded-full bg-brand-end/30 blur-3xl"
-        aria-hidden="true"
-      />
-      <div className="shell relative grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+    <section id="contact" aria-labelledby="contact-title" className="bg-ink py-20 text-paper sm:py-28">
+      <div className="shell grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-4">
             <Eyebrow dark>Start a project</Eyebrow>
@@ -33,7 +28,7 @@ export default function ContactSection() {
             <ol className="flex flex-col gap-4">
               {nextSteps.map((step, i) => (
                 <li key={step} className="flex items-start gap-4 text-[15px] leading-snug text-paper/85">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-linear-to-br from-brand-start to-brand-end font-display text-[13px] font-semibold text-white">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-brand-start font-display text-[13px] font-semibold text-white">
                     {i + 1}
                   </span>
                   <span className="pt-1">{step}</span>

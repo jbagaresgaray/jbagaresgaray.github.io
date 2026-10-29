@@ -1,12 +1,5 @@
 import { SectionHeading } from "./ui";
 
-const stats = [
-  { value: "12+", label: "years shipping products" },
-  { value: "50+", label: "projects delivered" },
-  { value: "9", label: "countries of clients" },
-  { value: "#1", label: "App Store category ranking" },
-];
-
 const steps = [
   {
     title: "Discovery",
@@ -32,22 +25,8 @@ const steps = [
 
 export default function Process() {
   return (
-    <section id="process" aria-labelledby="process-title" className="relative overflow-hidden bg-ink py-20 text-paper sm:py-28">
-      {/* Soft brand glow in the corner of the dark band. */}
-      <div
-        className="pointer-events-none absolute -top-40 -right-32 h-[28rem] w-[28rem] rounded-full bg-brand-end/30 blur-3xl"
-        aria-hidden="true"
-      />
-      <div className="shell relative flex flex-col gap-16">
-        <dl className="grid grid-cols-2 gap-x-6 gap-y-10 border-b border-paper/15 pb-16 lg:grid-cols-4">
-          {stats.map((stat) => (
-            <div key={stat.label} className="flex flex-col-reverse justify-end gap-2">
-              <dt className="text-sm text-paper/60 sm:text-base">{stat.label}</dt>
-              <dd className="gradient-text-light w-fit font-display text-6xl font-bold sm:text-7xl">{stat.value}</dd>
-            </div>
-          ))}
-        </dl>
-
+    <section id="process" aria-labelledby="process-title" className="bg-ink py-20 text-paper sm:py-28">
+      <div className="shell flex flex-col gap-12">
         <SectionHeading
           eyebrow="How it works"
           title="A simple process, built around your launch."
@@ -59,7 +38,7 @@ export default function Process() {
         <ol className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, i) => (
             <li key={step.title} className="flex flex-col gap-4 rounded-xl border border-white/10 bg-white/[0.03] p-7">
-              <span className="flex h-11 w-11 items-center justify-center rounded-md bg-linear-to-br from-brand-start to-brand-end font-display text-base font-semibold text-white shadow-[0_8px_20px_rgba(118,85,225,0.4)]">
+              <span className="flex h-11 w-11 items-center justify-center rounded-md bg-brand-start font-display text-base font-semibold text-white">
                 {i + 1}
               </span>
               <h3 className="text-lg font-semibold uppercase tracking-[0.02em]">{step.title}</h3>

@@ -1,4 +1,4 @@
-import { ArrowRight, Check, Cross, SectionHeading, buttonLight } from "./ui";
+import { Check, Cross, SectionHeading, buttonLight } from "./ui";
 
 const alternatives = [
   {
@@ -54,7 +54,7 @@ export default function WhyMe() {
             </div>
           ))}
 
-          <div className="flex flex-col gap-5 rounded-xl bg-linear-to-br from-brand-start to-brand-end p-7 text-white shadow-[0_24px_50px_-20px_rgba(118,85,225,0.6)]">
+          <div className="flex flex-col gap-5 rounded-xl bg-linear-to-br from-brand-start to-brand-end p-7 text-white">
             <h3 className="text-lg font-semibold uppercase tracking-[0.02em]">Working with me</h3>
             <ul className="flex flex-col gap-3.5">
               {withMe.map((point) => (
@@ -67,7 +67,7 @@ export default function WhyMe() {
               ))}
             </ul>
             <a href="#contact" className={`${buttonLight} mt-auto self-start`}>
-              Start a project <ArrowRight />
+              Start a project
             </a>
           </div>
         </div>

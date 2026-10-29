@@ -12,7 +12,7 @@ import {
   type ContactField,
   type ContactValues,
 } from "@/lib/contact";
-import { ArrowRight, Check } from "./ui";
+import { Check } from "./ui";
 
 const emptyValues: ContactValues = { name: "", email: "", phone: "", subject: "", message: "" };
 const fieldOrder: ContactField[] = ["name", "email", "phone", "subject", "message"];
@@ -130,7 +130,7 @@ export default function ContactForm() {
         role="status"
         className="flex min-h-[28rem] flex-col items-start justify-center gap-5 rounded-xl bg-white p-7 text-ink outline-none sm:p-10"
       >
-        <span className="flex h-12 w-12 items-center justify-center rounded-md bg-linear-to-br from-brand-start to-brand-end text-white shadow-[0_10px_30px_rgba(118,85,225,0.35)]">
+        <span className="flex h-12 w-12 items-center justify-center rounded-md bg-brand-ink text-white">
           <Check className="h-6 w-6" />
         </span>
         <p className="font-display text-2xl font-semibold">Thank you, your message has been sent.</p>
@@ -271,7 +271,6 @@ export default function ContactForm() {
         className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-linear-to-r from-brand-start to-brand-end px-6 py-4 font-display text-sm font-medium uppercase tracking-[0.06em] text-white shadow-[0_10px_30px_rgba(118,85,225,0.3)] transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-start disabled:cursor-wait disabled:opacity-70"
       >
         {status === "sending" ? "Sending..." : "Send Message"}
-        {status !== "sending" && <ArrowRight />}
       </button>
       <p className="text-center text-[13px] text-muted">
         Fields marked * are required. Your details are only used to reply to you.

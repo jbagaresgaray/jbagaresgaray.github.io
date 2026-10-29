@@ -3,7 +3,8 @@
 @theme inline {
   /* Landing page palette, inspired by Satner: white pages, lavender surfaces,
      deep navy ink and an indigo-to-violet brand gradient. White text sits on the
-     gradient; on lavender, brand-ink is the accent text colour. */
+     gradient; on lavender, brand-ink is the accent text colour. DESIGN.md records
+     where each colour, the gradient and the glow are allowed. */
   --color-paper: #ffffff;
   --color-surface: #f7f6fe;
   --color-ink: #1c1b33;
@@ -88,12 +89,6 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-  }
-
-  /* Decorative dot grid. */
-  .dot-grid {
-    background-image: radial-gradient(var(--color-brand-end) 1.6px, transparent 1.6px);
-    background-size: 18px 18px;
   }
 }
 

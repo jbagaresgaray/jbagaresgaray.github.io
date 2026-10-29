@@ -18,7 +18,7 @@ export function Eyebrow({ children, dark = false }: { children: ReactNode; dark?
         dark ? "text-brand-light" : "text-brand-ink"
       }`}
     >
-      <span className="h-0.5 w-8 rounded-full bg-linear-to-r from-brand-start to-brand-end" aria-hidden="true" />
+      <span className={`h-0.5 w-8 rounded-full ${dark ? "bg-brand-light" : "bg-brand-ink"}`} aria-hidden="true" />
       {children}
     </p>
   );
@@ -66,14 +66,6 @@ const iconDefaults = {
   viewBox: "0 0 24 24",
   "aria-hidden": true,
 } as const;
-
-export function ArrowRight(props: IconProps) {
-  return (
-    <svg {...iconDefaults} className="h-4 w-4" {...props}>
-      <path d="M5 12h14M13 6l6 6-6 6" />
-    </svg>
-  );
-}
 
 export function ArrowUpRight(props: IconProps) {
   return (

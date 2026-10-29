@@ -62,7 +62,7 @@ export default function Faq() {
             <details key={faq.question} className="group py-2">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-4 font-display text-lg font-medium transition-colors hover:text-brand-start [&::-webkit-details-marker]:hidden">
                 {faq.question}
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-line text-brand-start transition duration-300 group-open:rotate-45 group-open:border-transparent group-open:bg-linear-to-br group-open:from-brand-start group-open:to-brand-end group-open:text-white">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-line text-brand-start transition duration-300 group-open:rotate-45 group-open:border-transparent group-open:bg-brand-ink group-open:text-white">
                   <Plus className="h-4 w-4" />
                 </span>
               </summary>

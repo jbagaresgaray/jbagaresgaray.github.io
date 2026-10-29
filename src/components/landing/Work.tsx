@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, SectionHeading, buttonLight } from "./ui";
+import { ArrowUpRight, SectionHeading, buttonLight } from "./ui";
 
 type LiveApp = {
   slug: string;
@@ -181,7 +181,7 @@ function StoreLink({ href, store, app }: { href: string; store: string; app: str
 
 function LiveAppCard({ app, featured }: { app: LiveApp; featured: boolean }) {
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-xl border border-line bg-paper transition hover:shadow-[0_24px_50px_-24px_rgba(68,88,220,0.45)]">
+    <article className="flex h-full flex-col overflow-hidden rounded-xl border border-line bg-paper">
       {/* Store screenshots rising from the bottom of a brand-coloured banner */}
       <div
         className={`flex items-end justify-center gap-[3%] overflow-hidden px-[7%] pt-[7%] ${
@@ -255,7 +255,7 @@ export default function Work() {
         <div className="flex flex-col gap-6">
           <h3 className="flex items-center gap-3 text-sm font-medium uppercase tracking-[0.16em] text-ink">
             Live in the stores
-            <span className="rounded-md bg-linear-to-r from-brand-start to-brand-end px-2.5 py-0.5 text-xs tracking-normal text-white">{liveApps.length} apps</span>
+            <span className="rounded-md bg-brand-ink px-2.5 py-0.5 text-xs tracking-normal text-white">{liveApps.length} apps</span>
           </h3>
           <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-6">
             {liveApps.map((app, i) => (
@@ -299,12 +299,12 @@ export default function Work() {
           </ul>
         </div>
 
-        <div className="relative flex flex-col items-start justify-between gap-6 overflow-hidden rounded-xl bg-linear-to-r from-brand-start to-brand-end p-8 text-white shadow-[0_24px_50px_-20px_rgba(118,85,225,0.6)] sm:flex-row sm:items-center sm:p-10">
+        <div className="relative flex flex-col items-start justify-between gap-6 overflow-hidden rounded-xl bg-linear-to-r from-brand-start to-brand-end p-8 text-white sm:flex-row sm:items-center sm:p-10">
           <p className="max-w-xl text-balance font-display text-2xl font-bold uppercase sm:text-3xl">
             Have an app idea? I&apos;ll help you get it into the stores.
           </p>
           <a href="#contact" className={`${buttonLight} shrink-0`}>
-            Start a project <ArrowRight />
+            Start a project
           </a>
         </div>
       </div>

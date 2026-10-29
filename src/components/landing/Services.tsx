@@ -1,4 +1,4 @@
-import { ArrowRight, Check, SectionHeading, buttonPrimary } from "./ui";
+import { Check, SectionHeading, buttonPrimary } from "./ui";
 
 export const services = [
   {
@@ -51,20 +51,15 @@ export default function Services() {
             lead="Hire me for one layer or the whole stack. Projects that need a web app, a mobile app and the API behind them are where I save clients the most time."
           />
           <a href="#contact" className={`${buttonPrimary} shrink-0 self-start lg:self-auto`}>
-            Get a project estimate <ArrowRight />
+            Get a project estimate
           </a>
         </div>
 
+        {/* Equal cards on purpose: the three services are parallel offers, not a ranking. */}
         <ol className="grid gap-4 lg:grid-cols-3">
           {services.map((service) => (
-            <li
-              key={service.title}
-              className="group flex flex-col gap-6 rounded-xl border border-line bg-paper p-7 transition hover:-translate-y-1 hover:border-transparent hover:shadow-[0_24px_50px_-24px_rgba(68,88,220,0.45)]"
-            >
-              <div className="flex items-center justify-between">
-                <span className="gradient-text font-display text-3xl font-bold">{service.number}</span>
-                <span className="h-1 w-10 rounded-full bg-line transition-colors group-hover:bg-brand-end" aria-hidden="true" />
-              </div>
+            <li key={service.title} className="flex flex-col gap-6 rounded-xl border border-line bg-paper p-7">
+              <span className="font-display text-3xl font-bold text-brand-ink">{service.number}</span>
               <div className="flex flex-col gap-2">
                 <h3 className="text-xl font-semibold uppercase tracking-[0.02em]">{service.title}</h3>
                 <p className="text-[15px] text-muted">{service.promise}</p>

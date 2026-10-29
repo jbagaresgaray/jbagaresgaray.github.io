@@ -1,4 +1,4 @@
-import { ArrowRight, buttonPrimary, buttonSecondary } from "./ui";
+import { buttonPrimary, buttonSecondary } from "./ui";
 import { liveApps } from "./Work";
 
 const proofPoints = [
@@ -50,7 +50,7 @@ export default function Hero() {
       <div className="shell relative grid items-center gap-12 pt-10 pb-16 sm:pt-14 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:pt-20 lg:pb-24">
         {/* Copy */}
         <div className="flex flex-col items-start gap-7">
-          <p className="inline-flex items-center gap-2.5 rounded-full border border-line bg-white py-1.5 pr-4 pl-2.5 text-sm font-medium shadow-[0_6px_20px_-8px_rgba(68,88,220,0.25)]">
+          <p className="inline-flex items-center gap-2.5 rounded-full border border-line bg-white py-1.5 pr-4 pl-2.5 text-sm font-medium">
             <span className="h-2.5 w-2.5 rounded-full bg-success" aria-hidden="true" />
             Taking on new projects
           </p>
@@ -70,7 +70,7 @@ export default function Hero() {
 
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
             <a href="#contact" className={buttonPrimary}>
-              Start your project <ArrowRight />
+              Start your project
             </a>
             <a href="#work" className={buttonSecondary}>
               See selected work
@@ -94,7 +94,7 @@ export default function Hero() {
             {proofPoints.map((point) => (
               <div key={point.value} className="flex flex-col-reverse justify-end gap-1">
                 <dt className="text-[13px] leading-snug text-muted sm:text-sm">{point.label}</dt>
-                <dd className="gradient-text w-fit font-display text-3xl font-bold sm:text-4xl">{point.value}</dd>
+                <dd className="w-fit font-display text-3xl font-bold text-brand-ink sm:text-4xl">{point.value}</dd>
               </div>
             ))}
           </dl>
@@ -106,8 +106,7 @@ export default function Hero() {
             className="absolute -top-6 -right-6 h-40 w-40 rounded-full bg-linear-to-br from-brand-start to-brand-end opacity-90 sm:h-56 sm:w-56"
             aria-hidden="true"
           />
-          <div className="dot-grid absolute -bottom-6 -left-6 h-28 w-36 opacity-40 sm:h-36 sm:w-44" aria-hidden="true" />
-          <div className="relative overflow-hidden rounded-xl border-4 border-white bg-surface shadow-[0_30px_60px_-25px_rgba(68,88,220,0.45)]">
+          <div className="relative overflow-hidden rounded-xl border-4 border-white bg-surface shadow-[0_30px_60px_-25px_rgba(28,27,51,0.35)]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/philip-portrait.jpg"
@@ -123,7 +122,7 @@ export default function Hero() {
             {disciplines.map((discipline) => (
               <li
                 key={discipline}
-                className="w-fit rounded-md bg-white px-3.5 py-2 font-display text-[12px] font-medium tracking-[0.04em] text-brand-ink uppercase shadow-[0_10px_30px_-8px_rgba(68,88,220,0.35)]"
+                className="w-fit rounded-md bg-white px-3.5 py-2 font-display text-[12px] font-medium tracking-[0.04em] text-brand-ink uppercase shadow-[0_8px_20px_-8px_rgba(28,27,51,0.3)]"
               >
                 {discipline}
               </li>

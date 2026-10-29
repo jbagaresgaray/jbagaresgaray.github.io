@@ -42,7 +42,7 @@ export default function SiteHeader() {
           aria-label="Philip Cesar Garay, home"
         >
           {/* Monogram only from tablet width up, so the full name and the CTA fit on phones. */}
-          <span className="hidden h-9 w-9 items-center justify-center rounded-lg bg-linear-to-br from-brand-start to-brand-end text-xs font-semibold text-white shadow-[0_6px_16px_rgba(118,85,225,0.35)] sm:flex">
+          <span className="hidden h-9 w-9 items-center justify-center rounded-lg bg-linear-to-br from-brand-start to-brand-end text-xs font-semibold text-white sm:flex">
             PG
           </span>
           Philip Cesar Garay
@@ -67,7 +67,7 @@ export default function SiteHeader() {
           {/* Visible on all but the narrowest phones, where the menu carries it instead. */}
           <a
             href="#contact"
-            className="inline-flex min-h-11 items-center rounded-md bg-linear-to-r from-brand-start to-brand-end px-3.5 py-2.5 font-display text-[12px] font-medium uppercase tracking-[0.04em] whitespace-nowrap text-white shadow-[0_8px_20px_rgba(118,85,225,0.3)] transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-start max-[359px]:hidden sm:px-5 sm:text-[13px]"
+            className="inline-flex min-h-11 items-center rounded-md bg-linear-to-r from-brand-start to-brand-end px-3.5 py-2.5 font-display text-[12px] font-medium uppercase tracking-[0.04em] whitespace-nowrap text-white transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-start max-[359px]:hidden sm:px-5 sm:text-[13px]"
           >
             Start a project
           </a>
