@@ -1,55 +1,44 @@
-# Design direction
+# Design direction (experiment: app-forward)
 
-The look is adapted from the Satner template. The owner kept it as the brand on 2026-10-29; this file records it so later changes follow the same rules.
+This branch tries an "app-forward" direction, chosen by the owner on 2026-10-29. The details below were supplied by the agent, not the owner. Agent-picked style tends toward default AI taste, so treat it as a draft to react to; master keeps the Satner-inspired direction.
 
-Reading this as: a freelance developer's portfolio for startup founders and product teams, in a Satner-inspired indigo-violet style.
+Reading this as: a freelance developer's portfolio for startup founders and product teams, where the shipped apps are the proof and the page stays out of their way.
 
-Dial: ENERGY 2 / RHYTHM 2 / MOTION 1
+Dial: ENERGY 2 / RHYTHM 3 / MOTION 1
 
 ## Palette
 
-Tokens live in `src/app/globals.css`.
+Tokens live in `src/app/globals.css`. The site's own chrome is black and white; colour comes from the apps.
 
-| Token | Hex | Use |
-|---|---|---|
-| `paper` | #ffffff | Page background |
-| `surface` | #f7f6fe | Lavender sections and form fields |
-| `ink` | #1c1b33 | Text and the dark bands |
-| `muted` | #64637a | Secondary text |
-| `line` | #e6e4f3 | Borders and dividers |
-| `brand-start` to `brand-end` | #4458dc to #854fee | The brand gradient |
-| `brand-ink` | #4b37c4 | Accent text and small brand marks on light backgrounds |
-| `brand-light` | #b9b0ff | Accent text on the dark bands |
-| `success`, `error` | #1fae5b, #b42318 | Availability and form states only |
+| Token | Hex | Use | Why |
+|---|---|---|---|
+| `paper` | #ffffff | Page background | A neutral canvas so app colours read true |
+| `surface` | #f4f4f5 | Alternate sections, form fields, highlight notes | A cool grey step that doesn't tint the screenshots |
+| `ink` | #111111 | Text, buttons, the "Working with me" column, the contact band | Near-black for maximum contrast with paper |
+| `muted` | #5f5f66 | Secondary text | Neutral grey, 5.7:1 or better on both backgrounds |
+| `line` | #e4e4e7 | Borders and dividers | Quiet structure |
+| `success`, `error` | #1f8a4c, #b42318 | Availability dot and form states only | State colours, not decoration |
 
-## The gradient is the accent
-
-The gradient marks actions and one highlight per section: primary buttons, the header call to action, the monogram, the headline accent words, the "Working with me" card and the work-section call to action. Numbers, step badges, icons and section labels use solid `brand-ink` (or `brand-start` on the dark bands).
+The deliberate accent is borrowed: each app's own brand colour, used on its banner. Nothing else on the page is coloured.
 
 ## Type
 
-- Rubik for headings and UI labels; Roboto for running text.
-- Section headings, buttons, nav and section labels are uppercase, labels with wide tracking. This bold display voice is part of the kept look.
+- Public Sans for everything, a neutral interface face (built for the US Web Design System) that lets the screenshots be the loudest thing on the page. Weight carries the hierarchy: 700 for headings with slightly tight tracking, 400 and 600 for text.
+- Sentence case throughout. Section labels are small muted text, never uppercase or wide-tracked.
 
 ## Identity motif
 
-The giant faded word behind the hero, and the gradient disc framing the portrait.
+Real app icons: a row of all the live apps' icons sits under the hero, and each icon leads its app card.
 
-## Elevation and glow
+## Surfaces
 
-- Violet glow only on primary buttons, the one focus accent.
-- A neutral shadow only where something sits on top of something else: the portrait, the discipline labels over it, the contact form on the dark band.
-- Cards sit flat. Only things you can click react to hover.
+- Radius as hierarchy: 6px on buttons and fields, 16px on cards, app icons keep their own shape. No pills.
+- No glow and no decorative shadows; only app screenshots keep a soft shadow over their banners.
 
-## Layout and rhythm (RHYTHM 2)
+## Layout and rhythm (RHYTHM 3)
 
-Consistent, with a few breaks: two dark bands (Process, Contact) and split layouts (hero, About, FAQ, Contact) interrupt the light card grids. The three Services cards are equal on purpose: they are parallel offers, not a ranking.
+The work comes straight after the hero. Every section uses a different composition: a split hero with the icon row, the app mosaic, a line of client names, services as table rows, a three-column comparison with the argued-for column inverted to black, a numbered process sequence, a split About, a two-column FAQ and a black contact band.
 
 ## Motion (MOTION 1)
 
 Hover and state transitions only, plus smooth scrolling to anchors. Nothing loops, and all of it stops under `prefers-reduced-motion`.
-
-## Owner overrides (antislop R-37)
-
-- Kept the blue-violet gradient as the brand colour (R-01), 2026-10-29.
-- Kept uppercase display type with wide-tracked labels (R-06), 2026-10-29.

@@ -37,16 +37,15 @@ export default function WhyMe() {
           lead="A designer hands off to a developer, who waits on a copywriter, while you chase all three. Every handoff costs time, money and a little of the original idea."
         />
 
+        {/* The argued-for option is inverted to black, the one focal point in the comparison. */}
         <div className="grid gap-4 lg:grid-cols-3">
           {alternatives.map((option) => (
-            <div key={option.title} className="flex flex-col gap-5 rounded-xl border border-line bg-surface p-7">
-              <h3 className="text-lg font-semibold uppercase tracking-[0.02em]">{option.title}</h3>
+            <div key={option.title} className="flex flex-col gap-5 rounded-2xl bg-surface p-7">
+              <h3 className="text-xl font-bold tracking-[-0.01em]">{option.title}</h3>
               <ul className="flex flex-col gap-3.5">
                 {option.points.map((point) => (
-                  <li key={point} className="flex items-start gap-3 text-[15px] leading-snug text-muted">
-                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ink/[0.06] text-ink/50">
-                      <Cross className="h-3 w-3" />
-                    </span>
+                  <li key={point} className="flex items-start gap-3 text-base leading-snug text-muted">
+                    <Cross className="mt-1 h-3.5 w-3.5 shrink-0" />
                     {point}
                   </li>
                 ))}
@@ -54,14 +53,12 @@ export default function WhyMe() {
             </div>
           ))}
 
-          <div className="flex flex-col gap-5 rounded-xl bg-linear-to-br from-brand-start to-brand-end p-7 text-white">
-            <h3 className="text-lg font-semibold uppercase tracking-[0.02em]">Working with me</h3>
+          <div className="flex flex-col gap-5 rounded-2xl bg-ink p-7 text-paper">
+            <h3 className="text-xl font-bold tracking-[-0.01em]">Working with me</h3>
             <ul className="flex flex-col gap-3.5">
               {withMe.map((point) => (
-                <li key={point} className="flex items-start gap-3 text-[15px] leading-snug text-white">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white text-brand-ink">
-                    <Check className="h-3 w-3" />
-                  </span>
+                <li key={point} className="flex items-start gap-3 text-base leading-snug text-paper">
+                  <Check className="mt-1 h-3.5 w-3.5 shrink-0" />
                   {point}
                 </li>
               ))}

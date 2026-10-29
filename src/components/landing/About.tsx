@@ -1,4 +1,4 @@
-import { ArrowUpRight, Eyebrow, buttonSecondary } from "./ui";
+import { ArrowUpRight, SectionLabel, buttonSecondary } from "./ui";
 
 const facts = [
   { label: "Based in", value: "Manila, Philippines (UTC+8)" },
@@ -11,15 +11,15 @@ export default function About() {
     <section id="about" aria-labelledby="about-title" className="py-20 sm:py-28">
       <div className="shell grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
         <div className="flex flex-col gap-6">
-          <Eyebrow>About</Eyebrow>
-          <h2 id="about-title" className="text-balance text-3xl font-bold uppercase leading-[1.1] sm:text-4xl lg:text-[2.75rem]">
+          <SectionLabel>About</SectionLabel>
+          <h2 id="about-title" className="text-balance text-3xl font-bold leading-[1.1] tracking-[-0.02em] sm:text-4xl lg:text-5xl">
             Hi, I&apos;m Philip. I sit where design, code and words meet.
           </h2>
           <dl className="mt-4 flex flex-col divide-y divide-line border-y border-line">
             {facts.map((fact) => (
               <div key={fact.label} className="grid gap-1 py-4 sm:grid-cols-[9rem_1fr] sm:gap-6">
                 <dt className="text-sm text-muted">{fact.label}</dt>
-                <dd className="text-[15px] font-medium">{fact.value}</dd>
+                <dd className="text-base font-semibold">{fact.value}</dd>
               </div>
             ))}
           </dl>

@@ -3,25 +3,15 @@ import type { ReactNode, SVGProps } from "react";
 // Shared building blocks for the landing page sections.
 
 const buttonBase =
-  "inline-flex items-center justify-center gap-2 rounded-md px-7 py-3.5 font-display text-sm font-medium uppercase tracking-[0.06em] transition focus-visible:outline-2 focus-visible:outline-offset-2";
+  "inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-6 py-3 text-[15px] font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2";
 
-// Satner-style buttons: a gradient fill with a soft violet glow, and a gradient outline.
-export const buttonPrimary = `${buttonBase} bg-linear-to-r from-brand-start to-brand-end text-white shadow-[0_10px_30px_rgba(118,85,225,0.3)] hover:shadow-[0_14px_36px_rgba(118,85,225,0.45)] hover:brightness-110 focus-visible:outline-brand-start`;
-export const buttonSecondary = `${buttonBase} gradient-border text-ink hover:text-brand-ink focus-visible:outline-brand-start`;
-// For dark or gradient backgrounds.
-export const buttonLight = `${buttonBase} bg-white text-brand-ink shadow-[0_10px_30px_rgba(0,0,0,0.18)] hover:bg-brand-soft focus-visible:outline-white`;
+// Black buttons on white; a white button for the black blocks.
+export const buttonPrimary = `${buttonBase} bg-ink text-paper hover:bg-ink/85 focus-visible:outline-ink`;
+export const buttonSecondary = `${buttonBase} border border-line text-ink hover:border-ink focus-visible:outline-ink`;
+export const buttonLight = `${buttonBase} bg-paper text-ink hover:bg-surface focus-visible:outline-paper`;
 
-export function Eyebrow({ children, dark = false }: { children: ReactNode; dark?: boolean }) {
-  return (
-    <p
-      className={`inline-flex items-center gap-2.5 font-display text-xs font-medium uppercase tracking-[0.2em] ${
-        dark ? "text-brand-light" : "text-brand-ink"
-      }`}
-    >
-      <span className={`h-0.5 w-8 rounded-full ${dark ? "bg-brand-light" : "bg-brand-ink"}`} aria-hidden="true" />
-      {children}
-    </p>
-  );
+export function SectionLabel({ children, dark = false }: { children: ReactNode; dark?: boolean }) {
+  return <p className={`text-sm font-semibold ${dark ? "text-paper/65" : "text-muted"}`}>{children}</p>;
 }
 
 export function SectionHeading({
@@ -29,28 +19,33 @@ export function SectionHeading({
   title,
   titleId,
   lead,
+  action,
   dark = false,
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   title: ReactNode;
   titleId: string;
   lead?: ReactNode;
+  action?: ReactNode;
   dark?: boolean;
 }) {
   return (
-    <div className="flex max-w-3xl flex-col gap-4">
-      <Eyebrow dark={dark}>{eyebrow}</Eyebrow>
-      <h2
-        id={titleId}
-        className={`text-balance text-3xl font-bold uppercase leading-[1.1] sm:text-4xl lg:text-[2.75rem] ${
-          dark ? "text-white" : "text-ink"
-        }`}
-      >
-        {title}
-      </h2>
-      {lead && (
-        <p className={`text-pretty text-lg leading-relaxed ${dark ? "text-white/70" : "text-muted"}`}>{lead}</p>
-      )}
+    <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+      <div className="flex max-w-3xl flex-col gap-4">
+        {eyebrow && <SectionLabel dark={dark}>{eyebrow}</SectionLabel>}
+        <h2
+          id={titleId}
+          className={`text-balance text-3xl font-bold leading-[1.1] tracking-[-0.02em] sm:text-4xl lg:text-5xl ${
+            dark ? "text-paper" : "text-ink"
+          }`}
+        >
+          {title}
+        </h2>
+        {lead && (
+          <p className={`text-pretty text-lg leading-relaxed ${dark ? "text-paper/65" : "text-muted"}`}>{lead}</p>
+        )}
+      </div>
+      {action}
     </div>
   );
 }
